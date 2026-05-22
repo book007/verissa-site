@@ -862,8 +862,8 @@ a{text-decoration:none;color:inherit}
         <div class="sd-loading" id="sdLoading">
           <div class="sd-pulse-ring"></div>
           <div class="sd-loading-text">
-            <span style="font-size:18px;font-weight:700;color:var(--text-primary)" data-t="sdLoadingTitle">Analisi del tuo vecchio sito in corso</span>
-            <span id="sdLoadingDetail" style="font-size:13px;color:var(--text-secondary)" data-t="sdLoadingDetail">Stiamo analizzando le prestazioni del tuo sito attuale...</span>
+            <span style="font-size:18px;font-weight:700;color:#e8e8ec" data-t="sdLoadingTitle">Analisi del tuo vecchio sito in corso</span>
+            <span id="sdLoadingDetail" style="font-size:13px;color:rgba(255,255,255,.55)" data-t="sdLoadingDetail">Stiamo analizzando le prestazioni del tuo sito attuale...</span>
           </div>
         </div>
         <!-- Results state -->
@@ -875,12 +875,12 @@ a{text-decoration:none;color:inherit}
               <div class="sd-ring-label" data-t="sdBarPerf">Prestazioni</div>
             </div>
             <div class="sd-header-center">
-              <h3 style="font-family:var(--serif);font-size:22px;margin-bottom:4px"><span data-t="sdHeader">Analisi Prestazioni & SEO</span> <span style="color:var(--gold)" data-t="sdHeaderHL">Sito Attuale</span></h3>
-              <p id="sdVerdict" style="font-size:14px;color:var(--text-secondary);line-height:1.5" data-t="sdLoading2">Caricamento...</p>
+              <h3 style="font-family:var(--serif);font-size:22px;margin-bottom:4px;color:#e8e8ec"><span data-t="sdHeader">Analisi Prestazioni & SEO</span> <span style="color:#f0c040" data-t="sdHeaderHL">Sito Attuale</span></h3>
+              <p id="sdVerdict" style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5" data-t="sdLoading2">Caricamento...</p>
             </div>
             <div class="sd-ring-block">
               <div class="sd-score-ring sd-seo-ring" id="sdSeoRing"><span id="sdSeoNum">—</span></div>
-              <div class="sd-ring-label" style="color:var(--gold)">SEO</div>
+              <div class="sd-ring-label" style="color:#f0c040">SEO</div>
             </div>
           </div>
           <!-- Score bars grid -->
@@ -893,7 +893,7 @@ a{text-decoration:none;color:inherit}
           <div class="sd-weakness" id="sdWeakness"></div>
           <!-- Optimization CTAs -->
           <div class="sd-cta-section">
-            <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;text-align:center" data-t="sdCtaQuestion">Vuoi migliorare le prestazioni del tuo sito attuale?</p>
+            <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px;text-align:center" data-t="sdCtaQuestion">Vuoi migliorare le prestazioni del tuo sito attuale?</p>
             <div class="sd-cta-row">
               <div class="sd-cta-card sd-tune" onclick="openOptPayment(0)">
                 <div class="sd-cta-name" data-t="sdTuneUp">Tune-Up</div>
@@ -1343,15 +1343,15 @@ a{text-decoration:none;color:inherit}
 .site-diag-panel.sd-visible{display:block}
 .site-diag-panel.sd-animate{opacity:1;transform:translateY(0);pointer-events:auto}
 .site-diag-inner{
-  background:#fff;border:1.5px solid rgba(0,0,0,.10);
+  background:linear-gradient(170deg,#101827 0%,#0a1020 100%);border:1.5px solid rgba(255,255,255,.08);
   border-radius:20px;padding:40px;max-width:1100px;margin:0 auto;
-  box-shadow:0 8px 32px rgba(0,0,0,.07),0 0 0 4px rgba(0,0,0,.02);
+  box-shadow:0 8px 32px rgba(0,0,0,.3),0 0 0 4px rgba(255,255,255,.03);color:#e8e8ec;
 }
 /* Loading */
 .sd-loading{display:flex;align-items:center;gap:20px;justify-content:center;padding:40px 0}
 .sd-pulse-ring{
   width:56px;height:56px;border-radius:50%;
-  border:3px solid transparent;border-top-color:var(--gold);
+  border:3px solid transparent;border-top-color:#f0c040;
   animation:sdSpin 1s linear infinite;
 }
 @keyframes sdSpin{to{transform:rotate(360deg)}}
@@ -1366,7 +1366,7 @@ a{text-decoration:none;color:inherit}
 }
 .sd-ring-label{
   font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;
-  color:var(--text-secondary);
+  color:rgba(255,255,255,.6);
 }
 .sd-header-center{text-align:center;flex:1;min-width:0}
 .sd-score-ring{
@@ -1374,21 +1374,21 @@ a{text-decoration:none;color:inherit}
   display:flex;align-items:center;justify-content:center;
   font-size:30px;font-weight:800;font-family:var(--sans);
   position:relative;flex-shrink:0;
-  background:conic-gradient(var(--sd-ring-color,#666) var(--sd-ring-pct,0%),rgba(0,0,0,.10) 0%);
+  background:conic-gradient(var(--sd-ring-color,#666) var(--sd-ring-pct,0%),rgba(255,255,255,.10) 0%);
   transition:background .6s;
 }
 .sd-score-ring span{
-  background:#fff;width:72px;height:72px;
+  background:#141e30;width:72px;height:72px;
   border-radius:50%;display:flex;align-items:center;justify-content:center;
-  color:var(--text-primary);transition:color .4s;
+  color:#fff;transition:color .4s;
 }
 /* Grid — 4 category bars */
 .sd-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;
 }
 .sd-bar-item{display:flex;flex-direction:column;gap:6px}
-.sd-bar-label{font-size:13px;color:var(--text-secondary);display:flex;justify-content:space-between}
-.sd-bar-track{height:6px;border-radius:3px;background:rgba(0,0,0,.10);overflow:hidden}
+.sd-bar-label{font-size:13px;color:rgba(255,255,255,.7);display:flex;justify-content:space-between}
+.sd-bar-track{height:6px;border-radius:3px;background:rgba(255,255,255,.10);overflow:hidden}
 .sd-bar-fill{height:100%;border-radius:3px;transition:width 1.2s cubic-bezier(.16,1,.3,1)}
 /* Vitals */
 .sd-vitals{
@@ -1396,47 +1396,48 @@ a{text-decoration:none;color:inherit}
   gap:12px;margin-bottom:24px;
 }
 .sd-vital-card{
-  background:var(--bg-ivory);border:1px solid rgba(0,0,0,.10);
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
   border-radius:12px;padding:14px;text-align:center;
-  box-shadow:0 2px 8px rgba(0,0,0,.04);
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 .sd-vital-val{font-size:20px;font-weight:700;margin-bottom:2px}
-.sd-vital-name{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.sd-vital-name{font-size:11px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.5px}
 /* Features */
 .sd-features{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
 .sd-feat{
   font-size:11px;padding:6px 12px;border-radius:20px;
-  border:1px solid rgba(0,0,0,.08);color:var(--text-secondary);
+  border:1px solid rgba(255,255,255,.10);color:rgba(255,255,255,.55);
   display:flex;align-items:center;gap:5px;
 }
-.sd-feat-pass{border-color:rgba(26,138,58,.25);color:#1a8a3a}
-.sd-feat-fail{border-color:rgba(194,59,46,.25);color:#c23b2e}
+.sd-feat-pass{border-color:rgba(0,230,118,.30);color:#00e676}
+.sd-feat-fail{border-color:rgba(255,82,82,.30);color:#ff5252}
 /* Weakness callout */
 .sd-weakness{
-  background:rgba(212,99,75,.05);border:1px solid rgba(212,99,75,.15);
+  background:rgba(255,82,82,.08);border:1px solid rgba(255,82,82,.20);
   border-radius:14px;padding:18px 22px;margin-bottom:28px;
 }
-.sd-weakness h4{font-size:14px;color:#D4634B;margin-bottom:8px;font-weight:700}
+.sd-weakness h4{font-size:14px;color:#ff6b6b;margin-bottom:8px;font-weight:700}
 .sd-weakness ul{list-style:none;padding:0;margin:0}
-.sd-weakness li{font-size:14px;color:var(--text-secondary);padding:4px 0;padding-left:18px;position:relative;line-height:1.5}
-.sd-weakness li::before{content:'•';position:absolute;left:0;color:#D4634B}
+.sd-weakness li{font-size:14px;color:rgba(255,255,255,.7);padding:4px 0;padding-left:18px;position:relative;line-height:1.5}
+.sd-weakness li::before{content:'•';position:absolute;left:0;color:#ff6b6b}
 /* CTA section */
-.sd-cta-section{border-top:1px solid var(--border);padding-top:24px}
+.sd-cta-section{border-top:1px solid rgba(255,255,255,.08);padding-top:24px}
 .sd-cta-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .sd-cta-card{
-  border:1px solid var(--border);border-radius:14px;padding:20px;
+  border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:20px;
   text-align:center;transition:all .3s;cursor:pointer;position:relative;overflow:hidden;
+  background:rgba(255,255,255,.03);
 }
-.sd-cta-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.sd-cta-card:hover{border-color:#f0c040;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
 .sd-cta-name{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.sd-cta-price{font-size:26px;font-weight:800;color:var(--gold);margin-bottom:8px;font-family:var(--sans)}
-.sd-cta-price small{font-size:13px;font-weight:400;color:var(--text-muted)}
-.sd-cta-desc{font-size:13px;color:var(--text-muted);line-height:1.5}
-.sd-tune .sd-cta-name{color:#4CAF7D}
-.sd-perf{border-color:rgba(196,162,101,.20)}
-.sd-perf .sd-cta-name{color:var(--gold)}
-.sd-growth{border-color:rgba(160,123,205,.20);background:rgba(160,123,205,.04)}
-.sd-growth .sd-cta-name{color:#7e57ff}
+.sd-cta-price{font-size:26px;font-weight:800;color:#f0c040;margin-bottom:8px;font-family:var(--sans)}
+.sd-cta-price small{font-size:13px;font-weight:400;color:rgba(255,255,255,.45)}
+.sd-cta-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
+.sd-tune .sd-cta-name{color:#00e676}
+.sd-perf{border-color:rgba(240,192,64,.20)}
+.sd-perf .sd-cta-name{color:#f0c040}
+.sd-growth{border-color:rgba(160,123,205,.25);background:rgba(160,123,205,.08)}
+.sd-growth .sd-cta-name{color:#b388ff}
 .sd-growth::after{
   content:'CONSIGLIATO';position:absolute;top:10px;right:-28px;
   background:#7e57ff;color:#fff;font-size:9px;font-weight:700;letter-spacing:1px;
@@ -1445,7 +1446,7 @@ a{text-decoration:none;color:inherit}
 /* Error state */
 .sd-error{text-align:center;padding:32px 20px}
 .sd-error-icon{font-size:40px;margin-bottom:12px}
-.sd-error-msg{font-size:14px;color:var(--text-secondary);max-width:400px;margin:0 auto}
+.sd-error-msg{font-size:14px;color:rgba(255,255,255,.6);max-width:400px;margin:0 auto}
 
 @media(max-width:768px){
   .site-diag-inner{padding:24px 18px}
@@ -3734,11 +3735,15 @@ async function chatRespond(userText){
   chatMessages.push({role:'user',content:userText});
 
   try {
+    const chatCtrl=new AbortController();
+    const chatTO=setTimeout(()=>chatCtrl.abort(),15000);
     const resp=await fetch(CHAT_API,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({messages:chatMessages})
+      body:JSON.stringify({messages:chatMessages}),
+      signal:chatCtrl.signal
     });
+    clearTimeout(chatTO);
 
     hideTyping();
 
@@ -3800,9 +3805,9 @@ const SD_API_KEY='AIzaSyAvildEWidKHSwHE3nkT2HUNwsHUEs8i9E';
 function sdEsc(s){return String(s||'').replace(/`/g,"'").replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 
 function sdScoreColor(s){
-  if(s>=90) return '#1a8a3a';
-  if(s>=50) return '#c0900a';
-  return '#c23b2e';
+  if(s>=90) return '#00e676';
+  if(s>=50) return '#ffab00';
+  return '#ff5252';
 }
 
 async function runSiteDiagnostics(url){
