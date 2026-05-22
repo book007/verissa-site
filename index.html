@@ -233,19 +233,19 @@ a{text-decoration:none;color:inherit}
   pointer-events:none;
 }
 .btn-generate::after{
-  content:'';position:absolute;inset:-9px;border-radius:29px;
+  content:'';position:absolute;inset:-12px;border-radius:32px;
   background:transparent;
-  box-shadow:0 0 16px 4px rgba(196,162,101,.12), 0 0 40px 12px rgba(196,162,101,.06);
-  animation:btn-glow 3s ease-in-out infinite;
+  box-shadow:0 0 22px 6px rgba(196,162,101,.18), 0 0 50px 16px rgba(196,162,101,.09);
+  animation:btn-glow 2.8s ease-in-out infinite;
   pointer-events:none;
 }
 @keyframes btn-pulse{
-  0%,100%{transform:scale(1);opacity:.7}
-  50%{transform:scale(1.02);opacity:.2}
+  0%,100%{transform:scale(1);opacity:.8}
+  50%{transform:scale(1.03);opacity:.25}
 }
 @keyframes btn-glow{
-  0%,100%{opacity:.8}
-  50%{opacity:.3}
+  0%,100%{opacity:1}
+  50%{opacity:.35}
 }
 .btn-generate:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(196,162,101,.30);filter:brightness(1.05)}
 .btn-generate svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5}
