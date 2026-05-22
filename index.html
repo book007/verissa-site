@@ -398,7 +398,7 @@ a{text-decoration:none;color:inherit}
 .tier-device-laptop .device-frame img{
   width:100%;height:100%;object-fit:cover;object-position:top;display:block;
 }
-/* Scaled iframe inside device frames */
+/* Scaled iframe inside device frames — hidden until loaded */
 .tier-device-laptop .device-frame iframe{
   position:absolute;top:0;left:0;
   width:1280px;height:800px;
@@ -406,6 +406,7 @@ a{text-decoration:none;color:inherit}
   transform-origin:top left;
   border:none;pointer-events:none;
   background:#fff;
+  opacity:0;transition:opacity .4s ease;
 }
 .tier-device-laptop .device-base{
   height:6px;
@@ -444,13 +445,15 @@ a{text-decoration:none;color:inherit}
   transform-origin:top left;
   border:none;pointer-events:none;
   background:#fff;
+  opacity:0;transition:opacity .4s ease;
 }
 .tier-device-phone .device-notch{
   position:absolute;top:4px;left:50%;transform:translateX(-50%);
   width:28%;height:5px;background:#222;border-radius:5px;z-index:2;
 }
-/* Hide fallback image when iframe is present */
-.device-frame iframe~.device-fallback{display:none}
+/* Fallback shown by default, hidden after iframe loads via JS */
+.device-frame .device-fallback{transition:opacity .4s ease}
+.device-frame .device-fallback.hidden{opacity:0;pointer-events:none}
 /* Hover polish on devices */
 .price-card:hover .tier-device-laptop .device-frame{
   border-color:rgba(255,255,255,.2);
@@ -764,16 +767,16 @@ a{text-decoration:none;color:inherit}
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <iframe src="templates/express-makeover.html?v=50" loading="lazy" sandbox="allow-same-origin allow-scripts" title="Express desktop"></iframe>
-              <img src="images/pool-harbor.jpg" alt="Express desktop preview" class="device-fallback" />
+              <iframe data-src="templates/express-makeover.html?v=50" sandbox="allow-same-origin allow-scripts" title="Express desktop"></iframe>
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=70&auto=format" alt="Express desktop preview" class="device-fallback" loading="eager" />
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <iframe src="templates/express-makeover.html?v=50" loading="lazy" sandbox="allow-same-origin allow-scripts" title="Express mobile"></iframe>
-              <img src="images/pool-harbor.jpg" alt="Express mobile preview" class="device-fallback" />
+              <iframe data-src="templates/express-makeover.html?v=50" sandbox="allow-same-origin allow-scripts" title="Express mobile"></iframe>
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&q=70&auto=format" alt="Express mobile preview" class="device-fallback" loading="eager" />
             </div>
           </div>
         </div>
@@ -795,16 +798,16 @@ a{text-decoration:none;color:inherit}
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <iframe src="templates/direct-booking.html?v=50" loading="lazy" sandbox="allow-same-origin allow-scripts" title="Standard desktop"></iframe>
-              <img src="images/pool-night.jpg" alt="Standard desktop preview" class="device-fallback" />
+              <iframe data-src="templates/direct-booking.html?v=50" sandbox="allow-same-origin allow-scripts" title="Standard desktop"></iframe>
+              <img src="images/night_by_the_pool.jpg" alt="Standard desktop preview" class="device-fallback" loading="eager" />
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <iframe src="templates/direct-booking.html?v=50" loading="lazy" sandbox="allow-same-origin allow-scripts" title="Standard mobile"></iframe>
-              <img src="images/pool-night.jpg" alt="Standard mobile preview" class="device-fallback" />
+              <iframe data-src="templates/direct-booking.html?v=50" sandbox="allow-same-origin allow-scripts" title="Standard mobile"></iframe>
+              <img src="images/night_by_the_pool.jpg" alt="Standard mobile preview" class="device-fallback" loading="eager" />
             </div>
           </div>
         </div>
@@ -825,16 +828,16 @@ a{text-decoration:none;color:inherit}
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <iframe src="templates/luxury-experience.html?v=50" loading="lazy" sandbox="allow-same-origin allow-scripts" title="Premium desktop"></iframe>
-              <img src="images/dining-blue.jpg" alt="Premium desktop preview" class="device-fallback" />
+              <iframe data-src="templates/luxury-experience.html?v=50" sandbox="allow-same-origin allow-scripts" title="Premium desktop"></iframe>
+              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=70&auto=format" alt="Premium desktop preview" class="device-fallback" loading="eager" />
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <iframe src="templates/luxury-experience.html?v=50" loading="lazy" sandbox="allow-same-origin allow-scripts" title="Premium mobile"></iframe>
-              <img src="images/dining-blue.jpg" alt="Premium mobile preview" class="device-fallback" />
+              <iframe data-src="templates/luxury-experience.html?v=50" sandbox="allow-same-origin allow-scripts" title="Premium mobile"></iframe>
+              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=300&q=70&auto=format" alt="Premium mobile preview" class="device-fallback" loading="eager" />
             </div>
           </div>
         </div>
@@ -1471,7 +1474,7 @@ const style=document.createElement('style');
 style.textContent='@keyframes spin{to{transform:rotate(360deg)}}.spin{animation:spin .8s linear infinite}';
 document.head.appendChild(style);
 
-/* ══════ Device mockup iframe scaling ══════ */
+/* ══════ Device mockup iframe scaling + lazy loading ══════ */
 (function(){
   function scaleMockups(){
     document.querySelectorAll('.tier-device-laptop .device-frame').forEach(f=>{
@@ -1483,13 +1486,38 @@ document.head.appendChild(style);
       f.style.setProperty('--phone-scale',(w/390).toFixed(4));
     });
   }
-  // Run on load and resize
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',scaleMockups)}
   else{scaleMockups()}
   window.addEventListener('resize',scaleMockups);
-  // Re-run after a short delay for late layout shifts
   setTimeout(scaleMockups,500);
   setTimeout(scaleMockups,1500);
+
+  /* Lazy-load tier iframes only when pricing section enters viewport */
+  function initTierIframes(){
+    const grid=document.querySelector('.pricing-grid');
+    if(!grid)return;
+    const iframes=grid.querySelectorAll('iframe[data-src]');
+    if(!iframes.length)return;
+    const observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting)return;
+        observer.disconnect();
+        iframes.forEach(function(iframe){
+          iframe.onload=function(){
+            iframe.style.opacity='1';
+            const fb=iframe.parentElement.querySelector('.device-fallback');
+            if(fb)fb.classList.add('hidden');
+          };
+          iframe.src=iframe.dataset.src;
+        });
+        setTimeout(scaleMockups,300);
+        setTimeout(scaleMockups,1200);
+      });
+    },{rootMargin:'200px'});
+    observer.observe(grid);
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initTierIframes)}
+  else{initTierIframes()}
 })();
 
 /* ══════ i18n — BILINGUAL IT/EN ══════ */
