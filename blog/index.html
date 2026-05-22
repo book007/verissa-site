@@ -7,12 +7,12 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
 <title>Blog — Verissa | Strategie per Hotel Moderni</title>
-<meta name="description" content="Consigli pratici per albergatori italiani: come aumentare le prenotazioni dirette, ridurre le commissioni OTA, modernizzare il sito del tuo hotel." />
+<meta name="description" content="Il blog per albergatori che vogliono smettere di regalare margini alle OTA. Strategie concrete su prenotazioni dirette, design, automazione e SEO per hotel italiani." />
 <link rel="canonical" href="https://verissa.it/blog/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://verissa.it/blog/" />
 <meta property="og:title" content="Blog Verissa — Strategie per Hotel Moderni" />
-<meta property="og:description" content="Consigli pratici per albergatori italiani: prenotazioni dirette, design, automazione, SEO." />
+<meta property="og:description" content="Il blog per albergatori che vogliono smettere di regalare margini alle OTA. Strategie su prenotazioni dirette, design, automazione e SEO." />
 <meta property="og:image" content="https://verissa.it/og-image.png" />
 <meta property="og:locale" content="it_IT" />
 <meta property="og:site_name" content="Verissa" />
@@ -158,6 +158,13 @@ a{text-decoration:none;color:inherit}
 }
 .blog-footer a{color:var(--gold);font-weight:500}
 
+/* ── CATEGORY DESC ── */
+.cluster-desc{
+  max-width:600px;margin:20px auto 0;text-align:center;
+  font-size:14px;color:var(--text-muted);line-height:1.65;
+  min-height:22px;transition:opacity .3s;
+}
+
 /* ── EMPTY STATE ── */
 .empty-state{
   text-align:center;padding:80px 24px;color:var(--text-muted);
@@ -181,7 +188,7 @@ a{text-decoration:none;color:inherit}
   "@context": "https://schema.org",
   "@type": "Blog",
   "name": "Blog Verissa",
-  "description": "Consigli pratici per albergatori italiani su prenotazioni dirette, design, automazione e SEO.",
+  "description": "Strategie per albergatori italiani che vogliono aumentare le prenotazioni dirette, ridurre la dipendenza dalle OTA e modernizzare la presenza online del proprio hotel.",
   "url": "https://verissa.it/blog/",
   "publisher": {
     "@type": "Organization",
@@ -210,7 +217,7 @@ a{text-decoration:none;color:inherit}
 <!-- HERO -->
 <header class="blog-hero">
   <h1>Strategie per Hotel Moderni</h1>
-  <p>Consigli pratici per albergatori italiani: come aumentare le prenotazioni dirette, ridurre le commissioni OTA e modernizzare la presenza online del tuo hotel.</p>
+  <p>Ogni mese pubblichiamo analisi, numeri e strategie per albergatori italiani che vogliono smettere di regalare margini alle OTA e riprendere il controllo delle proprie prenotazioni.</p>
 </header>
 
 <!-- CLUSTER FILTER -->
@@ -221,6 +228,7 @@ a{text-decoration:none;color:inherit}
   <button onclick="filterArticles('automation')">Automazione</button>
   <button onclick="filterArticles('seo')">SEO Hotel</button>
 </div>
+<p class="cluster-desc" id="clusterDesc">Tutte le risorse per trasformare il sito del tuo hotel in un motore di prenotazioni.</p>
 
 <!-- ARTICLE GRID -->
 <div class="articles-grid" id="articlesGrid">
@@ -244,17 +252,24 @@ a{text-decoration:none;color:inherit}
 
 <!-- CTA BANNER -->
 <section class="blog-cta">
-  <h2>Vuoi vedere come sarebbe il tuo sito?</h2>
-  <p>Incolla il link del tuo hotel e ottieni un concept moderno in pochi secondi. Gratis.</p>
-  <a href="https://verissa.it">Prova il Demo Gratuito</a>
+  <h2>Guarda la trasformazione del tuo hotel.</h2>
+  <p>Incolla il link del tuo sito attuale e scopri come potrebbe essere. In pochi secondi, gratis.</p>
+  <a href="https://verissa.it">Scopri il tuo nuovo sito &rarr;</a>
 </section>
 
 <!-- FOOTER -->
 <footer class="blog-footer">
-  <p>&copy; 2026 <a href="https://verissa.it">Verissa</a> &mdash; Trasformiamo siti hotel in motori di prenotazioni.</p>
+  <p>&copy; 2026 <a href="https://verissa.it">Verissa</a> &mdash; Da sito vecchio a motore di prenotazioni dirette.</p>
 </footer>
 
 <script>
+var clusterDescs={
+  'all':'Tutte le risorse per trasformare il sito del tuo hotel in un motore di prenotazioni.',
+  'direct-bookings':'Come smettere di regalare margini alle OTA e riempire le camere dal tuo sito.',
+  'design':'Il design non è estetica — è fatturato. Strategie visive che convertono.',
+  'automation':'Meno lavoro manuale, più prenotazioni. L\'automazione che cambia la gestione.',
+  'seo':'Fatti trovare da chi cerca il tuo hotel. SEO pratica per albergatori.'
+};
 function filterArticles(cluster){
   document.querySelectorAll('.cluster-filter button').forEach(function(b){b.classList.remove('active')});
   event.target.classList.add('active');
@@ -265,6 +280,8 @@ function filterArticles(cluster){
       card.style.display='none';
     }
   });
+  var desc=document.getElementById('clusterDesc');
+  if(desc&&clusterDescs[cluster]){desc.textContent=clusterDescs[cluster];}
 }
 </script>
 </body>
