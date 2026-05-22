@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#FAF8F5" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 <title>Verissa — Da sito vecchio a motore di prenotazioni.</title>
 <meta name="description" content="Vedi il tuo sito hotel ridisegnato istantaneamente. Incolla il link e ottieni un concept moderno, mobile-ready in pochi secondi. Da €399." />
 <link rel="canonical" href="https://verissa.it/" />
@@ -4174,15 +4176,11 @@ function setupDiagObserver(){
     logo.href='#';
     logo.id='vr-brand-logo';
     logo.style.cssText='position:fixed;top:16px;left:16px;z-index:9998;display:block;text-decoration:none';
-    if(b&&b.logoSrc){
-      var img=document.createElement('img');
-      img.src=b.logoSrc;
-      img.alt='Verissa';
-      img.style.cssText='height:38px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))';
-      logo.appendChild(img);
-    }else{
-      logo.innerHTML='<span style="display:inline-flex;align-items:center;gap:8px"><span style="width:32px;height:32px;background:#1a1a1a;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:20px;font-weight:700;color:#C8A97E">V</span><span style="font-family:Georgia,Cormorant Garamond,serif;font-size:22px;font-weight:600;color:#fff;letter-spacing:.5px;text-shadow:0 2px 12px rgba(0,0,0,.5)">Verissa</span></span>';
-    }
+    var img=document.createElement('img');
+    img.src=(b&&b.logoSrc)?b.logoSrc:'brand-logo.svg';
+    img.alt='Verissa';
+    img.style.cssText='height:38px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))';
+    logo.appendChild(img);
     document.body.insertBefore(logo,document.body.firstChild);
 
     if(!b) return;
