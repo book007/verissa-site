@@ -16,7 +16,7 @@ Every article moves the reader toward: **"Guarda la trasformazione del tuo hotel
 | # | Article Title | Slug | Status |
 |---|---|---|---|
 | 1 | Quanto Ti Costano le Commissioni di Booking.com | `commissioni-booking-hotel.html` | ✅ Published |
-| 2 | Perché il Tuo Sito Hotel Non Converte | `sito-hotel-non-converte.html` | 📝 Next |
+| 2 | Perché il Tuo Sito Hotel Non Converte | `sito-hotel-non-converte.html` | ✅ Published |
 | 3 | Prenotazioni Dirette vs OTA: Differenze Reali | `prenotazioni-dirette-vs-ota.html` | 📋 Queued |
 | 4 | Come Scegliere un Booking Engine per Hotel | `booking-engine-hotel.html` | 📋 Queued |
 | 5 | Sito Hotel che Converte: Guida Completa | `sito-hotel-che-converte.html` | 📋 Queued |
@@ -29,7 +29,7 @@ Every article moves the reader toward: **"Guarda la trasformazione del tuo hotel
 
 | # | Article Title | Slug | Status |
 |---|---|---|---|
-| 1 | Da Sito Vecchio a Esperienza Premium | `sito-hotel-moderno.html` | 📝 Next |
+| 1 | Da Sito Vecchio a Esperienza Premium | `sito-hotel-moderno.html` | ✅ Published |
 | 2 | Perché i Siti Hotel Italiani Sembrano Fermi nel 2012 | `errori-siti-hotel-italiani.html` | 📋 Queued |
 | 3 | Il Primo Sguardo Decide la Prenotazione | `first-impression-hotel-website.html` | 📋 Queued |
 | 4 | Trust Design: Come il Design Crea Fiducia | `trust-design-hotel.html` | 📋 Queued |
@@ -43,7 +43,7 @@ Every article moves the reader toward: **"Guarda la trasformazione del tuo hotel
 
 | # | Article Title | Slug | Status |
 |---|---|---|---|
-| 1 | Velocità Sito Hotel: Ogni Secondo Costa Prenotazioni | `velocita-sito-hotel.html` | 📝 Next |
+| 1 | Velocità Sito Hotel: Ogni Secondo Costa Prenotazioni | `velocita-sito-hotel.html` | ✅ Published |
 | 2 | SEO per Hotel: Guida Pratica per Albergatori | `seo-per-hotel.html` | 📋 Queued |
 | 3 | Local SEO per Hotel: Come Farsi Trovare su Google | `local-seo-hotel.html` | 📋 Queued |
 | 4 | Google Hotel Search: Come Funziona e Come Usarlo | `google-hotel-search.html` | 📋 Queued |
