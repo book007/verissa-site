@@ -658,23 +658,17 @@ a{text-decoration:none;color:inherit}
 </head>
 <body>
 
-<!-- ═══ TOP NAV (Blog + Language Toggle) ═══ -->
-<div class="top-nav-bar" id="topNavBar">
-  <a href="/blog/" class="top-nav-blog">Blog</a>
-  <div class="lang-toggle" id="langToggle">
-    <button class="lang-btn active" data-lang="it" onclick="switchLang('it')">IT</button>
-    <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
-  </div>
+<!-- ═══ LANGUAGE TOGGLE ═══ -->
+<div class="lang-toggle" id="langToggle">
+  <button class="lang-btn active" data-lang="it" onclick="switchLang('it')">IT</button>
+  <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
 </div>
 <style>
-.top-nav-bar{position:fixed;top:16px;right:16px;z-index:9998;display:flex;align-items:center;gap:12px}
-.top-nav-blog{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.5px;color:var(--text-muted);text-decoration:none;padding:7px 14px;background:rgba(255,255,255,.85);border:1px solid rgba(0,0,0,.08);border-radius:8px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 12px rgba(0,0,0,.06);transition:all .2s;text-transform:uppercase}
-.top-nav-blog:hover{color:var(--gold);background:rgba(255,255,255,.95)}
-.lang-toggle{display:flex;gap:0;background:rgba(255,255,255,.85);border:1px solid rgba(0,0,0,.08);border-radius:8px;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.lang-toggle{position:fixed;top:16px;right:16px;z-index:9998;display:flex;gap:0;background:rgba(255,255,255,.85);border:1px solid rgba(0,0,0,.08);border-radius:8px;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 12px rgba(0,0,0,.06)}
 .lang-btn{padding:7px 14px;font-size:12px;font-weight:700;letter-spacing:.5px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;font-family:var(--sans);transition:all .2s}
 .lang-btn.active{background:var(--gold);color:#fff}
 .lang-btn:hover:not(.active){color:var(--text-primary);background:rgba(0,0,0,.04)}
-@media(max-width:640px){.top-nav-bar{top:10px;right:10px;gap:8px}.top-nav-blog{padding:6px 11px;font-size:11px}.lang-btn{padding:6px 11px;font-size:11px}}
+@media(max-width:640px){.lang-toggle{top:10px;right:10px}.lang-btn{padding:6px 11px;font-size:11px}}
 </style>
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
