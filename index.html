@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#FAF8F5" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
 <title>Verissa — Da sito vecchio a motore di prenotazioni.</title>
 <meta name="description" content="Vedi il tuo sito hotel ridisegnato istantaneamente. Incolla il link e ottieni un concept moderno, mobile-ready in pochi secondi. Da €399." />
 <link rel="canonical" href="https://verissa.it/" />
@@ -109,7 +106,7 @@ a{text-decoration:none;color:inherit}
   content:'';
   position:absolute;
   inset:0;
-  background:url('images/night_by_the_pool.png') center/cover no-repeat;
+  background:url('images/night_by_the_pool.jpg') center/cover no-repeat;
   z-index:0;
 }
 .hero::after{
@@ -4168,15 +4165,32 @@ function setupDiagObserver(){
 <script>
 (function(){
   try{
+    /* Always inject Verissa brand logo — use custom if available, else default SVG text */
     var raw=localStorage.getItem('verissa_branding');
-    if(!raw) return;
-    var b=JSON.parse(raw);
-    /* Favicon */
+    var b=raw?JSON.parse(raw):null;
+
+    /* Logo — inject into top-left of page as fixed brand mark */
+    var logo=document.createElement('a');
+    logo.href='#';
+    logo.id='vr-brand-logo';
+    logo.style.cssText='position:fixed;top:16px;left:16px;z-index:9998;display:block;text-decoration:none';
+    if(b&&b.logoSrc){
+      var img=document.createElement('img');
+      img.src=b.logoSrc;
+      img.alt='Verissa';
+      img.style.cssText='height:38px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))';
+      logo.appendChild(img);
+    }else{
+      logo.innerHTML='<span style="font-family:Georgia,Cormorant Garamond,serif;font-size:26px;font-weight:700;color:#fff;letter-spacing:1px;text-shadow:0 2px 12px rgba(0,0,0,.5)">Verissa</span>';
+    }
+    document.body.insertBefore(logo,document.body.firstChild);
+
+    if(!b) return;
+
+    /* Favicon override */
     if(b.faviconSrc){
       var ic=document.querySelector('link[rel="icon"][type="image/svg+xml"]');
       if(ic) ic.href=b.faviconSrc;
-      var ic2=document.querySelector('link[rel="icon"][type="image/png"]');
-      if(ic2) ic2.href=b.faviconSrc;
     }
     /* Apple Touch Icon */
     if(b.appleSrc){
@@ -4187,19 +4201,6 @@ function setupDiagObserver(){
     if(b.ogSrc){
       var og=document.querySelector('meta[property="og:image"]');
       if(og) og.content=b.ogSrc;
-    }
-    /* Logo — inject into top-left of page as fixed brand mark */
-    if(b.logoSrc){
-      var logo=document.createElement('a');
-      logo.href='#';
-      logo.id='vr-brand-logo';
-      logo.style.cssText='position:fixed;top:16px;left:16px;z-index:9998;display:block;text-decoration:none';
-      var img=document.createElement('img');
-      img.src=b.logoSrc;
-      img.alt='Verissa';
-      img.style.cssText='height:38px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))';
-      logo.appendChild(img);
-      document.body.insertBefore(logo,document.body.firstChild);
     }
     /* Chatbot FAB — replace "V" letter with favicon image */
     if(b.faviconSrc){
@@ -4215,9 +4216,6 @@ function setupDiagObserver(){
         }
       }
     }
-    /* NOTE: brand colors intentionally NOT applied to CSS variables —
-       they would override the site's gold palette on buttons, icons, lang toggle etc.
-       Colors from branding kit are stored for use in generated client templates only. */
   }catch(e){}
 })();
 </script>
