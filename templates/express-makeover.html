@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hotel Belvedere — Sito Ufficiale</title>
+<meta name="description" content="Hotel Belvedere — Il vostro angolo di serenità sul lago. Prenota direttamente al miglior prezzo garantito.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hotel Belvedere | Sito Ufficiale">
+<meta property="og:description" content="Il vostro angolo di serenità sul lago. Prenota al miglior prezzo garantito.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Hotel","name":"Hotel Belvedere","starRating":{"@type":"Rating","ratingValue":"4"},"address":{"@type":"PostalAddress","addressLocality":"Lago di Garda, Italia"},"image":"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200","priceRange":"€€"}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAF9F6;--text:#2B2B2B;--muted:#7A7A7A;--light-muted:#A8A8A8;
+  --accent:#C4724E;--accent-soft:rgba(196,114,78,.08);
+  --border:rgba(0,0,0,.06);--card:#fff;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans','Segoe UI',sans-serif;
+}
+html{overflow-x:hidden}
+body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;width:100%}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── NAV ── */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;background:var(--bg);position:sticky;top:0;z-index:50;border-bottom:1px solid var(--border);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav-brand{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.nav-brand img{height:36px;width:auto;border-radius:4px;object-fit:contain}
+.nav-mono{width:34px;height:34px;border-radius:50%;background:var(--text);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;font-family:var(--sans)}
+.nav-links{display:flex;gap:28px;font-size:13px;font-weight:500;color:var(--muted);letter-spacing:.3px}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans);letter-spacing:.3px;transition:all .25s}
+.nav-cta:hover{background:#b5653f;transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{position:relative;height:85vh;min-height:540px;overflow:hidden;max-width:100%;padding:0;margin:0}
+.hero-img{position:absolute;inset:0;background-size:cover;background-position:65% 50%}
+.hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(43,43,43,.08) 0%,rgba(43,43,43,.35) 50%,rgba(43,43,43,.75) 100%)}
+.hero-content{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 62px;max-width:720px;color:#fff}
+.hero-stars{position:absolute;top:4px;left:29px;font-size:14px;letter-spacing:3px;color:#F0D48A;z-index:2}
+.hero h1{font-family:var(--serif);font-size:clamp(36px,6vw,68px);font-weight:300;line-height:1.05;letter-spacing:-.01em;margin-bottom:16px}
+.hero h1 em{font-style:italic;font-weight:300}
+.hero-sub{font-size:16px;opacity:.85;line-height:1.7;max-width:480px;margin-bottom:32px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{padding:14px 32px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:all .25s}
+.btn-primary:hover{background:#b5653f;transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,114,78,.3)}
+.btn-ghost{padding:14px 32px;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:8px;font-size:14px;cursor:pointer;font-family:var(--sans);transition:all .25s}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.trust-bar{display:flex;gap:24px;margin-top:28px;font-size:12px;color:rgba(255,255,255,.7);flex-wrap:wrap}
+.trust-bar span{display:flex;align-items:center;gap:6px}
+
+/* ── SECTIONS ── */
+section{padding:80px 24px;max-width:1100px;margin:0 auto}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);text-align:center;margin-bottom:8px}
+.sec-title{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:400;text-align:center;color:var(--text);margin-bottom:8px}
+.sec-sub{text-align:center;color:var(--muted);font-size:14px;margin-bottom:48px;max-width:520px;margin-left:auto;margin-right:auto}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-photo{border-radius:16px;overflow:hidden;height:400px;position:relative}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-text h2{font-family:var(--serif);font-size:clamp(26px,3.5vw,36px);font-weight:400;margin-bottom:16px;text-align:left}
+.about-text p{color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:16px}
+.about-features{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
+.about-feat{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--text);background:var(--accent-soft);padding:8px 16px;border-radius:20px}
+.about-feat svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2}
+
+/* ── ROOMS ── */
+.rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.room-card{border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--border);transition:all .35s}
+.room-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
+.room-img{height:220px;background-size:cover;background-position:center;position:relative}
+.room-price-tag{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:500}
+.room-body{padding:22px}
+.room-body h3{font-family:var(--serif);font-size:20px;font-weight:400;margin-bottom:4px}
+.room-body .room-desc{font-size:13px;color:var(--muted);margin-bottom:14px}
+.room-amenities{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.room-amenity{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px}
+.room-amenity svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2}
+.room-cta{display:inline-block;padding:10px 22px;background:var(--text);color:var(--bg);border-radius:8px;font-size:12px;font-weight:600;letter-spacing:.3px;transition:all .25s}
+.room-cta:hover{background:var(--accent);transform:translateY(-1px)}
+
+/* ── LOCATION ── */
+.location-wrap{background:var(--card);border-radius:20px;overflow:hidden;border:1px solid var(--border)}
+.location-grid{display:grid;grid-template-columns:1fr 1fr}
+.location-map{min-height:320px;background:#e8e4de;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted)}
+.location-info{padding:48px;display:flex;flex-direction:column;justify-content:center}
+.location-info h3{font-family:var(--serif);font-size:24px;font-weight:400;margin-bottom:20px}
+.distance-list{list-style:none;padding:0}
+.distance-list li{display:flex;align-items:center;gap:10px;padding:10px 0;font-size:14px;color:var(--muted);border-bottom:1px solid var(--border)}
+.distance-list li:last-child{border-bottom:none}
+.distance-list svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:2;flex-shrink:0}
+.distance-list strong{color:var(--text);font-weight:500}
+
+/* ── CONTACT ── */
+.contact-card{background:var(--card);border-radius:20px;padding:56px 48px;text-align:center;border:1px solid var(--border)}
+.contact-row{display:flex;justify-content:center;gap:40px;margin-top:32px;flex-wrap:wrap}
+.contact-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.contact-icon{width:48px;height:48px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center}
+.contact-icon svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:2}
+.contact-item span{font-size:13px;color:var(--muted)}
+.contact-item strong{font-size:15px;font-weight:500}
+.wa-float{position:absolute;bottom:24px;right:40px;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35);z-index:10;transition:transform .25s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:26px;height:26px;fill:#fff}
+
+/* ── FOOTER ── */
+.footer{text-align:center;padding:40px 24px 32px;font-size:12px;color:var(--light-muted);border-top:1px solid var(--border)}
+.footer strong{color:var(--muted)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav{padding:52px 20px 10px;top:0;width:100%;max-width:100%}
+  .nav-links{display:none}
+  .nav-brand{font-size:16px;gap:8px}
+  .nav-mono{width:28px;height:28px;font-size:10px}
+  .nav-cta{padding:7px 14px;font-size:11px;white-space:nowrap;flex-shrink:0;margin-right:14px}
+  .hero{height:55vh;min-height:340px}
+  .hero-content{padding:0 32px 89px 8px;text-align:center;align-items:center;max-width:100%}
+  .hero-stars{position:static;text-align:center;margin-bottom:12px}
+  .hero h1{font-size:clamp(28px,7vw,42px);text-align:center;margin-bottom:35px}
+  .hero-sub{display:none}
+  .hero-btns{justify-content:center;margin-top:19px}
+  .btn-primary,.btn-ghost{padding:10px 16px;font-size:11px}
+  .trust-bar{position:absolute;bottom:4px;left:8px;right:32px;gap:4px;font-size:8px;justify-content:center;margin-top:0}
+  .trust-bar svg{display:none}
+  .wa-float{bottom:16px;right:32px;width:44px;height:44px}
+  .wa-float svg{width:22px;height:22px}
+  section{padding:48px 23px 48px 1px;max-width:100%;margin:0 auto;overflow:hidden}
+  .sec-title{font-size:clamp(24px,5vw,32px)}
+  .sec-sub{font-size:13px;margin-bottom:32px}
+  .about-grid{grid-template-columns:1fr;gap:24px;width:100%;max-width:100%;padding:0}
+  .about-photo{height:220px;width:calc(100% - 38px);max-width:100%;margin:0 auto;border-radius:10px}
+  .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .about-text{text-align:center}
+  .about-text h2{font-size:clamp(22px,5vw,30px);text-align:center}
+  .about-text p{text-align:center}
+  .about-features{justify-content:center}
+  .rooms-grid{grid-template-columns:1fr}
+  .room-img{height:180px}
+  .room-body{padding:16px;text-align:center}
+  .room-body h3{font-size:18px}
+  .room-amenities{justify-content:center}
+  .room-cta{display:block;text-align:center}
+  .location-grid{grid-template-columns:1fr}
+  .location-map{min-height:180px;max-width:100%}
+  .location-map iframe{max-width:100%!important;width:100%!important}
+  .location-wrap{max-width:100%}
+  .location-info{padding:24px 16px}
+  .contact-card{padding:32px 16px}
+  .contact-row{gap:20px;flex-direction:column;align-items:center}
+  .footer{padding:32px 16px 24px;font-size:11px}
+}
+@media(max-width:480px){
+  *{max-width:100%!important}
+  .hero-btns{flex-direction:column;width:60%!important;margin:0 auto}
+  .btn-primary,.btn-ghost{width:100%;text-align:center;padding:8px 10px;font-size:10px}
+  .about-features{gap:8px;flex-wrap:wrap;justify-content:center}
+  .about-feat{font-size:11px;padding:6px 12px}
+  .hero h1{font-size:clamp(24px,7vw,36px)}
+  .about-photo{border-radius:8px}
+  .about-grid{gap:16px;padding:0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="nav-mono">HB</span>
+    Hotel Belvedere
+  </div>
+  <div class="nav-links">
+    <a href="#chi-siamo">Chi siamo</a>
+    <a href="#camere">Camere</a>
+    <a href="#posizione">Posizione</a>
+    <a href="#contatti">Contatti</a>
+  </div>
+  <button class="nav-cta">Prenota Ora</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img" style="background-image:url('../images/Savoy-Palace-Hotel-Funchal-Concept-Ocean-Room.webp')"></div>
+  <div class="hero-content">
+    <div class="hero-stars">★★★★</div>
+    <h1>Il vostro rifugio <em>sul lago</em></h1>
+    <p class="hero-sub">Un'accoglienza autentica dove ogni dettaglio è pensato per farvi sentire a casa, con vista sulle acque che cambiano colore ad ogni ora del giorno.</p>
+    <div class="hero-btns">
+      <button class="btn-primary">Prenota al Miglior Prezzo</button>
+      <button class="btn-ghost">Scopri le Camere ↓</button>
+    </div>
+  </div>
+  <!-- WhatsApp inside hero -->
+  <a href="https://wa.me/390451234567" class="wa-float" aria-label="Scrivici su WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.97-.94-.27-.1-.46-.14-.65.14s-.75.94-.92 1.13c-.17.19-.34.22-.63.07-.29-.14-1.22-.45-2.32-1.43-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.65-1.57-.89-2.15-.24-.57-.48-.49-.65-.5h-.56c-.19 0-.51.07-.77.36-.27.29-1.02 1-1.02 2.43 0 1.44 1.05 2.83 1.19 3.02.14.19 2.06 3.14 4.99 4.4.7.3 1.24.48 1.67.62.7.22 1.34.19 1.84.12.56-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.07-.12-.27-.19-.56-.34z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.77.47 3.44 1.28 4.88L2 22l5.22-1.25A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.67 0-3.24-.5-4.55-1.34l-.33-.2-3.09.74.77-3.01-.22-.35A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
+  </a>
+  <div class="trust-bar">
+    <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Miglior Prezzo Garantito</span>
+    <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Cancellazione Gratuita</span>
+    <span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Assistenza 24/7</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="chi-siamo" class="reveal">
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="../images/photo11.jpg" alt="Hotel Belvedere interni" loading="lazy">
+    </div>
+    <div class="about-text">
+      <div class="sec-label">Chi Siamo</div>
+      <h2>Un'ospitalità che racconta una storia</h2>
+      <p>Benvenuti nella nostra struttura. Situati in una posizione privilegiata sul lago, offriamo un'esperienza unica dove il comfort moderno incontra la tradizione italiana.</p>
+      <p>Ogni camera è stata progettata con cura per garantire il massimo relax e un soggiorno indimenticabile.</p>
+      <div class="about-features">
+        <div class="about-feat"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Ospitalità familiare</div>
+        <div class="about-feat"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Posizione unica</div>
+        <div class="about-feat"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Colazione inclusa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section id="camere" class="reveal">
+  <div class="sec-label">Le Camere</div>
+  <h2 class="sec-title">Comfort per ogni esigenza</h2>
+  <p class="sec-sub">Ogni camera è pensata per offrirvi il massimo relax. Scegliete quella che fa per voi.</p>
+  <div class="rooms-grid">
+    <div class="room-card">
+      <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600&q=80')">
+        <span class="room-price-tag">Da €89/notte</span>
+      </div>
+      <div class="room-body">
+        <h3>Camera Classic</h3>
+        <p class="room-desc">Comfort e tradizione in un ambiente accogliente con vista giardino.</p>
+        <div class="room-amenities">
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 2 ospiti</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> WiFi</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> A/C</span>
+        </div>
+        <a href="#" class="room-cta">Prenota →</a>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&q=80')">
+        <span class="room-price-tag">Da €119/notte</span>
+      </div>
+      <div class="room-body">
+        <h3>Camera Superior</h3>
+        <p class="room-desc">Più spazio, minibar e un balcone privato con vista panoramica.</p>
+        <div class="room-amenities">
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 2 ospiti</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> WiFi</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg> Balcone</span>
+        </div>
+        <a href="#" class="room-cta">Prenota →</a>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=600&q=80')">
+        <span class="room-price-tag">Da €149/notte</span>
+      </div>
+      <div class="room-body">
+        <h3>Junior Suite</h3>
+        <p class="room-desc">Soggiorno separato, arredi raffinati e servizio dedicato.</p>
+        <div class="room-amenities">
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 3 ospiti</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> WiFi</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Minibar</span>
+        </div>
+        <a href="#" class="room-cta">Prenota →</a>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1590490360182-c33d955bc90e?w=600&q=80')">
+        <span class="room-price-tag">Da €169/notte</span>
+      </div>
+      <div class="room-body">
+        <h3>Camera Deluxe</h3>
+        <p class="room-desc">Ampia e luminosa, ideale per un soggiorno di relax totale.</p>
+        <div class="room-amenities">
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 2 ospiti</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> WiFi</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> A/C</span>
+        </div>
+        <a href="#" class="room-cta">Prenota →</a>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80')">
+        <span class="room-price-tag">Da €189/notte</span>
+      </div>
+      <div class="room-body">
+        <h3>Suite Familiare</h3>
+        <p class="room-desc">Perfetta per famiglie, con spazio extra e ogni comfort.</p>
+        <div class="room-amenities">
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 4 ospiti</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> WiFi</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg> Balcone</span>
+        </div>
+        <a href="#" class="room-cta">Prenota →</a>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=600&q=80')">
+        <span class="room-price-tag">Da €209/notte</span>
+      </div>
+      <div class="room-body">
+        <h3>Camera Panoramica</h3>
+        <p class="room-desc">Vista mozzafiato e atmosfera unica per momenti speciali.</p>
+        <div class="room-amenities">
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 2 ospiti</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> WiFi</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Minibar</span>
+        </div>
+        <a href="#" class="room-cta">Prenota →</a>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=600&q=80')">
+        <span class="room-price-tag">Da €99/notte</span>
+      </div>
+      <div class="room-body">
+        <h3>Camera Comfort</h3>
+        <p class="room-desc">Accogliente e funzionale, tutto ciò che serve per un soggiorno perfetto.</p>
+        <div class="room-amenities">
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 2 ospiti</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> WiFi</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> A/C</span>
+        </div>
+        <a href="#" class="room-cta">Prenota →</a>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=600&q=80')">
+        <span class="room-price-tag">Da €229/notte</span>
+      </div>
+      <div class="room-body">
+        <h3>Suite Executive</h3>
+        <p class="room-desc">Eleganza e privacy con area living dedicata.</p>
+        <div class="room-amenities">
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 2 ospiti</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> WiFi</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg> Balcone</span>
+        </div>
+        <a href="#" class="room-cta">Prenota →</a>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80')">
+        <span class="room-price-tag">Da €109/notte</span>
+      </div>
+      <div class="room-body">
+        <h3>Camera Garden</h3>
+        <p class="room-desc">Affaccio sul giardino, tranquillità e natura a portata di mano.</p>
+        <div class="room-amenities">
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> 2 ospiti</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> WiFi</span>
+          <span class="room-amenity"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> A/C</span>
+        </div>
+        <a href="#" class="room-cta">Prenota →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="posizione" class="reveal">
+  <div class="sec-label">Dove Siamo</div>
+  <h2 class="sec-title">Una posizione privilegiata</h2>
+  <p class="sec-sub">Nel cuore del lago, a pochi passi da tutto ciò che conta.</p>
+  <div class="location-wrap">
+    <div class="location-grid">
+      <div class="location-map">
+        <iframe src="https://maps.google.com/maps?q=Lago+di+Garda,+Italia&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;min-height:320px" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="location-info">
+        <h3>Come raggiungerci</h3>
+        <ul class="distance-list">
+          <li><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.08 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l2.27-2.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><div><strong>Centro città</strong> — 5 minuti a piedi</div></li>
+          <li><svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg><div><strong>Stazione FS</strong> — 10 minuti in auto</div></li>
+          <li><svg viewBox="0 0 24 24"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div><strong>Aeroporto</strong> — 45 minuti</div></li>
+          <li><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div><strong>Lungolago</strong> — 2 minuti a piedi</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contatti" class="reveal">
+  <div class="contact-card">
+    <div class="sec-label">Contatti</div>
+    <h2 class="sec-title">Siamo qui per voi</h2>
+    <p class="sec-sub">Avete domande o desiderate prenotare? Contattateci come preferite.</p>
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.08 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l2.27-2.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <span>Telefono</span>
+        <strong>+39 045 123 4567</strong>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <span>Email</span>
+        <strong>info@hotelbelvedere.it</strong>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <span>Indirizzo</span>
+        <strong>Lago di Garda, Italia</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 Hotel Belvedere · Sito realizzato da <strong>Verissa</strong></p>
+</footer>
+
+
+<!-- Scroll Reveal -->
+<script>
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+/* Broken image fallback */
+document.querySelectorAll('img,[style*="background-image"]').forEach(el=>{if(el.tagName==='IMG'){el.onerror=function(){this.onerror=null;this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80';this.alt='Immagine non disponibile'}}else{const bg=el.style.backgroundImage;if(bg&&bg.includes('url(')){const url=bg.replace(/url\(['"]?/,'').replace(/['"]?\)/,'');const img=new Image();img.onerror=()=>{el.style.backgroundImage="url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80')"};img.src=url}}});
+</script>
+</body>
+</html>

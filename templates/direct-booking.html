@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#FBF7F1" />
+<title>Hotel Clementina — Boutique Hotel · Merano</title>
+<meta name="description" content="Hotel Clementina — hotel boutique 4★ nel cuore di Merano. 24 camere, ristorante Il Pino Verde, colazione fatta in casa. Prenota direttamente e rispondiamo in pochi secondi, anche di notte." />
+<meta name="keywords" content="hotel merano, hotel boutique merano, hotel belvedere, alloggio merano, hotel 4 stelle merano, boutique merano, alto adige" />
+<meta property="og:title" content="Hotel Clementina — Boutique Hotel · Merano" />
+<meta property="og:description" content="La quiete della montagna, l'eleganza di un hotel boutique. 24 camere, ristorante e reception AI 24/7." />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream:       '#FBF7F1',
+          creamSoft:   '#F2EBDD',
+          paper:       '#FFFFFF',
+          ink:         '#1F1A14',
+          inkSoft:     '#3A322A',
+          muted:       '#6B5D4B',
+          subtle:      '#A89683',
+          accent:      '#C16240',
+          accentHover: '#A55330',
+          accentSoft:  '#F5E5DC',
+          gold:        '#B59159',
+          line:        'rgba(31,26,20,0.10)',
+          lineStrong:  'rgba(31,26,20,0.18)',
+        },
+        fontFamily: {
+          serif: ['Fraunces', 'Georgia', 'serif'],
+          sans:  ['Inter', 'system-ui', 'sans-serif'],
+        },
+        boxShadow: {
+          card:    '0 1px 0 0 rgba(255,255,255,0.6) inset, 0 12px 32px -16px rgba(31,26,20,0.18)',
+          elevate: '0 30px 60px -30px rgba(31,26,20,0.25)',
+          chat:    '0 30px 80px -20px rgba(31,26,20,0.35)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --cream: #FBF7F1;
+    --paper: #FFFFFF;
+    --ink: #1F1A14;
+    --accent: #C16240;
+    --gold: #B59159;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif { font-family: 'Fraunces', Georgia, serif; font-feature-settings: "ss01"; }
+  .display { font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 100; }
+
+  /* hero overlay */
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(31,26,20,0.06) 0%, rgba(31,26,20,0.02) 35%, rgba(251,247,241,0.3) 100%);
+  }
+  .hero-img-fallback {
+    background:
+      radial-gradient(60% 50% at 50% 30%, rgba(255,255,255,0.5), transparent 70%),
+      linear-gradient(160deg, #6F5B45 0%, #2D241B 60%, #1F1A14 100%);
+  }
+  .room-img-fallback {
+    background: linear-gradient(135deg, #C9B79C 0%, #8B7355 60%, #5C4A38 100%);
+  }
+  /* divider */
+  .rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(31,26,20,0.18), transparent);
+  }
+  /* card */
+  .room-card {
+    background: var(--paper);
+    border: 1px solid rgba(31,26,20,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform .35s ease, box-shadow .35s ease;
+  }
+  .room-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 30px 60px -30px rgba(31,26,20,0.25);
+  }
+  .room-card .img {
+    aspect-ratio: 4 / 3;
+    background-size: cover; background-position: center;
+  }
+  /* eyebrow */
+  .eyebrow {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  /* btn */
+  .btn-rezerva {
+    background: var(--accent); color: #fff; font-weight: 500;
+    padding: 14px 26px; border-radius: 999px;
+    transition: background .2s ease, transform .2s ease;
+    letter-spacing: 0.02em;
+  }
+  .btn-rezerva:hover { background: #A55330; transform: translateY(-1px); }
+  .btn-outline {
+    border: 1px solid var(--ink); color: var(--ink); font-weight: 500;
+    padding: 13px 26px; border-radius: 999px;
+    transition: background .2s ease, color .2s ease;
+    letter-spacing: 0.02em;
+  }
+  .btn-outline:hover { background: var(--ink); color: #fff; }
+  .btn-ghost {
+    color: var(--ink); font-weight: 500; padding: 8px 0;
+    border-bottom: 1px solid rgba(31,26,20,0.4);
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* booking widget */
+  .booking-bar {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(31,26,20,0.08);
+    box-shadow: 0 30px 80px -30px rgba(31,26,20,0.35);
+    border-radius: 10px;
+  }
+  .booking-bar input, .booking-bar select {
+    background: transparent; border: none; outline: none;
+    font-family: inherit; color: var(--ink);
+    width: 100%;
+  }
+  .booking-bar label {
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #6B5D4B; font-weight: 500;
+  }
+
+  /* fade-in on scroll */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* nav top utility */
+  .top-bar a:hover { color: var(--accent); }
+
+  /* stars */
+  .stars { letter-spacing: 0.12em; color: var(--gold); }
+
+  /* floating buttons */
+  .float-btn {
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 16px 40px -8px rgba(31,26,20,0.35);
+    transition: transform .2s ease;
+    cursor: pointer;
+  }
+  .float-btn:hover { transform: translateY(-2px) scale(1.04); }
+  .float-pulse::before {
+    content: ''; position: absolute; inset: -5px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.45);
+    animation: pulse 2s ease-in-out infinite;
+    z-index: -1;
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); opacity: 0.6; box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+    50% { transform: scale(1.15); opacity: 0; box-shadow: 0 0 20px 4px rgba(255,255,255,0.15); }
+  }
+
+  #conciergeBubble::after { content:''; position:absolute; bottom:-8px; right:16px; width:16px; height:16px; background:#fff; border-right:1px solid rgba(31,26,20,0.10); border-bottom:1px solid rgba(31,26,20,0.10); transform:rotate(45deg); border-radius:0 0 4px 0; }
+
+  /* chat panel */
+  .chat-panel {
+    background: var(--paper);
+    border: 1px solid rgba(31,26,20,0.10);
+    border-radius: 16px;
+    box-shadow: 0 40px 100px -30px rgba(31,26,20,0.45);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .bubble-guest { background: #F4EEE5; color: var(--ink); }
+  .bubble-ai { background: #FFF8F2; border: 1px solid rgba(193,98,64,0.18); color: var(--ink); }
+
+  /* typing dots */
+  .typing-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: rgba(31,26,20,0.3);
+    display: inline-block; animation: blink 1.4s infinite both;
+  }
+  .typing-dot:nth-child(2) { animation-delay: .2s; }
+  .typing-dot:nth-child(3) { animation-delay: .4s; }
+  @keyframes blink { 0%,80%,100% { opacity: .2; } 40% { opacity: 1; } }
+
+  /* underline link in nav */
+  .nav-link { position: relative; padding: 8px 0; }
+  .nav-link::after {
+    content: ''; position: absolute; left: 0; bottom: 0;
+    height: 1px; width: 0; background: var(--accent);
+    transition: width .25s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  /* selection */
+  ::selection { background: rgba(193,98,64,0.25); color: var(--ink); }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: rgba(31,26,20,0.18); border-radius: 8px; }
+
+  /* award badges */
+  .award {
+    border: 1px solid rgba(31,26,20,0.12);
+    border-radius: 4px;
+    padding: 14px 20px;
+    background: var(--paper);
+  }
+
+  /* gold rule */
+  .gold-rule {
+    width: 56px; height: 1px; background: var(--gold);
+  }
+
+  /* details accordion */
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .acc-icon { transform: rotate(45deg); }
+  .acc-icon { transition: transform .25s ease; }
+
+  /* mobile menu open */
+  body.menu-open { overflow: hidden; }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media(max-width:768px){
+    body{padding-top:48px !important}
+    #nav{top:48px !important}
+    .top-bar{display:none !important}
+    .booking-bar{grid-template-columns:1fr !important;border-radius:8px}
+    .booking-bar > div{border-right:none !important;border-bottom:1px solid rgba(31,26,20,0.08)}
+    .booking-bar > div:last-child{border-bottom:none}
+    .float-btn{width:48px !important;height:48px !important}
+    .float-btn svg{width:22px !important;height:22px !important}
+    .chat-panel{width:calc(100vw - 24px) !important;max-width:360px;height:440px !important}
+    .concierge-bubble{max-width:260px !important;padding:12px 16px !important}
+    .concierge-avatar{width:48px !important;height:48px !important}
+    #heroDesc{display:none !important}
+    #acasa .reveal{margin-top:-48px !important;margin-left:27px !important}
+    #acasa .display{margin-left:-23px !important;margin-top:38px !important}
+  }
+  @media(max-width:480px){
+    body{padding-top:48px !important}
+    #conciergeBubble{display:none !important}
+    .display{font-size:clamp(34px,8.5vw,50px) !important;white-space:nowrap !important}
+    .room-card .p-6{padding:16px !important}
+    .room-card .serif.text-xl{font-size:16px !important}
+    .eyebrow{font-size:10px !important;letter-spacing:0.18em !important}
+    .gold-rule{width:40px !important}
+    .btn-rezerva{padding:12px 20px !important;font-size:13px !important}
+    .btn-outline{padding:11px 20px !important;font-size:13px !important}
+    .award{padding:10px 14px !important}
+    .award .serif.text-2xl{font-size:18px !important}
+    .fixed.bottom-6.right-6{bottom:12px !important;right:12px !important}
+    #openChat{width:48px !important;height:48px !important;position:fixed !important;bottom:134px !important;right:27px !important;z-index:50 !important}
+    .booking-bar input[type="date"]::-webkit-calendar-picker-indicator{display:none !important}
+    .booking-bar input[type="date"]{-webkit-appearance:none !important;min-width:0 !important}
+    .booking-bar > div:nth-child(2){transform:translateX(-8px)}
+  }
+</style>
+</head>
+
+<body>
+
+<!-- =========== TOP UTILITY BAR =========== -->
+<div class="top-bar hidden md:block bg-ink text-white/90 text-xs">
+  <div class="max-w-[1280px] mx-auto px-6 h-9 flex items-center justify-between">
+    <div class="flex items-center gap-5">
+      <div class="flex items-center gap-1.5">
+        <span class="stars text-sm">★ ★ ★ ★</span>
+        <span class="ml-2 text-white/60">Boutique Hotel · Merano</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-5">
+      <a href="tel:+390473234567" class="hover:text-accent transition flex items-center gap-1.5">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92V21a1 1 0 0 1-1.11 1A19.86 19.86 0 0 1 2 4.11 1 1 0 0 1 3 3h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.29 1L6.5 11.5a16 16 0 0 0 6 6l2.75-2.3a1 1 0 0 1 1-.29l4 1a1 1 0 0 1 .75 1z"/></svg>
+        +39 0473 234 567
+      </a>
+      <a href="mailto:info@hotelclementina-merano.it" class="hover:text-accent transition">info@hotelclementina-merano.it</a>
+      <div class="flex items-center gap-3 text-white/70">
+        <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+      <div class="flex items-center gap-3 ml-2 text-white/60">
+        <button class="hover:text-white">IT</button>
+        <span class="text-white/30">|</span>
+        <button class="hover:text-white">EN</button>
+        <span class="text-white/30">|</span>
+        <button class="hover:text-white">DE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========== MAIN NAV =========== -->
+<header id="nav" class="sticky top-0 z-40 bg-cream/85 backdrop-blur-md border-b border-line">
+  <div class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <span class="w-11 h-11 rounded-full border border-ink/15 flex items-center justify-center serif text-lg font-medium">HC</span>
+      <div class="leading-tight">
+        <div class="serif text-lg font-medium tracking-tight">Hotel Clementina</div>
+        <div class="text-[10px] uppercase tracking-[0.2em] text-muted">Boutique · Merano</div>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-9 text-sm text-inkSoft">
+      <a href="#acasa" class="nav-link">Home</a>
+      <a href="#camere" class="nav-link">Camere</a>
+      <a href="#restaurant" class="nav-link">Ristorante</a>
+      <a href="#poveste" class="nav-link">La nostra storia</a>
+      <a href="#sinaia" class="nav-link">Merano</a>
+      <a href="#contact" class="nav-link">Contatti</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#prenota" class="hidden sm:inline-flex btn-rezerva text-sm">Prenota ora</a>
+      <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-full border border-line flex items-center justify-center" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-line bg-cream">
+    <div class="px-6 py-5 flex flex-col gap-4 text-inkSoft">
+      <a href="#acasa">Home</a>
+      <a href="#camere">Camere</a>
+      <a href="#restaurant">Ristorante</a>
+      <a href="#poveste">La nostra storia</a>
+      <a href="#sinaia">Merano</a>
+      <a href="#contact">Contatti</a>
+      <a href="#prenota" class="btn-rezerva text-center text-sm">Prenota ora</a>
+    </div>
+  </div>
+</header>
+
+<!-- =========== HERO =========== -->
+<section id="acasa" class="relative bg-cover bg-center" style="background-image: url('../images/night_by_the_pool.png');">
+  <div class="relative h-[75vh] min-h-[520px] hero-img-fallback bg-cover bg-center" style="background-image: url('../images/night_by_the_pool.png');">
+    <div class="absolute hero-overlay" style="top:0;left:0;right:0;bottom:-100px;pointer-events:none;z-index:1;"></div>
+
+    <div class="relative max-w-[1280px] mx-auto px-6 h-full flex flex-col justify-center pt-[67px] pb-24 pl-[43px]">
+      <div class="max-w-2xl text-white reveal">
+        <div class="eyebrow text-accent" style="color: #F2C9B5;">Benvenuti nel cuore di Merano</div>
+        <h1 class="display mt-5 text-[clamp(48px,7vw,96px)] font-light leading-[0.98] tracking-[-0.025em]">
+          Eleganza <em class="italic font-light text-white/90">tra le montagne</em>
+        </h1>
+        <p id="heroDesc" class="mt-7 text-lg text-white/80 max-w-2xl leading-relaxed">
+          Quattro stelle, ventiquattro camere, il ristorante Il Pino Verde e una reception che risponde in pochi secondi — anche di notte.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking widget overlapping -->
+  <div id="prenota" class="relative -mt-14 z-10 max-w-[1080px] mx-auto px-6">
+    <div class="booking-bar grid grid-cols-2 lg:grid-cols-5 gap-0">
+      <div class="p-5 lg:p-6 border-b lg:border-b-0 lg:border-r border-line">
+        <label>Arrivo</label>
+        <div class="mt-1 flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="text-muted"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <input type="date" id="checkin" class="serif text-base">
+        </div>
+      </div>
+      <div class="p-5 lg:p-6 border-b lg:border-b-0 lg:border-r border-line">
+        <label>Partenza</label>
+        <div class="mt-1 flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="text-muted"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <input type="date" id="checkout" class="serif text-base">
+        </div>
+      </div>
+      <div class="p-5 lg:p-6 border-b lg:border-b-0 lg:border-r border-line">
+        <label>Adulti</label>
+        <select class="serif text-base mt-1">
+          <option>1 adulto</option>
+          <option selected>2 adulti</option>
+          <option>3 adulti</option>
+          <option>4 adulti</option>
+        </select>
+      </div>
+      <div class="p-5 lg:p-6 border-b lg:border-b-0 lg:border-r border-line">
+        <label>Bambini</label>
+        <select class="serif text-base mt-1">
+          <option selected>Nessun bambino</option>
+          <option>1 bambino</option>
+          <option>2 bambini</option>
+          <option>3 bambini</option>
+        </select>
+      </div>
+      <div class="col-span-2 lg:col-span-1 p-3 lg:p-3 flex">
+        <button class="btn-rezerva w-full text-sm" onclick="document.getElementById('camere').scrollIntoView({behavior:'smooth'})">
+          Cerca disponibilit&agrave;
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== ROOMS =========== -->
+<section id="camere" class="py-24 bg-creamSoft">
+  <div class="max-w-[1280px] mx-auto px-6">
+    <div class="text-center reveal">
+      <div class="eyebrow">Le nostre camere</div>
+      <div class="gold-rule mx-auto mt-6"></div>
+      <h2 class="display mt-7 text-[clamp(34px,4.5vw,56px)] font-light tracking-[-0.02em]">
+        Suite e camere <em class="italic">Hotel Clementina</em>
+      </h2>
+      <p class="mt-5 text-muted max-w-xl mx-auto">
+        Ogni camera ha la sua personalita — letto king-size, legno naturale, coperta calda, vista sulle montagne o sul bosco di abeti.
+      </p>
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 1 -->
+      <article class="room-card reveal">
+        <a href="#camera-standard" class="block">
+          <div class="img room-img-fallback" style="background-image: url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900&q=85&auto=format&fit=crop');"></div>
+          <div class="p-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="serif text-xl font-medium">Camera Classic</h3>
+              <div class="text-right">
+                <div class="serif text-lg">145 <span class="text-sm text-muted">&euro;</span></div>
+                <div class="text-[10px] uppercase tracking-widest text-subtle">/ notte</div>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-muted leading-relaxed">Camera doppia con letto king-size, ampia finestra sul bosco. 22 m². Colazione inclusa.</p>
+            <div class="mt-5 flex items-center justify-between">
+              <span class="text-xs text-subtle">2 ospiti · 1 letto</span>
+              <span class="btn-ghost text-sm">Scopri di piu</span>
+            </div>
+          </div>
+        </a>
+      </article>
+      <!-- 2 -->
+      <article class="room-card reveal">
+        <a href="#camera-pet" class="block">
+          <div class="img room-img-fallback" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=85&auto=format&fit=crop');"></div>
+          <div class="p-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="serif text-xl font-medium">Camera Pet Friendly</h3>
+              <div class="text-right">
+                <div class="serif text-lg">165 <span class="text-sm text-muted">&euro;</span></div>
+                <div class="text-[10px] uppercase tracking-widest text-subtle">/ notte</div>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-muted leading-relaxed">Per gli ospiti con animali domestici. Cuccia, ciotola e coperta incluse, senza costi nascosti.</p>
+            <div class="mt-5 flex items-center justify-between">
+              <span class="text-xs text-subtle">2 ospiti · animali OK</span>
+              <span class="btn-ghost text-sm">Scopri di piu</span>
+            </div>
+          </div>
+        </a>
+      </article>
+      <!-- 3 -->
+      <article class="room-card reveal">
+        <a href="#camera-deluxe" class="block">
+          <div class="img room-img-fallback" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=85&auto=format&fit=crop');"></div>
+          <div class="p-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="serif text-xl font-medium">Camera Deluxe con Balcone</h3>
+              <div class="text-right">
+                <div class="serif text-lg">210 <span class="text-sm text-muted">&euro;</span></div>
+                <div class="text-[10px] uppercase tracking-widest text-subtle">/ notte</div>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-muted leading-relaxed">Camera spaziosa, 30 m², balcone privato con vista sulle montagne. Vasca freestanding, accappatoi inclusi.</p>
+            <div class="mt-5 flex items-center justify-between">
+              <span class="text-xs text-subtle">2 ospiti · balcone</span>
+              <span class="btn-ghost text-sm">Scopri di piu</span>
+            </div>
+          </div>
+        </a>
+      </article>
+      <!-- 4 -->
+      <article class="room-card reveal">
+        <a href="#romantic" class="block">
+          <div class="img room-img-fallback" style="background-image: url('https://images.unsplash.com/photo-1591088398332-8a7791972843?w=900&q=85&auto=format&fit=crop');"></div>
+          <div class="p-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="serif text-xl font-medium">Camera Romantica</h3>
+              <div class="text-right">
+                <div class="serif text-lg">240 <span class="text-sm text-muted">&euro;</span></div>
+                <div class="text-[10px] uppercase tracking-widest text-subtle">/ notte</div>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-muted leading-relaxed">Camera con jacuzzi in camera, caminetto e bottiglia di prosecco all'arrivo. Per anniversari e proposte di matrimonio.</p>
+            <div class="mt-5 flex items-center justify-between">
+              <span class="text-xs text-subtle">2 ospiti · jacuzzi</span>
+              <span class="btn-ghost text-sm">Scopri di piu</span>
+            </div>
+          </div>
+        </a>
+      </article>
+      <!-- 5 -->
+      <article class="room-card reveal">
+        <a href="#innsbruck" class="block">
+          <div class="img room-img-fallback" style="background-image: url('https://images.unsplash.com/photo-1601565415267-724db0e9fbd3?w=900&q=85&auto=format&fit=crop');"></div>
+          <div class="p-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="serif text-xl font-medium">Suite Alpina</h3>
+              <div class="text-right">
+                <div class="serif text-lg">310 <span class="text-sm text-muted">&euro;</span></div>
+                <div class="text-[10px] uppercase tracking-widest text-subtle">/ notte</div>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-muted leading-relaxed">Suite alpina in legno naturale, caminetto e sauna privata. Perfetta per due notti di relax.</p>
+            <div class="mt-5 flex items-center justify-between">
+              <span class="text-xs text-subtle">2 ospiti · sauna</span>
+              <span class="btn-ghost text-sm">Scopri di piu</span>
+            </div>
+          </div>
+        </a>
+      </article>
+      <!-- 6 -->
+      <article class="room-card reveal">
+        <a href="#aspen" class="block">
+          <div class="img room-img-fallback" style="background-image: url('https://images.unsplash.com/photo-1611048267451-e6ed903d4a38?w=900&q=85&auto=format&fit=crop');"></div>
+          <div class="p-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="serif text-xl font-medium">Appartamento Panorama</h3>
+              <div class="text-right">
+                <div class="serif text-lg">390 <span class="text-sm text-muted">&euro;</span></div>
+                <div class="text-[10px] uppercase tracking-widest text-subtle">/ notte</div>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-muted leading-relaxed">Appartamento bilocale, 65 m², cucina attrezzata, terrazza privata. Ideale per famiglie e soggiorni lunghi.</p>
+            <div class="mt-5 flex items-center justify-between">
+              <span class="text-xs text-subtle">4 ospiti · 2 camere</span>
+              <span class="btn-ghost text-sm">Scopri di piu</span>
+            </div>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href="#" class="btn-outline inline-flex items-center gap-2 text-sm">Scopri tutte le 24 camere</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========== EXPERIENCE / WHY =========== -->
+<section class="py-24">
+  <div class="max-w-[1280px] mx-auto px-6">
+    <div class="text-center reveal">
+      <div class="eyebrow">Un'esperienza completa</div>
+      <div class="gold-rule mx-auto mt-6"></div>
+      <h2 class="display mt-7 text-[clamp(34px,4.5vw,56px)] font-light tracking-[-0.02em]">
+        Perche <em class="italic">Hotel Clementina</em>
+      </h2>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-12">
+      <div class="text-center reveal">
+        <div class="mx-auto w-14 h-14 rounded-full border border-line flex items-center justify-center text-accent">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5a8.5 8.5 0 1 1 17 0 8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21z"/></svg>
+        </div>
+        <h3 class="serif mt-5 text-xl font-medium">Risposta istantanea, sempre</h3>
+        <p class="mt-3 text-muted leading-relaxed">La nostra reception virtuale risponde in pochi secondi, nella tua lingua — anche di notte, nei weekend, in alta stagione.</p>
+      </div>
+      <div class="text-center reveal">
+        <div class="mx-auto w-14 h-14 rounded-full border border-line flex items-center justify-center text-accent">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 class="serif mt-5 text-xl font-medium">Colazione fatta in casa</h3>
+        <p class="mt-3 text-muted leading-relaxed">Confetture di montagna, formaggi locali, omelette con tartufo, caffe di specialita — tutto preparato dai nostri cuochi.</p>
+      </div>
+      <div class="text-center reveal">
+        <div class="mx-auto w-14 h-14 rounded-full border border-line flex items-center justify-center text-accent">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L4 7v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V7l-8-5z"/></svg>
+        </div>
+        <h3 class="serif mt-5 text-xl font-medium">A 5 minuti da Castel Tirolo</h3>
+        <p class="mt-3 text-muted leading-relaxed">Via degli Abeti, nella zona tranquilla di Merano. Castel Tirolo, le Terme e il centro — a pochi passi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== RESTAURANT =========== -->
+<section id="restaurant" class="py-24 bg-creamSoft">
+  <div class="max-w-[1280px] mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-6 reveal">
+        <div class="rounded-md overflow-hidden room-img-fallback aspect-[4/5]"
+             style="background-image: url('https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?w=1200&q=85&auto=format&fit=crop'); background-size:cover; background-position:center;"></div>
+      </div>
+      <div class="lg:col-span-6 reveal">
+        <div class="eyebrow">Ristorante Il Pino Verde</div>
+        <div class="gold-rule mt-5"></div>
+        <h2 class="display mt-6 text-[clamp(32px,4vw,52px)] font-light leading-[1.05] tracking-[-0.02em]">
+          Cucina <em class="italic">di montagna,</em><br/>con prodotti <em class="italic">locali.</em>
+        </h2>
+        <p class="mt-6 text-lg text-muted leading-[1.7]">
+          Il nostro ristorante offre colazione (07:00-11:00), pranzo e cena su prenotazione. Menu stagionale, con ricette tradizionali altoatesine rivisitate, vini dell'Alto Adige e formaggi di malga.
+        </p>
+        <div class="mt-8 grid grid-cols-2 gap-6 text-sm">
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.18em] text-subtle">Colazione</div>
+            <div class="serif text-lg mt-1">07:00 – 11:00</div>
+          </div>
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.18em] text-subtle">Cena</div>
+            <div class="serif text-lg mt-1">18:30 – 22:00</div>
+          </div>
+        </div>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a href="#contact" class="btn-rezerva text-sm">Prenota un tavolo</a>
+          <a href="#" class="btn-outline text-sm">Vedi il menu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== STORY =========== -->
+<section id="poveste" class="py-28">
+  <div class="max-w-[920px] mx-auto px-6 text-center reveal">
+    <div class="eyebrow">La nostra storia</div>
+    <div class="gold-rule mx-auto mt-6"></div>
+    <h2 class="display mt-7 text-[clamp(32px,4.2vw,52px)] font-light leading-[1.1] tracking-[-0.02em]">
+      <em class="italic">Boutique</em> non significa <em class="italic">piccolo.</em><br/>
+      Significa <em class="italic">attento.</em>
+    </h2>
+    <p class="mt-8 text-lg text-muted leading-[1.8]">
+      Abbiamo aperto l'Hotel Clementina quattordici anni fa, in una via fiancheggiata da abeti, a cinque minuti da Castel Tirolo. Allora avevamo otto camere e una sola idea chiara in mente: creare un luogo dove gli ospiti si sentissero a casa, ma meglio. Oggi abbiamo ventiquattro camere, un ristorante con il nostro chef e una reception AI che risponde alle richieste in pochi secondi — ma l'attenzione per i dettagli e la stessa.
+    </p>
+    <p class="mt-6 text-lg text-muted leading-[1.8]">
+      Conosciamo ogni ospite per nome. Ricordiamo cosa hai chiesto l'ultima volta. Se ci chiedi un caffe alle 06:00, e pronto alle 06:00. Questo significa, per noi, ospitalita.
+    </p>
+    <div class="mt-10 flex justify-center items-center gap-3 text-sm text-muted">
+      <div class="serif italic">— Famiglia Hofer</div>
+      <span class="text-subtle">·</span>
+      <div>Fondatori, Hotel Clementina</div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== AWARDS =========== -->
+<section class="py-16 border-y border-line">
+  <div class="max-w-[1280px] mx-auto px-6">
+    <div class="text-center mb-10 reveal">
+      <div class="eyebrow">Riconoscimenti</div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+      <div class="award text-center reveal">
+        <div class="serif text-2xl font-medium">9.4<span class="text-base text-muted">/10</span></div>
+        <div class="mt-1 text-xs text-muted uppercase tracking-widest">Booking.com</div>
+        <div class="text-[10px] text-subtle mt-1">Eccezionale · 412 recensioni</div>
+      </div>
+      <div class="award text-center reveal">
+        <div class="serif text-2xl font-medium">★ ★ ★ ★ ★</div>
+        <div class="mt-1 text-xs text-muted uppercase tracking-widest">Tripadvisor</div>
+        <div class="text-[10px] text-subtle mt-1">Travellers' Choice · 2024</div>
+      </div>
+      <div class="award text-center reveal">
+        <div class="serif text-2xl font-medium">9.6<span class="text-base text-muted">/10</span></div>
+        <div class="mt-1 text-xs text-muted uppercase tracking-widest">Google</div>
+        <div class="text-[10px] text-subtle mt-1">186 recensioni</div>
+      </div>
+      <div class="award text-center reveal">
+        <div class="serif text-2xl font-medium">Premio</div>
+        <div class="mt-1 text-xs text-muted uppercase tracking-widest">Alto Adige Hospitality</div>
+        <div class="text-[10px] text-subtle mt-1">Best Boutique 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== TESTIMONIALS =========== -->
+<section class="py-24 bg-creamSoft">
+  <div class="max-w-[1280px] mx-auto px-6">
+    <div class="text-center reveal">
+      <div class="eyebrow">Cosa dicono gli ospiti</div>
+      <div class="gold-rule mx-auto mt-6"></div>
+      <h2 class="display mt-7 text-[clamp(32px,4vw,52px)] font-light tracking-[-0.02em]">
+        <em class="italic">Le loro parole,</em> non le nostre.
+      </h2>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-7">
+      <figure class="bg-paper rounded-md p-8 border border-line shadow-card reveal">
+        <div class="stars text-base">★ ★ ★ ★ ★</div>
+        <blockquote class="serif italic mt-5 text-xl leading-[1.5] text-inkSoft">&laquo;Siamo arrivati alle 23:30 con il bambino addormentato e ci hanno accolto con te caldo e una coperta morbida. Questo non si dimentica.&raquo;</blockquote>
+        <figcaption class="mt-6 text-sm">
+          <div class="font-medium">Giulia & Marco</div>
+          <div class="text-subtle text-xs mt-1">Milano · Dicembre 2024</div>
+        </figcaption>
+      </figure>
+      <figure class="bg-paper rounded-md p-8 border border-line shadow-card reveal">
+        <div class="stars text-base">★ ★ ★ ★ ★</div>
+        <blockquote class="serif italic mt-5 text-xl leading-[1.5] text-inkSoft">&laquo;Camera Deluxe con balcone — vista diretta sulle montagne. Colazione con confettura di mirtilli, omelette al tartufo. Torniamo a marzo.&raquo;</blockquote>
+        <figcaption class="mt-6 text-sm">
+          <div class="font-medium">Anna Bianchi</div>
+          <div class="text-subtle text-xs mt-1">Bolzano · Ottobre 2024</div>
+        </figcaption>
+      </figure>
+      <figure class="bg-paper rounded-md p-8 border border-line shadow-card reveal">
+        <div class="stars text-base">★ ★ ★ ★ ★</div>
+        <blockquote class="serif italic mt-5 text-xl leading-[1.5] text-inkSoft">&laquo;Ho scritto su WhatsApp alle 02:00 di notte, mi hanno risposto subito con la disponibilita per il weekend. Professionalita vera.&raquo;</blockquote>
+        <figcaption class="mt-6 text-sm">
+          <div class="font-medium">Luca T.</div>
+          <div class="text-subtle text-xs mt-1">Trento · Gennaio 2025</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =========== SINAIA / LOCATION =========== -->
+<section id="sinaia" class="py-24">
+  <div class="max-w-[1280px] mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-14 items-start">
+      <div class="lg:col-span-5 reveal">
+        <div class="eyebrow">Scopri Merano</div>
+        <div class="gold-rule mt-5"></div>
+        <h2 class="display mt-6 text-[clamp(32px,4vw,52px)] font-light leading-[1.05] tracking-[-0.02em]">
+          La perla <em class="italic">dell'Alto Adige</em><br/>a due passi.
+        </h2>
+        <p class="mt-6 text-lg text-muted leading-[1.7]">
+          Castel Tirolo, le Terme di Merano, i Giardini di Sissi, il centro storico con i Portici — tutto a massimo 10 minuti a piedi o in auto.
+        </p>
+        <div class="mt-8 space-y-4 text-inkSoft">
+          <div class="flex items-baseline gap-4 border-b border-line pb-3">
+            <span class="serif text-base text-muted w-20">5 min</span>
+            <span class="flex-1">Castel Tirolo</span>
+          </div>
+          <div class="flex items-baseline gap-4 border-b border-line pb-3">
+            <span class="serif text-base text-muted w-20">8 min</span>
+            <span class="flex-1">Terme di Merano</span>
+          </div>
+          <div class="flex items-baseline gap-4 border-b border-line pb-3">
+            <span class="serif text-base text-muted w-20">3 min</span>
+            <span class="flex-1">Centro storico & Portici</span>
+          </div>
+          <div class="flex items-baseline gap-4 border-b border-line pb-3">
+            <span class="serif text-base text-muted w-20">10 min</span>
+            <span class="flex-1">Giardini di Castel Trauttmansdorff</span>
+          </div>
+          <div class="flex items-baseline gap-4">
+            <span class="serif text-base text-muted w-20">30 min</span>
+            <span class="flex-1">Aeroporto di Bolzano</span>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-7 reveal">
+        <div class="aspect-[5/4] rounded-md overflow-hidden room-img-fallback"
+             style="background-image: url('https://images.unsplash.com/photo-1549294413-26f195200c16?w=1600&q=85&auto=format&fit=crop'); background-size:cover; background-position:center;"></div>
+        <div class="mt-4 flex items-center justify-between text-sm text-muted">
+          <div>Via degli Abeti 11-15, Merano, Alto Adige</div>
+          <a href="https://www.google.com/maps/search/Merano+Alto+Adige" target="_blank" class="btn-ghost">Apri la mappa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== VOUCHERE =========== -->
+<section class="py-20 bg-ink text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-30 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1605346434674-a440ca4dc4c0?w=2000&q=85&auto=format&fit=crop'); filter: blur(2px);"></div>
+  <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(31,26,20,0.85), rgba(31,26,20,0.95));"></div>
+  <div class="relative max-w-[1080px] mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <div class="reveal">
+      <div class="eyebrow" style="color: #E5B59A;">Buoni regalo</div>
+      <h2 class="display mt-5 text-[clamp(28px,3.5vw,44px)] font-light leading-[1.1] tracking-[-0.02em]">
+        Regala <em class="italic">una notte</em> in montagna.
+      </h2>
+      <p class="mt-5 text-white/70 leading-[1.7]">
+        Buoni personalizzati, validi 12 mesi, consegnati in digitale o su carta crema con sigillo in ceralacca. Per anniversari, proposte di matrimonio, o semplicemente per qualcuno che lo merita.
+      </p>
+    </div>
+    <div class="reveal text-right">
+      <a href="#contact" class="btn-rezerva inline-flex items-center gap-2">Acquista un buono</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FAQ =========== -->
+<section class="py-24">
+  <div class="max-w-[920px] mx-auto px-6">
+    <div class="text-center reveal">
+      <div class="eyebrow">Domande frequenti</div>
+      <div class="gold-rule mx-auto mt-6"></div>
+      <h2 class="display mt-7 text-[clamp(28px,3.5vw,44px)] font-light tracking-[-0.02em]">Risposte rapide.</h2>
+    </div>
+    <div class="mt-12 space-y-3 reveal">
+      <details class="bg-paper border border-line rounded-md p-5" open>
+        <summary class="flex justify-between items-center gap-4">
+          <span class="serif text-lg font-medium">A che ora e il check-in?</span>
+          <span class="acc-icon text-accent text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-4 text-muted leading-relaxed">Check-in: dalle 14:00. Check-out: entro le 12:00. Per arrivi tardivi (dopo le 22:00), vi preghiamo di avvisarci — la reception AI vi aiutera con le istruzioni di accesso.</p>
+      </details>
+      <details class="bg-paper border border-line rounded-md p-5">
+        <summary class="flex justify-between items-center gap-4">
+          <span class="serif text-lg font-medium">Avete il parcheggio?</span>
+          <span class="acc-icon text-accent text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-4 text-muted leading-relaxed">Si, parcheggio gratuito nel cortile dell'hotel, videosorvegliato. Per SUV grandi e auto d'epoca, avvisateci in anticipo per il posto adatto.</p>
+      </details>
+      <details class="bg-paper border border-line rounded-md p-5">
+        <summary class="flex justify-between items-center gap-4">
+          <span class="serif text-lg font-medium">Accettate animali domestici?</span>
+          <span class="acc-icon text-accent text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-4 text-muted leading-relaxed">Si, nelle camere Pet Friendly. Cuccia, ciotola e coperta sono incluse. Nessun supplemento per animali sotto i 10 kg.</p>
+      </details>
+      <details class="bg-paper border border-line rounded-md p-5">
+        <summary class="flex justify-between items-center gap-4">
+          <span class="serif text-lg font-medium">Posso cancellare la prenotazione?</span>
+          <span class="acc-icon text-accent text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-4 text-muted leading-relaxed">Si, gratuitamente fino a 7 giorni prima dell'arrivo. Nei periodi di alta stagione (dicembre-gennaio), 14 giorni.</p>
+      </details>
+      <details class="bg-paper border border-line rounded-md p-5">
+        <summary class="flex justify-between items-center gap-4">
+          <span class="serif text-lg font-medium">Come rispondete cosi velocemente?</span>
+          <span class="acc-icon text-accent text-2xl leading-none">+</span>
+        </summary>
+        <p class="mt-4 text-muted leading-relaxed">Abbiamo una reception AI addestrata su tutto cio che riguarda l'Hotel Clementina. Risponde alle richieste in pochi secondi, nella vostra lingua, a qualsiasi ora. Per i casi delicati, la reception umana prende in carico la conversazione.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CONTACT =========== -->
+<section id="contact" class="py-24 bg-creamSoft">
+  <div class="max-w-[1280px] mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-5 reveal">
+        <div class="eyebrow">Contatti</div>
+        <div class="gold-rule mt-5"></div>
+        <h2 class="display mt-6 text-[clamp(32px,4vw,52px)] font-light leading-[1.05] tracking-[-0.02em]">
+          Siamo <em class="italic">qui</em><br/>per voi.
+        </h2>
+        <p class="mt-5 text-muted leading-[1.7]">
+          Chiamateci, scriveteci su WhatsApp o usate la reception AI nell'angolo in basso a destra dello schermo. Rispondiamo subito.
+        </p>
+
+        <div class="mt-9 space-y-5">
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.18em] text-subtle">Telefono</div>
+            <a href="tel:+390473234567" class="serif text-2xl font-medium hover:text-accent">+39 0473 234 567</a>
+          </div>
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.18em] text-subtle">E-mail</div>
+            <a href="mailto:info@hotelclementina-merano.it" class="serif text-lg font-medium hover:text-accent">info@hotelclementina-merano.it</a>
+          </div>
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.18em] text-subtle">Indirizzo</div>
+            <div class="serif text-lg">Via degli Abeti 11-15<br/>Merano, Alto Adige, Italia</div>
+          </div>
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.18em] text-subtle">Reception</div>
+            <div class="serif text-lg">Aperta 24/7 · AI + umana</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 reveal">
+        <form class="bg-paper rounded-md p-7 border border-line shadow-card" onsubmit="event.preventDefault(); document.getElementById('formMsg').classList.remove('hidden');">
+          <div class="serif text-2xl font-medium">Scriveteci qualche riga</div>
+          <p class="text-sm text-muted mt-2">Vi rispondiamo entro 30 minuti, dalle 08:00 alle 22:00.</p>
+          <div class="grid sm:grid-cols-2 gap-4 mt-7">
+            <div>
+              <label class="text-[11px] uppercase tracking-[0.18em] text-subtle">Nome</label>
+              <input required type="text" placeholder="Anna Bianchi" class="w-full mt-2 px-3 py-2.5 border border-line rounded-md bg-cream serif outline-none focus:border-accent" />
+            </div>
+            <div>
+              <label class="text-[11px] uppercase tracking-[0.18em] text-subtle">Telefono</label>
+              <input required type="tel" placeholder="+39 ..." class="w-full mt-2 px-3 py-2.5 border border-line rounded-md bg-cream serif outline-none focus:border-accent" />
+            </div>
+          </div>
+          <div class="mt-4">
+            <label class="text-[11px] uppercase tracking-[0.18em] text-subtle">E-mail</label>
+            <input required type="email" placeholder="anna@esempio.it" class="w-full mt-2 px-3 py-2.5 border border-line rounded-md bg-cream serif outline-none focus:border-accent" />
+          </div>
+          <div class="mt-4">
+            <label class="text-[11px] uppercase tracking-[0.18em] text-subtle">Messaggio</label>
+            <textarea rows="4" placeholder="Vorremmo prenotare una camera Deluxe per il weekend del 14-16 marzo..." class="w-full mt-2 px-3 py-2.5 border border-line rounded-md bg-cream serif outline-none focus:border-accent"></textarea>
+          </div>
+          <div class="mt-6 flex flex-wrap items-center gap-4">
+            <button type="submit" class="btn-rezerva text-sm">Invia il messaggio</button>
+            <span class="text-xs text-subtle">I vostri dati restano con noi. Conforme al GDPR.</span>
+          </div>
+          <div id="formMsg" class="hidden mt-5 p-4 rounded-md bg-accentSoft text-accent text-sm">
+            Messaggio inviato. Grazie! Vi contatteremo presto.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FOOTER =========== -->
+<footer class="bg-ink text-white/80">
+  <div class="max-w-[1280px] mx-auto px-6 py-16 grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-5">
+      <div class="flex items-center gap-3">
+        <span class="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center serif text-lg font-medium">HC</span>
+        <div class="leading-tight">
+          <div class="serif text-lg font-medium tracking-tight text-white">Hotel Clementina</div>
+          <div class="text-[10px] uppercase tracking-[0.2em] text-white/50">Boutique · Merano</div>
+        </div>
+      </div>
+      <p class="mt-5 text-sm text-white/55 max-w-md leading-relaxed">
+        Hotel boutique quattro stelle, nel cuore di Merano. Ventiquattro camere, ristorante Il Pino Verde, reception AI 24/7.
+      </p>
+      <div class="stars mt-5">★ ★ ★ ★</div>
+    </div>
+    <div class="md:col-span-2">
+      <div class="text-[11px] uppercase tracking-[0.18em] text-white/45">Hotel</div>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        <li><a href="#camere" class="hover:text-accent">Camere</a></li>
+        <li><a href="#restaurant" class="hover:text-accent">Ristorante</a></li>
+        <li><a href="#poveste" class="hover:text-accent">La nostra storia</a></li>
+        <li><a href="#" class="hover:text-accent">Buoni regalo</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-2">
+      <div class="text-[11px] uppercase tracking-[0.18em] text-white/45">Merano</div>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        <li><a href="#" class="hover:text-accent">Attrazioni</a></li>
+        <li><a href="#" class="hover:text-accent">Sentieri</a></li>
+        <li><a href="#" class="hover:text-accent">Ristoranti</a></li>
+        <li><a href="#" class="hover:text-accent">Eventi</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-3">
+      <div class="text-[11px] uppercase tracking-[0.18em] text-white/45">Contatto rapido</div>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        <li><a href="tel:+390473234567" class="hover:text-accent">+39 0473 234 567</a></li>
+        <li><a href="mailto:info@hotelclementina-merano.it" class="hover:text-accent">info@hotelclementina-merano.it</a></li>
+        <li class="text-white/55">Via degli Abeti 11-15, Merano</li>
+      </ul>
+      <div class="mt-5 flex items-center gap-3">
+        <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center hover:border-accent hover:text-accent transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center hover:border-accent hover:text-accent transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Tripadvisor" class="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center hover:border-accent hover:text-accent transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-[1280px] mx-auto px-6 py-6 flex flex-wrap justify-between items-center gap-3 text-xs text-white/40">
+      <div>&copy; 2026 Hotel Clementina · Tutti i diritti riservati.</div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white">Termini e condizioni</a>
+        <a href="#" class="hover:text-white">Privacy policy</a>
+        <a href="#" class="hover:text-white">GDPR</a>
+        <a href="#" class="hover:text-white">Cookies</a>
+      </div>
+      <div class="text-white/30 text-[11px]">Site &amp; AI · <a href="https://verissa.it" class="hover:text-accent">Verissa</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- =========== FLOATING BUTTONS =========== -->
+<div class="fixed right-6 z-50 flex flex-col items-end gap-3" style="bottom:60px">
+  <!-- AI chat panel (hidden by default) -->
+  <div id="chatPanel" class="hidden chat-panel w-[360px] max-w-[calc(100vw-32px)] h-[520px] mb-3">
+    <div class="px-5 py-4 border-b border-line flex items-center justify-between bg-cream">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-accentSoft border border-accent/30 flex items-center justify-center serif text-sm font-medium text-accent">HC</div>
+        <div>
+          <div class="serif text-sm font-medium">Reception Hotel Clementina</div>
+          <div class="text-[11px] text-muted flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>online · risponde in secondi</div>
+        </div>
+      </div>
+      <button id="closeChat" class="text-muted hover:text-ink" aria-label="Chiudi">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="chatStream" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
+    <div id="chatSuggestions" class="px-4 pb-3 flex flex-wrap gap-2"></div>
+    <form id="chatForm" class="border-t border-line p-3 flex gap-2 bg-cream">
+      <input id="chatInput" type="text" placeholder="Scrivi un messaggio..." class="flex-1 px-3 py-2 bg-paper border border-line rounded-md serif text-sm outline-none focus:border-accent" autocomplete="off" />
+      <button type="submit" class="btn-rezerva text-sm px-4 py-2 rounded-md">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2" fill="currentColor"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- Welcome bubble -->
+  <div id="conciergeBubble" style="background:#fff;color:var(--ink);border:1px solid rgba(31,26,20,0.10);box-shadow:0 16px 40px -10px rgba(31,26,20,0.25);border-radius:24px 24px 6px 24px;padding:14px 32px 14px 16px;max-width:240px;font-size:13px;line-height:1.5;opacity:0;pointer-events:none;position:relative;overflow:visible;">
+    Ciao! Sono Vera, la reception AI. Come posso aiutarti?
+    <button id="closeBubble" style="position:absolute;top:6px;right:8px;background:none;border:none;cursor:pointer;color:#999;font-size:14px;line-height:1;" aria-label="Chiudi">&times;</button>
+  </div>
+
+  <!-- AI chat trigger -->
+  <div class="concierge-wrap" style="position:relative;display:inline-block;">
+    <span class="float-pulse" style="position:absolute;inset:-5px;border-radius:50%;pointer-events:none;z-index:-1;"></span>
+    <button id="openChat" class="float-btn relative" style="background:var(--accent);padding:0;overflow:hidden;" aria-label="Reception AI">
+      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=96&h=96&fit=crop&crop=face" alt="Vera AI" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+      <span class="absolute -top-1 -right-1 bg-white text-[10px] font-bold text-accent rounded-full w-5 h-5 flex items-center justify-center shadow" style="z-index:3;">AI</span>
+    </button>
+  </div>
+</div>
+
+<!-- =========== JS =========== -->
+<script>
+  // ---- Mobile menu ----
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    document.body.classList.toggle('menu-open');
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden'); document.body.classList.remove('menu-open');
+  }));
+
+  // ---- Reveal on scroll ----
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ---- Default booking dates ----
+  function fmt(d){ return d.toISOString().slice(0,10); }
+  const today = new Date(); today.setDate(today.getDate()+7);
+  const out = new Date(today); out.setDate(out.getDate()+2);
+  document.getElementById('checkin').value = fmt(today);
+  document.getElementById('checkout').value = fmt(out);
+
+  // ---- AI Chat widget ----
+  const openChatBtn = document.getElementById('openChat');
+  const closeChatBtn = document.getElementById('closeChat');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatStream = document.getElementById('chatStream');
+  const chatForm = document.getElementById('chatForm');
+  const chatInput = document.getElementById('chatInput');
+  const chatSugg = document.getElementById('chatSuggestions');
+
+  const initialSuggestions = [
+    'Avete camere questo weekend?',
+    'Accettate animali?',
+    'Quanto costa la camera Deluxe?',
+    'A che ora e il check-in?'
+  ];
+
+  function bubble(who, text) {
+    const wrap = document.createElement('div');
+    wrap.className = (who === 'ai' ? 'ml-auto ' : '') + 'max-w-[85%]';
+    const b = document.createElement('div');
+    b.className = (who === 'ai' ? 'bubble-ai rounded-2xl rounded-tr-sm' : 'bubble-guest rounded-2xl rounded-tl-sm') + ' px-4 py-2.5 text-sm leading-relaxed';
+    b.textContent = text;
+    wrap.appendChild(b);
+    chatStream.appendChild(wrap);
+    chatStream.scrollTop = chatStream.scrollHeight;
+    return b;
+  }
+
+  function typingBubble() {
+    const wrap = document.createElement('div');
+    wrap.className = 'ml-auto max-w-[85%]';
+    const b = document.createElement('div');
+    b.className = 'bubble-ai rounded-2xl rounded-tr-sm px-4 py-3';
+    b.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+    wrap.appendChild(b);
+    chatStream.appendChild(wrap);
+    chatStream.scrollTop = chatStream.scrollHeight;
+    return wrap;
+  }
+
+  function reply(userMsg) {
+    const m = userMsg.toLowerCase();
+    if (/(disponibil|liber|camer|weekend|nott[ei])/i.test(userMsg) && /(weekend|settiman|nott[ei])/i.test(userMsg)) {
+      return 'Controllo subito... Si, per questo weekend abbiamo 4 camere libere — 1 Camera Deluxe con balcone (210 &euro;/notte), 2 camere Classic (145 &euro;) e una Camera Romantica (240 &euro;). Per quante persone?';
+    }
+    if (/(disponibil|liber|camer)/i.test(userMsg)) {
+      return 'Abbiamo camere disponibili nella maggior parte dei periodi. Per quali date siete interessati? E per quanti ospiti?';
+    }
+    if (/(animal|cane|gatt|pet)/i.test(userMsg)) {
+      return 'Si, accogliamo con piacere gli animali domestici! Abbiamo camere Pet Friendly a 165 &euro;/notte. Cuccia, ciotola e coperta incluse — nessun supplemento per animali sotto i 10 kg.';
+    }
+    if (/(deluxe|balcon|prezz|cost|tariff)/i.test(userMsg)) {
+      return 'Camera Deluxe con balcone: 210 &euro;/notte, colazione inclusa. 30 m&sup2;, vista sulle montagne, vasca freestanding e due accappatoi. Volete prenotarne una?';
+    }
+    if (/(check.?in|arriv|ora)/i.test(userMsg)) {
+      return 'Check-in: dalle 14:00. Per arrivi tardivi (dopo le 22:00), posso inviarvi le istruzioni di accesso — il codice della cassetta intelligente vi aspetta.';
+    }
+    if (/(parcheggi|auto|macchina)/i.test(userMsg)) {
+      return 'Parcheggio gratuito nel cortile dell\'hotel, videosorvegliato. Per SUV grandi, abbiamo posti dedicati — avvisatemi in anticipo e li riservo per voi.';
+    }
+    if (/(colazione|mangiare|ristorante)/i.test(userMsg)) {
+      return 'Colazione inclusa, servita dalle 07:00 alle 11:00 al ristorante Il Pino Verde — confetture di montagna, formaggi locali di malga, omelette al tartufo, caffe di specialita.';
+    }
+    if (/(prenot|booking|book)/i.test(userMsg)) {
+      return 'Con piacere! Per quali date e quante persone avete bisogno? Vi invio il link di prenotazione appena mi confermate.';
+    }
+    if (/(ciao|buongiorno|buonasera|salve|hello|hi)/i.test(userMsg)) {
+      return 'Buongiorno e benvenuti! Come posso aiutarvi — informazioni sulle camere, disponibilita o una prenotazione?';
+    }
+    return 'Subito — vi rispondo. Per dettagli specifici (date, numero di persone), vi prego di dirmi cosa vi interessa e verifico in pochi secondi.';
+  }
+
+  async function sendUser(text) {
+    chatSugg.innerHTML = '';
+    bubble('guest', text);
+    const t = typingBubble();
+    await new Promise(r => setTimeout(r, 700 + Math.random()*500));
+    t.remove();
+    bubble('ai', reply(text));
+  }
+
+  function renderSuggestions(list) {
+    chatSugg.innerHTML = '';
+    list.forEach(s => {
+      const b = document.createElement('button');
+      b.textContent = s;
+      b.className = 'text-xs px-3 py-1.5 rounded-full border border-line bg-paper hover:border-accent hover:text-accent transition';
+      b.addEventListener('click', () => sendUser(s));
+      chatSugg.appendChild(b);
+    });
+  }
+
+  let chatStarted = false;
+  function startChat() {
+    if (chatStarted) return;
+    chatStarted = true;
+    setTimeout(() => bubble('ai', 'Buongiorno! Sono la reception dell\'Hotel Clementina — vi rispondo subito, in qualsiasi lingua. Come posso aiutarvi?'), 300);
+    setTimeout(() => renderSuggestions(initialSuggestions), 1100);
+  }
+
+  // Welcome bubble — disabled
+  // setTimeout(() => {
+  //   const b = document.getElementById('conciergeBubble');
+  //   if (b) { b.style.opacity = '1'; }
+  // }, 500);
+  // document.getElementById('closeBubble')?.addEventListener('click', (e) => { e.stopPropagation(); const b = document.getElementById('conciergeBubble'); b.style.opacity = '0'; b.style.pointerEvents = 'none'; });
+
+  openChatBtn.addEventListener('click', () => {
+    chatPanel.classList.remove('hidden');
+    const b = document.getElementById('conciergeBubble'); if (b) { b.style.opacity = '0'; b.style.pointerEvents = 'none'; }
+    startChat();
+    chatInput.focus();
+  });
+  closeChatBtn.addEventListener('click', () => chatPanel.classList.add('hidden'));
+
+  chatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const v = chatInput.value.trim();
+    if (!v) return;
+    chatInput.value = '';
+    sendUser(v);
+  });
+</script>
+</body>
+</html>

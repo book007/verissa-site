@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#FBF7F0" />
+<title>Villa Thalassa — Wellness 5★ · Costa Smeralda</title>
+<meta name="description" content="Villa Thalassa — resort 5★ sulla Costa Smeralda. 18 suite vista mare, spa thalasso, ristorante con chef stellato. Programmi benessere di 3, 5 o 7 giorni." />
+<meta property="og:title" content="Villa Thalassa — Wellness 5★ · Costa Smeralda" />
+<meta property="og:locale" content="it_IT" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream:    '#FBF7F0',
+          paper:    '#FFFFFF',
+          warm:     '#F2EDE4',
+          ink:      '#1A2826',
+          inkSoft:  '#2A3D3A',
+          sub:      '#4F6360',
+          mist:     '#9C9A8E',
+          hairline: 'rgba(26,40,38,0.08)',
+          line:     'rgba(26,40,38,0.14)',
+          sage:     '#5C7F73',
+          sageDeep: '#3F5E54',
+          sageSoft: '#DCE5DF',
+          bronze:   '#B19058',
+          warning:  '#C4593F',
+        },
+        fontFamily: {
+          serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+          sans:  ['Inter', 'system-ui', 'sans-serif'],
+        },
+        boxShadow: {
+          luxe: '0 30px 60px -30px rgba(26,40,38,0.30)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root { --cream:#FBF7F0; --paper:#FFFFFF; --warm:#F2EDE4; --ink:#1A2826; --sage:#5C7F73; --sageDeep:#3F5E54; --bronze:#B19058; --mist:#9C9A8E; --warning:#C4593F; --hairline:rgba(26,40,38,0.08); --line:rgba(26,40,38,0.14); }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .display { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; letter-spacing: -0.012em; }
+  .display-it { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-style: italic; }
+
+  .hero-bg-fallback { background: linear-gradient(160deg, #0B1D3A 0%, #163B5C 40%, #1A2826 100%); }
+  .img-fallback { background: linear-gradient(135deg, #B5C4BD 0%, #6B8A82 60%, #3F5E54 100%); }
+  .hero-overlay { background: linear-gradient(180deg, rgba(11,29,58,0.35) 0%, rgba(11,29,58,0.05) 30%, rgba(11,29,58,0.15) 55%, rgba(11,29,58,0.70) 100%); }
+
+  /* Luxury hero ambient glow */
+  .hero-glow { position:absolute; width:600px; height:600px; border-radius:50%; filter:blur(120px); opacity:0.12; pointer-events:none; }
+  .hero-glow-gold { background:radial-gradient(circle,#B19058,transparent 70%); top:20%; right:10%; }
+  .hero-glow-teal { background:radial-gradient(circle,#4AC6B7,transparent 70%); bottom:15%; left:8%; }
+
+  /* Glassmorphism booking card */
+  .glass-booking { background:rgba(255,255,255,0.08); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid rgba(255,255,255,0.15); border-radius:16px; box-shadow:0 32px 64px -16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1); }
+  .glass-booking label { font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:#fff; font-weight:500; }
+  .glass-booking input, .glass-booking select { background:transparent; border:none; outline:none; font-family:'Cormorant Garamond',serif; color:#fff; width:100%; font-size:16px; }
+  .glass-booking input::placeholder { color:rgba(255,255,255,0.6); }
+  .glass-booking .glass-divider { width:1px; background:rgba(255,255,255,0.12); }
+
+  /* Trust pill */
+  .trust-pill { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:100px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.10); backdrop-filter:blur(8px); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,1); transition:all .3s ease; }
+  .trust-pill:hover { background:rgba(255,255,255,0.12); color:#fff; }
+
+  /* Luxury CTA */
+  .btn-luxury { background:linear-gradient(135deg,var(--bronze),#C9A66B); color:#fff; padding:16px 40px; border:none; border-radius:5px; letter-spacing:0.22em; text-transform:uppercase; font-size:11px; font-weight:500; cursor:pointer; transition:all .35s ease; box-shadow:0 12px 40px -8px rgba(177,144,88,0.4); }
+  .btn-luxury:hover { transform:translateY(-2px); box-shadow:0 16px 48px -8px rgba(177,144,88,0.55); }
+  .btn-glass { background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); color:#fff; border:1px solid rgba(255,255,255,0.25); border-radius:5px; padding:15px 40px; letter-spacing:0.22em; text-transform:uppercase; font-size:11px; font-weight:500; cursor:pointer; transition:all .35s ease; }
+  .btn-glass:hover { background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.4); }
+
+  /* Scroll indicator */
+  .scroll-line { width:1px; height:48px; background:rgba(255,255,255,1); animation:scrollPulse 2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%,100%{opacity:.4;transform:scaleY(1)} 50%{opacity:.8;transform:scaleY(1.15)} }
+
+  /* Hero text entrance */
+  @keyframes heroFadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:none} }
+  .hero-anim-1 { animation:heroFadeUp 1.2s cubic-bezier(.22,1,.36,1) .3s both; }
+  .hero-anim-2 { animation:heroFadeUp 1.2s cubic-bezier(.22,1,.36,1) .6s both; }
+  .hero-anim-3 { animation:heroFadeUp 1.2s cubic-bezier(.22,1,.36,1) .9s both; }
+  .hero-anim-4 { animation:heroFadeUp 1.2s cubic-bezier(.22,1,.36,1) 1.2s both; }
+  .hero-anim-5 { animation:heroFadeUp 1.2s cubic-bezier(.22,1,.36,1) 1.5s both; }
+
+  .gold-rule { width: 64px; height: 1px; background: var(--bronze); }
+  .gold-rule-faded { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(177,144,88,0.5), transparent); }
+  .eyebrow { color: var(--sage); font-size: 11px; font-weight: 500; letter-spacing: 0.34em; text-transform: uppercase; }
+
+  /* Buttons */
+  .btn-sage { background: var(--sage); color: #fff; padding: 14px 32px; transition: all .25s ease; letter-spacing: 0.22em; text-transform: uppercase; font-size: 11px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 12px; border: none; cursor: pointer; }
+  .btn-sage:hover { background: var(--sageDeep); }
+  .btn-sage:disabled { opacity: .5; cursor: not-allowed; }
+  .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--ink); padding: 13px 32px; transition: all .25s ease; letter-spacing: 0.22em; text-transform: uppercase; font-size: 11px; font-weight: 500; display: inline-flex; align-items: center; gap: 12px; cursor: pointer; }
+  .btn-outline:hover { background: var(--ink); color: var(--cream); }
+  .btn-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.5); padding: 13px 32px; transition: all .25s ease; letter-spacing: 0.22em; text-transform: uppercase; font-size: 11px; font-weight: 500; }
+  .btn-light:hover { background: #fff; color: var(--ink); border-color: #fff; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.2s ease, transform 1.2s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  .stat-num { font-family: 'Cormorant Garamond'; font-weight: 400; font-size: 56px; line-height: 1; letter-spacing: -0.015em; }
+  .stat-label { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mist); margin-top: 8px; }
+
+  /* Award badge */
+  .award-badge { display: inline-flex; flex-direction: column; align-items: center; padding: 14px 24px; border-top: 1px solid rgba(255,255,255,0.5); border-bottom: 1px solid rgba(255,255,255,0.5); color: #fff; text-align: center; }
+  .award-badge .a-mark { font-family: 'Cormorant Garamond'; font-style: italic; font-size: 13px; opacity: 0.85; }
+  .award-badge .a-num { font-family: 'Cormorant Garamond'; font-size: 36px; line-height: 1; margin: 4px 0 6px; }
+  .award-badge .a-text { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.85; }
+
+  /* Suite card */
+  .suite-img { aspect-ratio: 4/3; background-size: cover; background-position: center; }
+
+  /* Sticky bottom booking */
+
+  /* Drop cap */
+  .drop-cap::first-letter { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; float: left; font-size: 5em; line-height: 0.85; padding-right: 14px; padding-top: 6px; color: var(--sage); }
+  .pull-quote::before, .pull-quote::after { content: '"'; font-family: 'Cormorant Garamond'; color: var(--sage); font-style: italic; font-size: 1.4em; line-height: 0; vertical-align: -0.4em; }
+
+  /* Nav */
+  .nav-link { position: relative; padding: 6px 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); transition: color .25s ease; }
+  .nav-link:hover { color: var(--sage); }
+  .nav-ghost { background: transparent; }
+  .nav-ghost .nav-link, .nav-ghost .nav-brand { color: #fff; }
+  .nav-solid { background: rgba(251,247,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--hairline); }
+
+  /* Concierge bubble */
+  .concierge-bubble { background: #FFFFFF; color: #1A2826; border: 1px solid rgba(26,40,38,0.10); box-shadow: 0 24px 50px -16px rgba(26,40,38,0.30); border-radius: 24px 24px 6px 24px; position:relative; }
+  .concierge-bubble::after { content:''; position:absolute; bottom:-8px; right:16px; width:16px; height:16px; background:#FFFFFF; border-right:1px solid rgba(26,40,38,0.10); border-bottom:1px solid rgba(26,40,38,0.10); transform:rotate(45deg); border-radius:0 0 4px 0; }
+  .concierge-avatar { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; border: 3px solid var(--cream); box-shadow: 0 12px 32px -8px rgba(26,40,38,0.4); background-size: cover; background-position: center; cursor: pointer; }
+  .concierge-wrap { position: relative; display: inline-block; }
+  .concierge-wrap .pulse-glow { position:absolute; inset:-5px; border-radius:50%; border:2px solid rgba(255,255,255,0.45); animation:concierge-pulse 2s ease-in-out infinite; pointer-events:none; z-index:-1; }
+  @keyframes concierge-pulse { 0%,100% { transform:scale(1); opacity:0.6; box-shadow:0 0 0 0 rgba(255,255,255,0.3); } 50% { transform:scale(1.15); opacity:0; box-shadow:0 0 20px 4px rgba(255,255,255,0.15); } }
+
+  /* Chat panel — solid */
+  .chat-panel { background: #FFFFFF; border: 1px solid rgba(26,40,38,0.12); box-shadow: 0 40px 100px -20px rgba(26,40,38,0.45); display: flex; flex-direction: column; }
+  .chat-stream { background: #FFFFFF; }
+  .bubble-guest { background: #ECE7DD; color: #1A2826; }
+  .bubble-ai { background: #FFFFFF; border: 1px solid rgba(26,40,38,0.10); color: #1A2826; }
+  .typing-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(26,40,38,0.3); display: inline-block; animation: blink 1.4s infinite both; }
+  .typing-dot:nth-child(2) { animation-delay: .2s; }
+  .typing-dot:nth-child(3) { animation-delay: .4s; }
+  @keyframes blink { 0%,80%,100% { opacity: .2; } 40% { opacity: 1; } }
+
+  ::selection { background: rgba(92,127,115,0.3); color: var(--ink); }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: rgba(26,40,38,0.18); }
+
+  body.menu-open { overflow: hidden; }
+
+  /* ── PHONE MOCKUP RESPONSIVE ── */
+  @media(max-width:480px){
+    body{padding-top:48px !important}
+    #nav{top:48px !important}
+    .top-bar,.hidden.md\\:block{display:none !important}
+    .hero-overlay + div{padding-top:80px !important}
+    .hero-anim-1{margin-top:8px !important;transform:translateX(-4px) !important}
+    #nav .nav-brand{margin-left:-4px !important}
+    .hero-anim-2[style*="color:rgba(177"]{color:#D4B06A !important}
+    .hero-anim-2[style*="width:48px"]{background:linear-gradient(90deg,transparent,#D4B06A,transparent) !important;height:2px !important}
+    .hero-anim-4{transform:translateX(-4px) !important}
+    .display{font-size:clamp(28px,7vw,42px) !important}
+    .award-badge{padding:8px 14px !important}
+    .award-badge .a-num{font-size:24px !important}
+    .award-badge .a-text{font-size:8px !important}
+    .stat-num{font-size:36px !important}
+    .stat-label{font-size:8px !important}
+    .eyebrow{font-size:9px !important;letter-spacing:0.16em !important}
+    .gold-rule{width:36px !important}
+    .btn-sage,.btn-outline,.btn-light{padding:11px 20px !important;font-size:10px !important;letter-spacing:0.14em !important}
+    .suite-img{aspect-ratio:16/10 !important}
+    .concierge-avatar{width:48px !important;height:48px !important}
+    .concierge-bubble{max-width:220px !important;padding:10px 14px !important;font-size:13px !important}
+    #conciergeBubble{display:none !important}
+    #conciergeArea{bottom:217px !important;right:23px !important;left:auto !important}
+    .chat-panel{width:calc(100vw - 24px) !important;max-width:340px;height:420px !important}
+    .drop-cap::first-letter{font-size:3em !important}
+    .modal-body{padding:16px !important}
+    .avail-room{padding:12px !important}
+    .extra-row{gap:8px !important}
+    #scrollHint{display:flex !important;margin-top:-66px !important}
+  }
+
+  /* ===== BOOKING FUNNEL MODAL ===== */
+  .modal-overlay { position: fixed; inset: 0; z-index: 60; background: rgba(26,40,38,0.85); backdrop-filter: blur(10px); display: none; align-items: flex-start; justify-content: center; padding: 32px 16px 80px; overflow-y: auto; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--cream); width: 100%; max-width: 1200px; box-shadow: 0 60px 120px -20px rgba(0,0,0,0.5); animation: modal-in .35s cubic-bezier(.22,1,.36,1) both; }
+  @keyframes modal-in { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+  .modal-top { background: var(--paper); border-bottom: 1px solid var(--hairline); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; z-index: 5; }
+  .modal-close { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--hairline); background: var(--paper); transition: all .2s ease; cursor: pointer; flex-shrink: 0; }
+  .modal-close:hover { background: var(--ink); color: #fff; }
+  .modal-body { padding: 32px 32px 36px; }
+
+  /* 3-step arrow progress (ioana-style, refined) */
+  .step-arrow { display: flex; height: 50px; flex: 1; max-width: 720px; }
+  .step-arrow .seg { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; position: relative; padding: 0 22px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mist); background: var(--warm); border: 1px solid var(--hairline); transition: all .3s ease; }
+  .step-arrow .seg:not(:last-child) { clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%); margin-right: -16px; padding-right: 36px; }
+  .step-arrow .seg:not(:first-child) { padding-left: 30px; }
+  .step-arrow .seg.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .step-arrow .seg.done { background: var(--sage); color: #fff; border-color: var(--sage); }
+  .step-arrow .step-num { font-family: 'Cormorant Garamond'; font-size: 18px; font-style: italic; }
+  @media (max-width: 768px) {
+    .step-arrow { height: 44px; }
+    .step-arrow .seg { padding: 0 12px; font-size: 9px; letter-spacing: 0.1em; }
+    .step-arrow .seg .step-text { display: none; }
+    .step-arrow .seg:not(:last-child) { padding-right: 22px; }
+    .step-arrow .seg:not(:first-child) { padding-left: 18px; }
+  }
+
+  /* Trip summary header */
+  .trip-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; background: var(--paper); border: 1px solid var(--hairline); margin-bottom: 32px; flex-wrap: wrap; }
+
+  /* Available room card */
+  .avail-room { display: grid; grid-template-columns: 240px 1fr 200px; gap: 28px; padding: 24px; background: var(--paper); border: 1px solid var(--hairline); margin-bottom: 16px; align-items: stretch; transition: border-color .2s ease; }
+  .avail-room:hover { border-color: var(--sage); }
+  .avail-room .ar-img { aspect-ratio: 4/3; background-size: cover; background-position: center; }
+  .avail-room .ar-info h3 { font-family: 'Cormorant Garamond'; font-size: 26px; font-weight: 400; }
+  .avail-room .ar-meta { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mist); margin-top: 6px; }
+  .avail-room .ar-desc { font-size: 14px; color: var(--sub); line-height: 1.7; margin-top: 10px; }
+  .avail-room .ar-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .ar-tag { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; background: var(--sageSoft); color: var(--sageDeep); }
+  .ar-tag.warn { background: rgba(196,89,63,0.12); color: var(--warning); font-weight: 500; }
+  .avail-room .ar-price { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; }
+  .avail-room .ar-price .pn { font-size: 10px; color: var(--mist); letter-spacing: 0.18em; text-transform: uppercase; }
+  .avail-room .ar-price .pt { font-family: 'Cormorant Garamond'; font-size: 32px; line-height: 1; margin-top: 6px; }
+  .avail-room .ar-price .pl { font-size: 11px; color: var(--sub); margin-top: 4px; }
+  @media (max-width: 768px) {
+    .avail-room { grid-template-columns: 1fr; padding: 16px; }
+    .avail-room .ar-img { aspect-ratio: 16/10; }
+    .avail-room .ar-price { align-items: flex-start; gap: 12px; }
+  }
+
+  /* Promo code */
+  .promo-row { display: flex; gap: 0; max-width: 420px; margin-top: 24px; }
+  .promo-row input { flex: 1; padding: 12px 16px; border: 1px solid var(--line); background: var(--paper); font-family: 'Cormorant Garamond'; font-size: 16px; outline: none; }
+  .promo-row input:focus { border-color: var(--sage); }
+  .promo-row button { padding: 12px 24px; background: var(--ink); color: #fff; border: 1px solid var(--ink); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; }
+
+  /* Extras list */
+  .extra-row { display: grid; grid-template-columns: 96px 1fr 100px 110px; gap: 18px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--hairline); }
+  .extra-row .e-img { aspect-ratio: 1; background-size: cover; background-position: center; background-color: var(--warm); }
+  .extra-row h4 { font-family: 'Cormorant Garamond'; font-size: 19px; font-weight: 400; }
+  .extra-row .e-desc { font-size: 12px; color: var(--sub); line-height: 1.5; margin-top: 4px; }
+  .extra-row .e-price { text-align: right; font-family: 'Cormorant Garamond'; font-size: 18px; }
+  .extra-row .e-price small { font-size: 10px; color: var(--mist); letter-spacing: 0.16em; text-transform: uppercase; }
+  .qty-ctrl { display: inline-flex; align-items: center; border: 1px solid var(--line); background: var(--paper); }
+  .qty-ctrl button { width: 32px; height: 32px; background: transparent; border: none; cursor: pointer; font-size: 16px; color: var(--ink); }
+  .qty-ctrl button:hover { background: var(--warm); }
+  .qty-ctrl .qty-val { width: 32px; text-align: center; font-family: 'Cormorant Garamond'; font-size: 16px; }
+  @media (max-width: 768px) {
+    .extra-row { grid-template-columns: 80px 1fr; gap: 12px; }
+    .extra-row .e-price, .extra-row .qty-ctrl { grid-column: 2; justify-self: start; margin-top: 4px; }
+  }
+
+  /* Sticky sidebar */
+  .booking-sidebar { background: var(--paper); border: 1px solid var(--hairline); padding: 24px; position: sticky; top: 90px; }
+  .sb-header { font-family: 'Cormorant Garamond'; font-size: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--hairline); }
+  .sb-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 13px; align-items: baseline; }
+  .sb-row.muted { color: var(--mist); font-size: 12px; }
+  .sb-row.total { font-family: 'Cormorant Garamond'; font-size: 22px; padding-top: 14px; border-top: 1px solid var(--bronze); margin-top: 10px; }
+  .sb-section-label { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mist); margin: 16px 0 8px; }
+  .sb-pay-info { background: var(--warm); padding: 12px 14px; margin-top: 14px; }
+  .sb-pay-info .pl { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mist); }
+  .sb-pay-info .pa { font-family: 'Cormorant Garamond'; font-size: 26px; color: var(--sage); }
+
+  /* Field minimal */
+  .field-min { border-bottom: 1px solid var(--hairline); padding-bottom: 8px; }
+  .field-min label { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mist); font-weight: 500; display: block; }
+  .field-min input, .field-min textarea, .field-min select { width: 100%; background: transparent; border: none; outline: none; font-family: 'Cormorant Garamond'; font-size: 17px; color: var(--ink); margin-top: 6px; padding: 4px 0; resize: none; }
+
+  /* Payment option */
+  .pay-option { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 1px solid var(--hairline); cursor: pointer; transition: all .2s ease; background: var(--paper); }
+  .pay-option:hover { border-color: var(--mist); }
+  .pay-option.active { border-color: var(--sage); background: var(--sageSoft); }
+  .pay-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--mist); position: relative; flex-shrink: 0; }
+  .pay-option.active .pay-radio { border-color: var(--sage); }
+  .pay-option.active .pay-radio::after { content: ''; position: absolute; inset: 3px; background: var(--sage); border-radius: 50%; }
+
+  /* Voucher card chips */
+  .vc-chip { display: inline-flex; align-items: center; padding: 5px 10px; border: 1px solid var(--hairline); border-radius: 4px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; background: var(--paper); color: var(--sub); margin-right: 6px; font-weight: 600; }
+  .vc-chip.up { background: #FF7A00; color: #fff; border-color: #FF7A00; }
+  .vc-chip.pluxee { background: #5A40C2; color: #fff; border-color: #5A40C2; }
+  .vc-chip.eden { background: #E73C3E; color: #fff; border-color: #E73C3E; }
+
+  /* Success */
+  .success-icon { width: 72px; height: 72px; border-radius: 50%; background: var(--sage); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 36px; }
+
+  /* Checkbox */
+  .check-row { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; padding: 6px 0; }
+  .check-row input { width: 16px; height: 16px; margin-top: 3px; accent-color: var(--sage); }
+
+  /* Award stamp */
+  .award-stamp { border: 1px solid var(--hairline); padding: 14px 20px; background: var(--paper); text-align: center; }
+</style>
+</head>
+
+<body>
+
+<!-- TOP UTILITY -->
+<div class="hidden md:block bg-ink text-cream/85 text-[10px] tracking-[0.22em] uppercase">
+  <div class="max-w-[1400px] mx-auto px-8 h-9 flex items-center justify-between">
+    <div class="flex items-center gap-6"><span class="text-bronze font-medium">Forbes Travel Guide ★★★★★ · 2026</span></div>
+    <div class="flex items-center gap-7 text-cream/60">
+      <a href="tel:+390789555888" class="hover:text-bronze flex items-center gap-2"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92V21a1 1 0 0 1-1.11 1A19.86 19.86 0 0 1 2 4.11 1 1 0 0 1 3 3h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.29 1L6.5 11.5a16 16 0 0 0 6 6l2.75-2.3a1 1 0 0 1 1-.29l4 1a1 1 0 0 1 .75 1z"/></svg>+39 0789 555 888</a>
+      <span class="hover:text-bronze cursor-pointer">IT · EN · DE</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<header id="nav" class="fixed top-0 md:top-9 inset-x-0 z-40 nav-ghost transition-colors">
+  <div class="max-w-[1400px] mx-auto px-8 h-20 flex items-center justify-between">
+    <a href="#" class="nav-brand serif text-2xl tracking-[0.04em]"><span class="display-it">Villa</span> Thalassa</a>
+    <nav class="hidden lg:flex items-center gap-10">
+      <a href="#stay" class="nav-link">Suite</a>
+      <a href="#wellness" class="nav-link">Wellness</a>
+      <a href="#dine" class="nav-link">Ristorante</a>
+      <a href="#story" class="nav-link">Porto Cervo</a>
+      <a href="#visita" class="nav-link">Visita</a>
+    </nav>
+    <a href="#visita" class="nav-link border border-current px-5 py-2.5 hover:bg-current"><span class="hover:text-cream">Prenota</span></a>
+    <button id="menuBtn" class="lg:hidden text-current" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+  <div id="mobileMenu" class="hidden lg:hidden bg-cream text-ink border-t border-hairline">
+    <div class="px-8 py-6 flex flex-col gap-5 text-[11px] tracking-[0.22em] uppercase">
+      <a href="#stay">Suite</a><a href="#wellness">Wellness</a><a href="#dine">Ristorante</a>
+      <a href="#story">Porto Cervo</a><a href="#visita">Visita</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative h-screen min-h-[760px] overflow-hidden">
+  <!-- Cinematic background -->
+  <div class="absolute inset-0 hero-bg-fallback bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=2400&q=88&auto=format&fit=crop');"></div>
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <!-- Ambient glow effects -->
+  <div class="hero-glow hero-glow-gold"></div>
+  <div class="hero-glow hero-glow-teal"></div>
+
+  <div class="relative h-full max-w-[1400px] mx-auto px-8 flex flex-col justify-between pt-28 pb-10 text-white">
+
+    <!-- Trust indicators row -->
+    <div class="hero-anim-1 flex justify-center gap-3 flex-wrap" style="margin-top:-30px;margin-bottom:38px;">
+      <span class="trust-pill"><span style="color:var(--bronze);">★★★★★</span> Forbes 2026</span>
+      <span class="trust-pill">9.8 / 10 Google</span>
+      <span class="trust-pill">SLH Member</span>
+    </div>
+
+    <!-- Main content — cinematic center -->
+    <div class="flex flex-col items-center text-center" style="margin-top:0;">
+      <div class="hero-anim-2" style="color:rgba(177,144,88,0.85);font-size:11px;letter-spacing:0.38em;text-transform:uppercase;font-weight:500;">Costa Smeralda · Sardegna</div>
+      <div class="hero-anim-2 mx-auto mt-5" style="width:48px;height:1px;background:linear-gradient(90deg,transparent,rgba(177,144,88,0.6),transparent);"></div>
+
+      <h1 class="hero-anim-3 display mt-8 text-[clamp(52px,8.5vw,120px)] leading-[0.94] tracking-[-0.02em]" style="max-width:900px;">
+        Tra acque <span class="display-it">turchesi</span><br/>e lusso senza tempo.
+      </h1>
+
+      <div class="hero-anim-4 mt-10 flex flex-wrap justify-center gap-4" style="margin-top:78px;">
+        <a href="#stay" class="btn-luxury">Scopri le Suite</a>
+        <a href="#visita" class="btn-glass">Prenota il tuo soggiorno</a>
+      </div>
+    </div>
+
+    <!-- Bottom area: glassmorphism booking + scroll -->
+    <div class="hero-anim-5 flex flex-col items-center gap-8" style="margin-top:38px;">
+      <!-- Glass booking bar -->
+      <div class="glass-booking hidden md:grid grid-cols-[1fr_1px_1fr_1px_1fr_auto] items-center w-full max-w-[780px]">
+        <div class="px-5 py-4">
+          <label>Arrivo</label>
+          <input type="date" id="heroCheckin" style="color-scheme:dark;" />
+        </div>
+        <div class="glass-divider self-stretch my-3"></div>
+        <div class="px-5 py-4">
+          <label>Partenza</label>
+          <input type="date" id="heroCheckout" style="color-scheme:dark;" />
+        </div>
+        <div class="glass-divider self-stretch my-3"></div>
+        <div class="px-5 py-4">
+          <label>Ospiti</label>
+          <select id="heroGuests" style="color-scheme:dark;">
+            <option>1 ospite</option><option selected>2 ospiti</option><option>3 ospiti</option><option>4 ospiti</option>
+          </select>
+        </div>
+        <div class="px-3">
+          <button onclick="document.getElementById('checkin').value=document.getElementById('heroCheckin').value;document.getElementById('checkout').value=document.getElementById('heroCheckout').value;openAvailability();" class="btn-luxury" style="padding:14px 24px;font-size:10px;white-space:nowrap;">Cerca</button>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div id="scrollHint" class="hidden md:flex flex-col items-center gap-2">
+        <span style="font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(255,255,255,1);">Scorri</span>
+        <span class="scroll-line"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WELCOME -->
+<section id="stay" class="py-32 lg:py-44">
+  <div class="max-w-[1400px] mx-auto px-8 grid lg:grid-cols-12 gap-16 items-center">
+    <div class="lg:col-span-6 reveal">
+      <div class="eyebrow">Benvenuti in Sardegna</div>
+      <div class="gold-rule mt-6"></div>
+      <h2 class="display mt-8 text-[clamp(36px,4.5vw,64px)] leading-[1.05]">
+        Acque cristalline della Costa Smeralda.<br/>
+        Il sole del Mediterraneo.<br/>
+        <span class="display-it">Il vostro rifugio esclusivo.</span>
+      </h2>
+      <p class="drop-cap mt-10 text-[17px] leading-[1.85] text-sub">
+        Il Costa Smeralda è l'unico lago eliotermale naturale d'Europa — la sua acqua accumula il calore solare tra gli strati di diversa salinità, raggiungendo i 30°C in superficie e 60°C a tre metri di profondità. Il medico di Sardegna che lo riscoprì nel 1875 chiamava l'acqua "di miele", per la sua densità. Oggi, il nostro retreat è l'unica proprietà con accesso diretto al lago, più una spa marina per la terapia respiratoria invernale.
+      </p>
+      <p class="mt-6 text-[15px] leading-[1.85] text-sub">
+        Diciotto suite, ristorante con chef stellato Marco Ferrara, spa di 1.200 m², aromaterapia marina, programmi wellness 3–7 giorni con medico internista.
+      </p>
+    </div>
+    <div class="lg:col-span-6 reveal">
+      <div class="aspect-[4/5] img-fallback bg-cover bg-center shadow-luxe" style="background-image: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1400&q=88&auto=format&fit=crop');"></div>
+      <div class="mt-4 text-xs text-mist tracking-[0.18em] uppercase">— Piscina termale principale</div>
+    </div>
+  </div>
+
+  <div class="max-w-[1280px] mx-auto px-8 mt-24 reveal">
+    <div class="gold-rule-faded"></div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-14">
+      <div><div class="stat-num">18</div><div class="stat-label">Suite</div></div>
+      <div><div class="stat-num">1.200<span class="text-mist text-2xl"> m²</span></div><div class="stat-label">Spa Thalasso</div></div>
+      <div><div class="stat-num">3</div><div class="stat-label">Calette private</div></div>
+      <div><div class="stat-num">3·5·7</div><div class="stat-label">Programmi benessere</div></div>
+    </div>
+    <div class="gold-rule-faded"></div>
+  </div>
+</section>
+
+<!-- WELLNESS PREVIEW -->
+<section id="wellness" class="py-32 lg:py-44 bg-warm">
+  <div class="max-w-[1400px] mx-auto px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <div class="eyebrow">Programmi wellness</div>
+      <div class="gold-rule mx-auto mt-6"></div>
+      <h2 class="display mt-8 text-[clamp(36px,5vw,68px)] leading-[1.05]">
+        Trattamenti <span class="display-it">personalizzati.</span>
+      </h2>
+      <p class="serif mt-7 text-lg text-sub leading-[1.75] font-light">
+        Tutti i programmi includono consulto medico, piano personalizzato, thalassoterapia giornaliera, massaggi, aromaterapia e nutrizione supervisionata.
+      </p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-8">
+      <div class="bg-paper p-8 border border-hairline reveal">
+        <div class="display-it text-bronze text-2xl">i.</div>
+        <h3 class="display text-2xl mt-3">Detox & Reset · 3 giorni</h3>
+        <div class="text-xs text-mist tracking-[0.22em] uppercase mt-2">da €2.890 / pers.</div>
+        <p class="mt-5 text-sm text-sub leading-relaxed">Per chi ha bisogno di una pausa breve. Consulto medico, thalassoterapia giornaliera, due massaggi, aromaterapia, menù detox.</p>
+      </div>
+      <div class="bg-paper p-8 border border-hairline reveal" style="border-color: var(--sage);">
+        <div class="display-it text-bronze text-2xl">ii.</div>
+        <h3 class="display text-2xl mt-3">Thalassa Classic · 5 giorni</h3>
+        <div class="text-xs text-sage tracking-[0.22em] uppercase mt-2 font-semibold">il più scelto · €4.690 / pers.</div>
+        <p class="mt-5 text-sm text-sub leading-relaxed">Il nostro programma firma. Piano personalizzato, 5 massaggi, thalassoterapia giornaliera, acquagym e yoga mattutina sulla spiaggia.</p>
+      </div>
+      <div class="bg-paper p-8 border border-hairline reveal">
+        <div class="display-it text-bronze text-2xl">iii.</div>
+        <h3 class="display text-2xl mt-3">Profondo · 7 giorni</h3>
+        <div class="text-xs text-mist tracking-[0.22em] uppercase mt-2">da €6.890 / pers.</div>
+        <p class="mt-5 text-sm text-sub leading-relaxed">Per una trasformazione completa. Piano medico completo, terapie giornaliere, dieta supervisionata, valutazione finale e piano di proseguimento a casa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUITES -->
+<section class="py-32 lg:py-44">
+  <div class="max-w-[1400px] mx-auto px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <div class="eyebrow">Suite vista mare</div>
+      <div class="gold-rule mx-auto mt-6"></div>
+      <h2 class="display mt-8 text-[clamp(38px,5vw,72px)] leading-[1.05]">Diciotto suite,<br/><span class="display-it">sei categorie.</span></h2>
+    </div>
+
+    <div class="mt-20 grid md:grid-cols-2 gap-10 lg:gap-14">
+      <article class="reveal">
+        <div class="suite-img img-fallback shadow-luxe" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1600&q=88&auto=format&fit=crop');"></div>
+        <div class="mt-7 flex items-baseline gap-6">
+          <span class="display-it text-bronze text-2xl">i.</span>
+          <div class="flex-1"><h3 class="display text-3xl">Suite Smeraldo</h3><div class="text-xs tracking-[0.22em] uppercase text-mist mt-2">28 m² · letto king · vista mare</div></div>
+          <div class="text-right"><div class="serif text-2xl">950</div><div class="text-[10px] tracking-[0.22em] uppercase text-mist">/ notte</div></div>
+        </div>
+        <p class="mt-5 text-[15px] leading-[1.8] text-sub">Camera base, con piccolo balcone privato e vista diretta · Costa Smeralda. Letto king, accappatoio, ciabatte spa.</p>
+      </article>
+
+      <article class="reveal">
+        <div class="suite-img img-fallback shadow-luxe" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1600&q=88&auto=format&fit=crop');"></div>
+        <div class="mt-7 flex items-baseline gap-6">
+          <span class="display-it text-bronze text-2xl">ii.</span>
+          <div class="flex-1"><h3 class="display text-3xl">Suite Thalassa</h3><div class="text-xs tracking-[0.22em] uppercase text-mist mt-2">38 m² · jacuzzi privata · terrazza</div></div>
+          <div class="text-right"><div class="serif text-2xl">1.290</div><div class="text-[10px] tracking-[0.22em] uppercase text-mist">/ notte</div></div>
+        </div>
+        <p class="mt-5 text-[15px] leading-[1.8] text-sub">Suite con jacuzzi privata con vista mare, terrazza con lettino relax e panorama sulla costa.</p>
+      </article>
+
+      <article class="reveal">
+        <div class="suite-img img-fallback shadow-luxe" style="background-image: url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1600&q=88&auto=format&fit=crop');"></div>
+        <div class="mt-7 flex items-baseline gap-6">
+          <span class="display-it text-bronze text-2xl">iii.</span>
+          <div class="flex-1"><h3 class="display text-3xl">Suite Spa Mirto</h3><div class="text-xs tracking-[0.22em] uppercase text-mist mt-2">42 m² · sauna privata</div></div>
+          <div class="text-right"><div class="serif text-2xl">1.490</div><div class="text-[10px] tracking-[0.22em] uppercase text-mist">/ notte</div></div>
+        </div>
+        <p class="mt-5 text-[15px] leading-[1.8] text-sub">Appartamento wellness con sauna privata, vasca idromassaggio, terrazza con vista caletta.</p>
+      </article>
+
+      <article class="reveal">
+        <div class="suite-img img-fallback shadow-luxe" style="background-image: url('https://images.unsplash.com/photo-1601565415267-724db0e9fbd3?w=1600&q=88&auto=format&fit=crop');"></div>
+        <div class="mt-7 flex items-baseline gap-6">
+          <span class="display-it text-bronze text-2xl">iv.</span>
+          <div class="flex-1"><h3 class="display text-3xl">Penthouse Thalassa</h3><div class="text-xs tracking-[0.22em] uppercase text-mist mt-2">68 m² · spa privata · due camere da letto</div></div>
+          <div class="text-right"><div class="serif text-2xl">2.290</div><div class="text-[10px] tracking-[0.22em] uppercase text-mist">/ notte</div></div>
+        </div>
+        <p class="mt-5 text-[15px] leading-[1.8] text-sub">Il nostro penthouse, ultimo piano, con spa privata, terrazza di 30 m² e vista a 270° · Costa Smeralda e i monti Gurghiu.</p>
+      </article>
+    </div>
+
+    <div class="mt-20 text-center reveal">
+      <p class="serif italic text-mist">Ci sono altri quattordici appartamenti. Il nostro concierge vi consiglia quello più adatto al vostro profilo.</p>
+      <button onclick="openAvailability()" class="btn-outline mt-8">Verifica disponibilità</button>
+    </div>
+  </div>
+</section>
+
+<!-- DINING -->
+<section id="dine" class="relative bg-ink text-cream">
+  <div class="grid lg:grid-cols-2 min-h-[640px] lg:min-h-[760px]">
+    <div class="reveal img-fallback bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=88&auto=format&fit=crop');"></div>
+    <div class="reveal flex items-center px-8 lg:px-20 py-20 lg:py-0">
+      <div class="max-w-md">
+        <div class="eyebrow" style="color: var(--bronze);">Ristorante Il Mirto</div>
+        <div class="gold-rule mt-6"></div>
+        <h2 class="display mt-8 text-[clamp(36px,4.5vw,60px)] leading-[1.05]">
+          Cucina sotto <span class="display-it">sapori di Sardegna.</span>
+        </h2>
+        <p class="serif mt-8 text-lg text-cream/75 leading-[1.85] font-light">
+          Lo chef Marco Ferrara lavora con ingredienti del territorio — pesce fresco del Golfo di Arzachena, formaggi della Gallura, erbe selvatiche della macchia mediterranea. Menù stagionale, opzioni vegetariane e per allergie. Per i programmi benessere, dieta personalizzata con piano giornaliero.
+        </p>
+        <div class="mt-10 grid grid-cols-2 gap-x-8 gap-y-3 text-sm border-t border-cream/15 pt-8">
+          <div><div class="stat-label" style="color: rgba(251,247,240,0.5);">Colazione</div><div class="serif text-xl mt-1">07:00 · 10:30</div></div>
+          <div><div class="stat-label" style="color: rgba(251,247,240,0.5);">Cena</div><div class="serif text-xl mt-1">19:00 · 22:00</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story" class="py-32 lg:py-44">
+  <div class="max-w-[920px] mx-auto px-8 text-center reveal">
+    <div class="eyebrow">La nostra storia</div>
+    <div class="gold-rule mx-auto mt-6"></div>
+    <p class="display mt-12 text-[clamp(28px,3.5vw,46px)] leading-[1.35] pull-quote font-light italic">
+      Nel 1962, la famiglia Ferrara scoprì questa scogliera nascosta sulla Costa Smeralda. Ne fecero un rifugio esclusivo — dove il mare turchese incontra il granito rosa, come una cartolina che prende vita.
+    </p>
+    <div class="mt-10 text-xs tracking-[0.28em] uppercase text-mist">— Villa Thalassa · est. 1962</div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="py-16 border-y border-hairline">
+  <div class="max-w-[1400px] mx-auto px-8">
+    <div class="text-center mb-10 reveal"><div class="eyebrow">Riconoscimenti</div></div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center text-center">
+      <div class="award-stamp reveal"><div class="display text-2xl">★★★★★</div><div class="stat-label mt-2">Forbes Travel</div></div>
+      <div class="award-stamp reveal"><div class="display text-2xl">9.6<span class="text-mist text-base">/10</span></div><div class="stat-label mt-2">Booking · Eccezionale</div></div>
+      <div class="award-stamp reveal"><div class="display-it text-2xl text-bronze">SLH</div><div class="stat-label mt-2">Small Luxury Hotels</div></div>
+      <div class="award-stamp reveal"><div class="display text-2xl">9.8<span class="text-mist text-base">/10</span></div><div class="stat-label mt-2">Google · 318 recensioni</div></div>
+      <div class="award-stamp reveal"><div class="display text-xl">Best</div><div class="stat-label mt-2">Resort &amp; Spa 2025</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT / Concierge -->
+<section id="visita" class="py-32 lg:py-44 bg-ink text-cream">
+  <div class="max-w-[1100px] mx-auto px-8">
+    <div class="text-center reveal">
+      <div class="eyebrow" style="color: var(--bronze);">Concierge</div>
+      <div class="gold-rule mx-auto mt-6"></div>
+      <h2 class="display mt-8 text-[clamp(40px,5.5vw,76px)] leading-[1.05]">Vieni a <span class="display-it">conoscerci.</span></h2>
+      <p class="serif mt-8 text-lg text-cream/70 leading-[1.85] max-w-xl mx-auto font-light">
+        Per i programmi benessere consigliamo un consulto preliminare. Lasciateci qualche parola o utilizzate il pulsante "Prenota" per la prenotazione diretta.
+      </p>
+    </div>
+
+    <div class="mt-12 flex flex-wrap justify-center gap-4 reveal">
+      <button onclick="openAvailability()" class="btn-light">Verifica disponibilità</button>
+      <a href="tel:+390789555888" class="text-[11px] tracking-[0.22em] uppercase border-b border-cream/40 hover:border-bronze hover:text-bronze pb-1 transition self-center">+39 0789 555 888 · Sara, concierge</a>
+    </div>
+
+    <div class="mt-20 grid sm:grid-cols-3 gap-10 text-center reveal">
+      <div><div class="stat-label" style="color: var(--bronze);">Telefono</div><div class="display mt-3 text-2xl">+39 0789 555 888</div></div>
+      <div><div class="stat-label" style="color: var(--bronze);">E-mail</div><div class="display mt-3 text-2xl">sara@villathalassa.it</div></div>
+      <div><div class="stat-label" style="color: var(--bronze);">Indirizzo</div><div class="display mt-3 text-2xl">Porto Cervo · Sardegna</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-cream border-t border-hairline">
+  <div class="max-w-[1400px] mx-auto px-8 py-20 grid md:grid-cols-12 gap-12">
+    <div class="md:col-span-5">
+      <div class="serif text-2xl"><span class="display-it">Villa</span> Thalassa</div>
+      <div class="text-[10px] tracking-[0.32em] uppercase text-mist mt-3">Resort &amp; Spa · est. 1962</div>
+      <p class="mt-7 text-sm text-sub max-w-sm leading-[1.85]">Resort 5★ sulla Costa Smeralda. Forbes Travel Guide ★★★★★. Membro Small Luxury Hotels of the World.</p>
+    </div>
+    <div class="md:col-span-2"><div class="stat-label">Hotel</div><ul class="mt-5 space-y-3 text-sm"><li><a href="#stay" class="hover:text-sage">Suite</a></li><li><a href="#wellness" class="hover:text-sage">Wellness</a></li><li><a href="#dine" class="hover:text-sage">Ristorante</a></li><li><a href="#story" class="hover:text-sage">La storia</a></li></ul></div>
+    <div class="md:col-span-2"><div class="stat-label">Sardegna</div><ul class="mt-5 space-y-3 text-sm"><li><a href="#" class="hover:text-sage">Porto Cervo</a></li><li><a href="#" class="hover:text-sage">Cala di Volpe</a></li><li><a href="#" class="hover:text-sage">Arcipelago</a></li><li><a href="#" class="hover:text-sage">Escursioni</a></li></ul></div>
+    <div class="md:col-span-3"><div class="stat-label">Contatti</div><ul class="mt-5 space-y-3 text-sm"><li><a href="tel:+390789555888" class="hover:text-sage">+39 0789 555 888</a></li><li><a href="mailto:sara@villathalassa.it" class="hover:text-sage">sara@villathalassa.it</a></li><li class="text-sub">Loc. Cala di Volpe, Porto Cervo · Sardegna</li></ul></div>
+  </div>
+  <div class="border-t border-hairline">
+    <div class="max-w-[1400px] mx-auto px-8 py-6 flex flex-wrap justify-between items-center gap-3 text-[10px] tracking-[0.22em] uppercase text-mist">
+      <span>© 2026 Villa Thalassa Resort</span>
+      <div class="flex gap-6"><a href="#" class="hover:text-sage">Termini</a><a href="#" class="hover:text-sage">Privacy</a></div>
+      <span>Site &amp; AI · <a href="https://verissa.it" class="hover:text-sage">Verissa</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Hidden booking fields (IDs used by JS) -->
+<div style="display:none;">
+  <input type="date" id="checkin"/>
+  <input type="date" id="checkout"/>
+  <select id="bookingRoomFilter"><option>Tutte le categorie</option></select>
+  <select id="bookingGuests"><option>1 ospite</option><option selected>2 ospiti</option><option>3 ospiti</option><option>4 ospiti</option></select>
+</div>
+
+<!-- ============ CONCIERGE — Sara ============ -->
+<div id="conciergeArea" class="fixed z-40 left-6 md:left-auto md:right-8 bottom-24 md:bottom-28 flex flex-col items-end gap-3" style="margin-bottom:-12px;">
+  <div id="conciergeBubble" class="concierge-bubble p-4 pr-9 max-w-[280px]" style="opacity:0;pointer-events:none;">
+
+    <button id="closeBubble" class="absolute top-2 right-2 w-7 h-7 rounded-full hover:bg-warm text-mist" aria-label="Chiudi"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="serif italic text-base text-ink leading-snug">Buongiorno, sono Sara — concierge al Villa Thalassa. Come posso aiutarvi?</div>
+  </div>
+  <div class="concierge-wrap">
+    <span class="pulse-glow"></span>
+    <button id="openChat" class="concierge-avatar" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=85&auto=format&fit=crop');" aria-label="Chatta con Sara"></button>
+    <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-sage rounded-full border-2 border-cream" style="position:absolute;top:-4px;right:-4px;pointer-events:none;"></span>
+  </div>
+</div>
+
+<!-- ============ CHAT PANEL ============ -->
+<div id="chatPanel" class="hidden fixed z-50 bottom-24 md:bottom-28 right-6 w-[380px] max-w-[calc(100vw-32px)] h-[560px] chat-panel">
+  <div class="px-5 py-4 border-b border-hairline flex items-center justify-between bg-paper">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-cover bg-center border border-hairline" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&q=85&auto=format&fit=crop');"></div>
+      <div><div class="serif text-base">Sara</div><div class="text-[10px] tracking-[0.18em] uppercase text-mist flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Concierge</div></div>
+    </div>
+    <button id="closeChat" class="text-mist hover:text-ink" aria-label="Chiudi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div id="chatStream" class="chat-stream flex-1 overflow-y-auto p-5 space-y-3"></div>
+  <div id="chatSuggestions" class="px-4 pb-3 flex flex-wrap gap-2 bg-white"></div>
+  <form id="chatForm" class="border-t border-hairline p-3 flex gap-2 bg-white">
+    <input id="chatInput" type="text" placeholder="Scrivi qualche parola..." class="flex-1 px-4 py-2.5 bg-white border border-hairline serif text-base text-ink outline-none focus:border-sage" autocomplete="off"/>
+    <button type="submit" class="bg-ink text-cream text-[10px] tracking-[0.18em] uppercase px-4 hover:bg-sage transition">Invia</button>
+  </form>
+</div>
+
+<!-- ============ BOOKING FUNNEL MODAL — 3 steps ============ -->
+<div id="bookingModal" class="modal-overlay" role="dialog" aria-label="Prenotazione">
+  <div class="modal">
+    <div class="modal-top">
+      <div class="step-arrow" id="stepArrow">
+        <div class="seg active" data-step="1"><span class="step-num">1.</span><span class="step-text">Date &amp; Appartamenti</span></div>
+        <div class="seg" data-step="2"><span class="step-num">2.</span><span class="step-text">Dettagli &amp; Extra</span></div>
+        <div class="seg" data-step="3"><span class="step-num">3.</span><span class="step-text">Conferma &amp; Pagamento</span></div>
+      </div>
+      <button class="modal-close" id="closeModal" aria-label="Chiudi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+
+    <!-- STEP 1: ROOMS -->
+    <div class="modal-body" id="step1">
+      <div class="trip-summary">
+        <div>
+          <div class="stat-label">Il tuo soggiorno</div>
+          <div class="serif text-2xl mt-2" id="tripSummary">14 mag → 16 mag · 2 notti · 2 ospiti</div>
+        </div>
+        <button id="editTrip" class="text-[11px] tracking-[0.22em] uppercase text-mist hover:text-sage border-b border-mist hover:border-sage pb-1">Modifica le date</button>
+      </div>
+
+      <h3 class="display text-3xl">Appartamenti disponibili</h3>
+      <p class="serif italic text-sub mt-2">Per il periodo selezionato — tutti con colazione e accesso illimitato alla spa.</p>
+
+      <div id="roomsList" class="mt-8"></div>
+
+      <div class="flex flex-wrap items-end gap-12 mt-10 pt-6 border-t border-hairline">
+        <div class="flex-1 min-w-[280px]">
+          <div class="stat-label">Codice promozionale</div>
+          <div class="promo-row">
+            <input type="text" placeholder="ex. THALASSA10" id="promoInput"/>
+            <button onclick="applyPromo()">Verifica</button>
+          </div>
+          <div id="promoMsg" class="text-xs text-sage mt-2 hidden">✓ Cod aplicat — reducere 10%.</div>
+        </div>
+        <div class="text-sm text-mist serif italic">Non trovi quello che cerchi? <a href="#" onclick="closeModal()" class="text-sage underline hover:no-underline">Parla con Sara →</a></div>
+      </div>
+    </div>
+
+    <!-- STEP 2: DETAILS + EXTRAS -->
+    <div class="modal-body hidden" id="step2">
+      <div class="grid lg:grid-cols-[1.4fr_1fr] gap-12">
+        <div>
+          <h3 class="display text-3xl">Servizi extra</h3>
+          <p class="serif italic text-sub mt-2">Personalizza il soggiorno con trattamenti, vini o pacchetti wellness.</p>
+
+          <div class="mt-7" id="extrasList"></div>
+
+          <h3 class="display text-3xl mt-14">I vostri dati</h3>
+          <div class="mt-7 grid sm:grid-cols-2 gap-x-7 gap-y-6">
+            <div class="field-min"><label>Cognome *</label><input type="text" id="guestLast" placeholder="Popescu" required/></div>
+            <div class="field-min"><label>Nome *</label><input type="text" id="guestFirst" placeholder="Ana" required/></div>
+            <div class="field-min"><label>E-mail *</label><input type="email" id="guestEmail" placeholder="ana@exemplu.ro" required/></div>
+            <div class="field-min"><label>Telefono *</label><input type="tel" id="guestPhone" placeholder="+40 ..." required/></div>
+            <div class="field-min"><label>Provincia</label><select id="guestCounty"><option>Scegli la provincia</option><option>Milano</option><option>Roma</option><option>Torino</option><option>Firenze</option><option>Napoli</option><option>Bologna</option><option>Altro</option></select></div>
+            <div class="field-min"><label>Città</label><input type="text" id="guestCity" placeholder="Milano"/></div>
+            <div class="field-min sm:col-span-2"><label>Note</label><textarea rows="2" id="guestNote" placeholder="Anniversario, allergie, ora di arrivo..."></textarea></div>
+          </div>
+
+          <div class="mt-7 space-y-2">
+            <label class="check-row"><input type="checkbox" id="invoiceLegal"/><span class="text-sm text-sub">Desidero fatturazione aziendale</span></label>
+            <label class="check-row"><input type="checkbox" id="agreeTerms"/><span class="text-sm text-sub">Accetto i <a href="#" class="text-sage underline">termini e le condizioni di prenotazione</a> *</span></label>
+          </div>
+        </div>
+
+        <div>
+          <div class="booking-sidebar" id="sideSummary"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 mt-10 pt-6 border-t border-hairline">
+        <button id="backToStep1" class="text-[11px] tracking-[0.22em] uppercase text-mist hover:text-ink">← Torna agli appartamenti</button>
+        <button id="toStep3" class="btn-sage">Passo successivo →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: PAYMENT -->
+    <div class="modal-body hidden" id="step3">
+      <div class="grid lg:grid-cols-[1.4fr_1fr] gap-12">
+        <div>
+          <h3 class="display text-3xl">Metodo di pagamento</h3>
+          <p class="serif italic text-sub mt-2">La tua scelta. Per i programmi wellness consigliamo l'anticipo del 50%.</p>
+
+          <div class="mt-7 space-y-3">
+            <div class="pay-option active" data-pay="card" id="payCard">
+              <span class="pay-radio"></span>
+              <div class="flex-1">
+                <div class="serif text-lg">Carta bancaria · Stripe 3D Secure</div>
+                <div class="text-xs text-sub mt-1">Anticipo 50% ora, il resto all'arrivo. Cancellazione gratuita fino a 7 giorni prima.</div>
+                <div class="mt-2"><span class="vc-chip">Visa</span><span class="vc-chip">Mastercard</span><span class="vc-chip">Maestro</span></div>
+              </div>
+            </div>
+            <div class="pay-option" data-pay="voucher" id="payVoucher">
+              <span class="pay-radio"></span>
+              <div class="flex-1">
+                <div class="serif text-lg">Carta vacanze</div>
+                <div class="text-xs text-sub mt-1">Accettiamo i buoni welfare aziendali per l'intera somma, se la copertura è sufficiente.</div>
+                <div class="mt-2"><span class="vc-chip up">Sodexo</span><span class="vc-chip pluxee">Edenred</span><span class="vc-chip eden">Day</span></div>
+              </div>
+            </div>
+            <div class="pay-option" data-pay="arrival" id="payArrival">
+              <span class="pay-radio"></span>
+              <div class="flex-1">
+                <div class="serif text-lg">Pagamento all'arrivo</div>
+                <div class="text-xs text-sub mt-1">Garanzia di 1 notte alla prenotazione, il resto al check-in (contanti / carta).</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="cardForm" class="mt-8 space-y-5">
+            <div class="field-min"><label>Numero della carta</label><input type="text" placeholder="•••• •••• •••• ••••" maxlength="19"/></div>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="field-min"><label>Scadenza</label><input type="text" placeholder="MM / AA" maxlength="7"/></div>
+              <div class="field-min"><label>CVV</label><input type="text" placeholder="•••" maxlength="4"/></div>
+            </div>
+            <div class="field-min"><label>Nome sulla carta</label><input type="text" placeholder="ANA POPESCU"/></div>
+          </div>
+
+          <div id="voucherForm" class="mt-8 space-y-5 hidden">
+            <div class="field-min"><label>Tipo di carta</label><select><option>Sodexo</option><option>Edenred</option><option>Day Welfare</option></select></div>
+            <div class="field-min"><label>Numero della carta</label><input type="text" placeholder="•••• •••• •••• ••••" maxlength="19"/></div>
+            <p class="text-xs text-mist serif italic">Processeremo la carta entro 24h. Conferma via e-mail dopo la validazione.</p>
+          </div>
+
+          <div class="mt-8 text-xs text-sub leading-relaxed space-y-2">
+            <div class="flex items-baseline gap-2"><span class="text-sage">✓</span><span>Cancellazione gratuita fino a 7 giorni prima dell'arrivo</span></div>
+            <div class="flex items-baseline gap-2"><span class="text-sage">✓</span><span>Conferma istantanea via e-mail</span></div>
+            <div class="flex items-baseline gap-2"><span class="text-sage">✓</span><span>Conforme GDPR — i dati restano con noi</span></div>
+            <div class="flex items-baseline gap-2"><span class="text-sage">✓</span><span>Processato tramite Stripe · Transazione sicura SSL</span></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="booking-sidebar" id="sideSummaryFinal"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 mt-10 pt-6 border-t border-hairline">
+        <button id="backToStep2" class="text-[11px] tracking-[0.22em] uppercase text-mist hover:text-ink">← Torna ai dettagli</button>
+        <button id="confirmBooking" class="btn-sage">Paga e conferma · <span id="confirmBtnAmount">429 €</span></button>
+      </div>
+    </div>
+
+    <!-- STEP 4: CONFIRMATION -->
+    <div class="modal-body hidden text-center py-16" id="step4">
+      <div class="success-icon mx-auto">✓</div>
+      <h3 class="display text-4xl mt-8">Prenotazione confermata</h3>
+      <p class="serif italic text-sub mt-3 text-lg">Grazie, <span id="confirmGuestName">Ana</span>!</p>
+
+      <div class="mt-10 inline-block text-left bg-paper p-7 border border-hairline max-w-md w-full">
+        <div class="text-[10px] text-mist tracking-[0.22em] uppercase">Numero prenotazione</div>
+        <div class="display-it text-3xl text-bronze mt-2" id="bookingNumber">VTH-2026-1428</div>
+        <div class="border-t border-hairline mt-5 pt-5 space-y-3 text-sm">
+          <div class="flex justify-between"><span class="text-sub">Appartamento</span><span class="serif" id="confirmRoom">—</span></div>
+          <div class="flex justify-between"><span class="text-sub">Arrivo</span><span class="serif" id="confirmCheckin">—</span></div>
+          <div class="flex justify-between"><span class="text-sub">Partenza</span><span class="serif" id="confirmCheckout">—</span></div>
+          <div class="flex justify-between"><span class="text-sub">Anticipo pagato</span><span class="serif text-sage font-medium" id="confirmAdvance">—</span></div>
+          <div class="flex justify-between border-t border-hairline pt-3"><span class="text-sub">Resto all'arrivo</span><span class="serif" id="confirmRest">—</span></div>
+        </div>
+      </div>
+
+      <p class="serif italic text-sub mt-10 max-w-lg mx-auto leading-relaxed">
+        La conferma è stata inviata via e-mail. Sara, la vostra concierge, vi contatterà 48 ore prima dell'arrivo per organizzare il trasferimento e il programma personalizzato.
+      </p>
+
+      <div class="mt-10"><button class="btn-outline" id="closeAfterDone">Chiudi</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ JS ============ -->
+<script>
+  // Nav state
+  const nav = document.getElementById('nav');
+  function onScroll() {
+    if (window.scrollY > 80) { nav.classList.remove('nav-ghost'); nav.classList.add('nav-solid'); }
+    else { nav.classList.remove('nav-solid'); nav.classList.add('nav-ghost'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); document.body.classList.toggle('menu-open'); });
+  document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.add('hidden'); document.body.classList.remove('menu-open'); }));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.10 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Default booking dates
+  function fmt(d){ return d.toISOString().slice(0,10); }
+  const t = new Date(); t.setDate(t.getDate()+14);
+  const o = new Date(t); o.setDate(o.getDate()+3);
+  document.getElementById('checkin').value = fmt(t);
+  document.getElementById('checkout').value = fmt(o);
+  if(document.getElementById('heroCheckin')) document.getElementById('heroCheckin').value = fmt(t);
+  if(document.getElementById('heroCheckout')) document.getElementById('heroCheckout').value = fmt(o);
+
+  // Concierge welcome bubble auto-show (instant for demo, desktop only)
+  setTimeout(() => {
+    const b = document.getElementById('conciergeBubble');
+    if (b && !document.body.classList.contains('chat-open')) { b.style.opacity = '1'; }
+  }, 500);
+  document.getElementById('closeBubble')?.addEventListener('click', (e) => { e.stopPropagation(); document.getElementById('conciergeBubble').style.opacity = '0'; document.getElementById('conciergeBubble').style.pointerEvents = 'none'; });
+
+  // ===== Chat AI =====
+  const openChatBtn = document.getElementById('openChat');
+  const closeChatBtn = document.getElementById('closeChat');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatStream = document.getElementById('chatStream');
+  const chatForm = document.getElementById('chatForm');
+  const chatInput = document.getElementById('chatInput');
+  const chatSugg = document.getElementById('chatSuggestions');
+  const conciergeBubble = document.getElementById('conciergeBubble');
+
+  const initialSuggestions = ['Il programma di 5 giorni è disponibile a luglio?', 'Quali suite hanno vista mare?', 'C'è accesso diretto alla spiaggia?', 'Quanto costa il massaggio di coppia?'];
+
+  function bubble(who, text) {
+    const wrap = document.createElement('div'); wrap.className = (who === 'ai' ? 'ml-auto ' : '') + 'max-w-[85%]';
+    const b = document.createElement('div'); b.className = (who === 'ai' ? 'bubble-ai rounded-2xl rounded-tr-sm' : 'bubble-guest rounded-2xl rounded-tl-sm') + ' px-4 py-2.5 serif text-[15px] leading-relaxed';
+    b.textContent = text; wrap.appendChild(b); chatStream.appendChild(wrap); chatStream.scrollTop = chatStream.scrollHeight; return b;
+  }
+  function typingBubble() {
+    const w = document.createElement('div'); w.className = 'ml-auto max-w-[85%]';
+    const b = document.createElement('div'); b.className = 'bubble-ai rounded-2xl rounded-tr-sm px-4 py-3';
+    b.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+    w.appendChild(b); chatStream.appendChild(w); chatStream.scrollTop = chatStream.scrollHeight; return w;
+  }
+  function reply(m) {
+    if (/(program|5 zile|7 zile|3 zile|wellness|detox|classic|profund)/i.test(m)) return 'I nostri programmi iniziano settimanalmente, il lunedì. A giugno abbiamo disponibilità per tutte le varianti. Thalassa Classic 5 giorni (€4.690/persona) è il più scelto — consiglio questa variante.';
+    if (/(suite|apartament|camer|diferenț|categori)/i.test(m)) return 'Abbiamo 6 categorie: dalla Suite Smeraldo (950 €) al Penthouse Thalassa con spa privata (2.290 €). Suite Thalassa con jacuzzi privata (1.290 €) è la più richiesta. Per quali date siete interessati?';
+    if (/(vacan[țt]|up|pluxee|eden|card de vacan|tichete)/i.test(m)) return 'Sì! Accettiamo Sodexo, Edenred ed Edenred — senza limite massimo per l\'intera prenotazione. L\'elaborazione richiede 24h e riceverete conferma dopo la validazione.';
+    if (/(masaj|deep tissue|relax|cuplu|terapeutic|tratament)/i.test(m)) return 'Abbiamo 12 tipi di massaggio. Massaggio di coppia 90 min — €590. Deep tissue 50 min — €220. Per i programmi wellness, i massaggi sono inclusi nel pacchetto. Potete selezionarli come extra nella fase di prenotazione.';
+    if (/(salin|marine aromatherapy|respira)/i.test(m)) return 'Aromaterapia marina nella nostra spa marina — 45 minuti, 150 € o inclusa nei pacchetti wellness. Consigliata per disturbi respiratori, allergie e rilassamento profondo.';
+    if (/(lac|ursu|baie|salinitate)/i.test(m)) return 'Il Costa Smeralda — l\'unico lago eliotermale naturale d\'Europa. Salinità simile al Mar Morto. Accesso diretto dal nostro retreat, più una zona privata con lettini. Acqua a 30–32°C in superficie.';
+    if (/(rezerv|book|disponibil)/i.test(m)) return 'Con piacere — verifichiamo la disponibilità in 5 secondi. Clicca su "Verifica disponibilità" nella barra in basso, o ditemi le date desiderate e verifico subito.';
+    if (/(salut|bun[ăa]|hello)/i.test(m)) return 'Buongiorno e benvenuti al Villa Thalassa! Sono Sara, concierge. Come posso aiutarvi — una suite, un programma benessere, o una domanda?';
+    return 'Grazie per la domanda. Per dettagli specifici (date, numero di ospiti, preferenze), vi prego di dirmi un po\' di più — o utilizzate "Verifica disponibilità" e verifichiamo insieme.';
+  }
+  async function sendUser(text) {
+    chatSugg.innerHTML = ''; bubble('guest', text);
+    const t = typingBubble(); await new Promise(r => setTimeout(r, 900 + Math.random()*500)); t.remove();
+    bubble('ai', reply(text));
+  }
+  function renderSuggestions(list) {
+    chatSugg.innerHTML = '';
+    list.forEach(s => { const b = document.createElement('button'); b.textContent = s; b.className = 'text-[11px] px-3 py-1.5 border border-hairline bg-paper hover:border-sage hover:text-sage transition tracking-wide serif italic'; b.addEventListener('click', () => sendUser(s)); chatSugg.appendChild(b); });
+  }
+  let chatStarted = false;
+  function startChat() {
+    if (chatStarted) return; chatStarted = true;
+    setTimeout(() => bubble('ai', 'Buongiorno e benvenuti al Villa Thalassa. Sono Sara, la vostra concierge. Come posso aiutarvi?'), 300);
+    setTimeout(() => renderSuggestions(initialSuggestions), 1300);
+  }
+  openChatBtn.addEventListener('click', () => { chatPanel.classList.remove('hidden'); document.body.classList.add('chat-open'); if (conciergeBubble) { conciergeBubble.style.opacity = '0'; conciergeBubble.style.pointerEvents = 'none'; } startChat(); chatInput.focus(); });
+  closeChatBtn.addEventListener('click', () => { chatPanel.classList.add('hidden'); document.body.classList.remove('chat-open'); });
+  chatForm.addEventListener('submit', (e) => { e.preventDefault(); const v = chatInput.value.trim(); if (!v) return; chatInput.value = ''; sendUser(v); });
+
+  // ============ BOOKING FUNNEL ============
+  const ROOMS = [
+    { id: 'lacul-ursu',  name: 'Suite Smeraldo',    price: 950,  area: 28, beds: 'Letto king',          view: 'Vista mare',           desc: 'Camera base, piccolo balcone privato, vista diretta · Costa Smeralda.', img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=85&auto=format&fit=crop', avail: 5 },
+    { id: 'thalassa', name: 'Suite Thalassa',         price: 1290, area: 38, beds: 'Jacuzzi privata',    view: 'Terrazza',               desc: 'Suite con jacuzzi privata vista mare e terrazza panoramica sulla costa.', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=85&auto=format&fit=crop', avail: 3 },
+    { id: 'mirto', name: 'Suite Spa Mirto',   price: 1490, area: 42, beds: 'Sauna privata',     view: 'Vista giardino',          desc: 'Suite wellness con sauna privata, vasca idromassaggio e vista caletta.', img: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600&q=85&auto=format&fit=crop', avail: 2 },
+    { id: 'ginepro', name: 'Suite Ginepro',          price: 1690, area: 48, beds: 'Spa privata', view: 'Vista mare',           desc: 'Suite con spa marina privata e accesso diretto alla caletta.', img: 'https://images.unsplash.com/photo-1601565415267-724db0e9fbd3?w=600&q=85&auto=format&fit=crop', avail: 1 },
+    { id: 'gallura', name: 'Suite Gallura',        price: 1890, area: 58, beds: 'Due camere',      view: 'Vista panoramica',    desc: 'Per famiglie o amici — due camere da letto, salottino, due bagni.', img: 'https://images.unsplash.com/photo-1605346434674-a440ca4dc4c0?w=600&q=85&auto=format&fit=crop', avail: 2 },
+    { id: 'penthouse',   name: 'Penthouse Thalassa',     price: 2290, area: 68, beds: 'Spa privata + 2 camere', view: 'Vista 270° mare',      desc: 'Il penthouse con spa privata, terrazza 30 m² e vista a 270° sul mare e la costa.', img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=85&auto=format&fit=crop', avail: 1 },
+  ];
+
+  const EXTRAS = [
+    { id: 'm-deep',    name: 'Massaggio Deep Tissue · 50 min',     price: 220, desc: 'Per tensione muscolare profonda. Consigliato dopo un lungo viaggio.' },
+    { id: 'm-relax',   name: 'Massaggio Terapeutico · 60 min',     price: 280, desc: 'Drenaggio linfatico, pressopuntura, olio di lavanda.' },
+    { id: 'm-couple',  name: 'Massaggio di coppia · 90 min',        price: 590, desc: 'Nella suite spa privata, con spumante e frutta alla fine.' },
+    { id: 's-bath',    name: 'Bagno thalasso · 45 min', price: 180, desc: 'Trattamento in vasca con acqua di mare e alghe, supervisione medica inclusa.' },
+    { id: 'halo',      name: 'Aromaterapia mediterranea · 45 min',           price: 150, desc: 'Sessione di aromaterapia con essenze marine e mirto sardo.' },
+    { id: 'pkg-3h',    name: 'Pacchetto wellness · 3 ore',        price: 690, desc: 'Sauna + jacuzzi + massaggio 50 min + thalassoterapia.' },
+    { id: 'jacuzzi',   name: 'Sali aromatici per jacuzzi',  price: 35,  desc: 'Mirto, lavanda o rosmarino — per la vasca in suite.' },
+    { id: 'fruit',     name: 'Cesto frutta & tè in camera', price: 80,  desc: 'Frutta di stagione dalla Gallura e tisana alle erbe sarde.' },
+    { id: 'wine-w',    name: 'Bottiglia vino bianco · Vermentino di Gallura',   price: 280, desc: 'Vermentino di Gallura DOCG, Costa Smeralda.' },
+    { id: 'wine-r',    name: 'Bottiglia vino rosso · Cannonau Riserva',        price: 220, desc: 'Cannonau di Sardegna DOC, riserva della Gallura.' },
+  ];
+
+  const state = { step: 1, checkin: null, checkout: null, guests: 2, nights: 2, room: null, extras: {}, payment: 'card', promo: null };
+
+  function calcNights() {
+    if (!state.checkin || !state.checkout) return 1;
+    const a = new Date(state.checkin), b = new Date(state.checkout);
+    return Math.max(1, Math.round((b - a) / (1000 * 60 * 60 * 24)));
+  }
+  function fmtDateRO(d) {
+    if (!d) return '—';
+    const months = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+    const dt = typeof d === 'string' ? new Date(d) : d;
+    return `${dt.getDate()} ${months[dt.getMonth()]}`;
+  }
+  function fmtPrice(n) { return '€' + n.toLocaleString('it-IT'); }
+  function nightsWord(n) { return n === 1 ? 'notte' : 'notti'; }
+
+  function openAvailability() {
+    state.checkin = document.getElementById('checkin').value;
+    state.checkout = document.getElementById('checkout').value;
+    state.guests = parseInt(document.getElementById('bookingGuests').value || '2');
+    state.nights = calcNights();
+    state.extras = {};
+    document.getElementById('tripSummary').textContent = `${fmtDateRO(state.checkin)} → ${fmtDateRO(state.checkout)} · ${state.nights} ${nightsWord(state.nights)} · ${state.guests} ospiti`;
+    renderRooms();
+    goToStep(1);
+    document.getElementById('bookingModal').classList.add('open');
+    document.body.classList.add('menu-open');
+  }
+  window.openAvailability = openAvailability;
+
+  function renderRooms() {
+    const list = document.getElementById('roomsList');
+    list.innerHTML = '';
+    ROOMS.forEach(r => {
+      const total = r.price * state.nights;
+      const urgency = r.avail <= 2 ? `<span class="ar-tag warn">${r.avail === 1 ? 'Ultimo disponibile' : 'Solo ' + r.avail + ' camere disponibili'}</span>` : '';
+      const el = document.createElement('article'); el.className = 'avail-room';
+      el.innerHTML = `
+        <div class="ar-img" style="background-image: url('${r.img}');"></div>
+        <div class="ar-info">
+          <h3>${r.name}</h3>
+          <div class="ar-meta">${r.area} m² · ${r.beds} · ${r.view}</div>
+          <p class="ar-desc">${r.desc}</p>
+          <div class="ar-tags"><span class="ar-tag">Colazione inclus</span><span class="ar-tag">Acces spa nelimitat</span>${urgency}</div>
+        </div>
+        <div class="ar-price">
+          <div>
+            <div class="pn">${fmtPrice(r.price)} / notte</div>
+            <div class="pt">${fmtPrice(total)}</div>
+            <div class="pl">totale ${state.nights} ${nightsWord(state.nights)}</div>
+          </div>
+          <button class="btn-sage w-full" data-room="${r.id}" style="padding: 10px 16px;">Seleziona →</button>
+        </div>
+      `;
+      el.querySelector('button').addEventListener('click', () => selectRoom(r.id));
+      list.appendChild(el);
+    });
+  }
+
+  function applyPromo() {
+    const v = document.getElementById('promoInput').value.trim().toUpperCase();
+    if (v === 'THALASSA10' || v === 'WELLNESS10') {
+      state.promo = { code: v, discount: 0.10 };
+      document.getElementById('promoMsg').classList.remove('hidden');
+    } else if (v) {
+      const m = document.getElementById('promoMsg');
+      m.classList.remove('hidden'); m.textContent = '× Codice non valido'; m.classList.remove('text-sage'); m.classList.add('text-warning');
+    }
+  }
+  window.applyPromo = applyPromo;
+
+  function selectRoom(id) {
+    state.room = ROOMS.find(x => x.id === id);
+    renderExtras();
+    renderSidebar('sideSummary');
+    goToStep(2);
+  }
+
+  function renderExtras() {
+    const list = document.getElementById('extrasList');
+    list.innerHTML = '';
+    EXTRAS.forEach(e => {
+      const qty = state.extras[e.id] || 0;
+      const row = document.createElement('div'); row.className = 'extra-row';
+      row.innerHTML = `
+        <div class="e-img" style="background-color: var(--warm);"></div>
+        <div class="e-info"><h4>${e.name}</h4><div class="e-desc">${e.desc}</div></div>
+        <div class="e-price">${fmtPrice(e.price)}<br/><small>fix</small></div>
+        <div class="qty-ctrl"><button data-act="dec">−</button><span class="qty-val" data-qty="${e.id}">${qty}</span><button data-act="inc">+</button></div>
+      `;
+      const dec = row.querySelectorAll('button')[0];
+      const inc = row.querySelectorAll('button')[1];
+      dec.addEventListener('click', () => updateExtra(e.id, -1));
+      inc.addEventListener('click', () => updateExtra(e.id, 1));
+      list.appendChild(row);
+    });
+  }
+  function updateExtra(id, delta) {
+    const cur = state.extras[id] || 0;
+    const next = Math.max(0, cur + delta);
+    if (next === 0) delete state.extras[id]; else state.extras[id] = next;
+    const span = document.querySelector(`.qty-val[data-qty="${id}"]`);
+    if (span) span.textContent = next;
+    renderSidebar('sideSummary');
+  }
+
+  function calcTotals() {
+    const lodging = (state.room?.price || 0) * state.nights;
+    let extrasTotal = 0;
+    Object.entries(state.extras).forEach(([id, qty]) => { const e = EXTRAS.find(x => x.id === id); if (e) extrasTotal += e.price * qty; });
+    const cityTax = 6 * state.nights * state.guests;
+    let subtotal = lodging + extrasTotal + cityTax;
+    let discount = state.promo ? Math.round(lodging * state.promo.discount) : 0;
+    const total = subtotal - discount;
+    const advance = Math.round(total * 0.5);
+    return { lodging, extrasTotal, cityTax, discount, total, advance };
+  }
+
+  function renderSidebar(targetId) {
+    const target = document.getElementById(targetId);
+    if (!target || !state.room) return;
+    const t = calcTotals();
+    const extrasRows = Object.entries(state.extras).map(([id, qty]) => { const e = EXTRAS.find(x => x.id === id); return `<div class="sb-row"><span>${qty}× ${e.name.split(' · ')[0]}</span><span class="serif">${fmtPrice(e.price * qty)}</span></div>`; }).join('');
+
+    target.innerHTML = `
+      <div class="sb-header">${state.room.name}</div>
+      <div class="text-[10px] text-mist tracking-[0.22em] uppercase mt-2">${fmtDateRO(state.checkin)} → ${fmtDateRO(state.checkout)} · ${state.nights} ${nightsWord(state.nights)}</div>
+
+      <div class="sb-section-label">Camera</div>
+      <div class="sb-row"><span>Soggiorno ${state.nights} ${nightsWord(state.nights)}</span><span class="serif">${fmtPrice(t.lodging)}</span></div>
+      <div class="sb-row muted"><span>Colazione</span><span class="serif italic">inclus</span></div>
+      <div class="sb-row muted"><span>Acces spa</span><span class="serif italic">inclus</span></div>
+
+      ${extrasRows ? `<div class="sb-section-label">Servizi extra</div>${extrasRows}` : ''}
+
+      <div class="sb-section-label">Tasse</div>
+      <div class="sb-row"><span>Tassa di soggiorno</span><span class="serif">${fmtPrice(t.cityTax)}</span></div>
+      ${t.discount ? `<div class="sb-row"><span>Cod ${state.promo.code} (-10%)</span><span class="serif text-sage">−${fmtPrice(t.discount)}</span></div>` : ''}
+
+      <div class="sb-row total"><span>Prezzo totale</span><span>${fmtPrice(t.total)}</span></div>
+
+      <div class="sb-pay-info"><div class="pl">Anticipo da pagare ora</div><div class="pa">${fmtPrice(t.advance)}</div><div class="text-[10px] text-mist tracking-wide mt-1">Resto all'arrivo: ${fmtPrice(t.total - t.advance)}</div></div>
+    `;
+  }
+
+  function goToStep(n) {
+    state.step = n;
+    for (let i = 1; i <= 4; i++) document.getElementById('step' + i).classList.toggle('hidden', i !== n);
+    document.querySelectorAll('.step-arrow .seg').forEach(s => {
+      const num = parseInt(s.dataset.step);
+      s.classList.toggle('active', num === n);
+      s.classList.toggle('done', num < n);
+    });
+    document.querySelector('.modal').scrollTop = 0;
+    document.querySelector('.modal-overlay').scrollTop = 0;
+    if (n === 3) {
+      renderSidebar('sideSummaryFinal');
+      const t = calcTotals();
+      document.getElementById('confirmBtnAmount').textContent = fmtPrice(t.advance);
+    }
+  }
+
+  function confirmBooking() {
+    const last = document.getElementById('guestLast').value.trim();
+    const first = document.getElementById('guestFirst').value.trim();
+    const email = document.getElementById('guestEmail').value.trim();
+    const phone = document.getElementById('guestPhone').value.trim();
+    if (!last || !first || !email || !phone) { alert('Si prega di compilare i campi obbligatori.'); goToStep(2); return; }
+    const t = calcTotals();
+    document.getElementById('confirmGuestName').textContent = first;
+    document.getElementById('bookingNumber').textContent = 'VTH-2026-' + (1000 + Math.floor(Math.random() * 9000));
+    document.getElementById('confirmRoom').textContent = state.room.name;
+    document.getElementById('confirmCheckin').textContent = fmtDateRO(state.checkin);
+    document.getElementById('confirmCheckout').textContent = fmtDateRO(state.checkout);
+    document.getElementById('confirmAdvance').textContent = fmtPrice(t.advance);
+    document.getElementById('confirmRest').textContent = fmtPrice(t.total - t.advance);
+    goToStep(4);
+  }
+
+  function closeModal() {
+    document.getElementById('bookingModal').classList.remove('open');
+    document.body.classList.remove('menu-open');
+  }
+  window.closeModal = closeModal;
+
+  document.getElementById('closeModal')?.addEventListener('click', closeModal);
+  document.getElementById('closeAfterDone')?.addEventListener('click', closeModal);
+  document.getElementById('editTrip')?.addEventListener('click', () => { closeModal(); document.getElementById('checkin').focus(); });
+  document.getElementById('backToStep1')?.addEventListener('click', () => goToStep(1));
+  document.getElementById('backToStep2')?.addEventListener('click', () => goToStep(2));
+  document.getElementById('toStep3')?.addEventListener('click', () => {
+    const last = document.getElementById('guestLast').value.trim();
+    const first = document.getElementById('guestFirst').value.trim();
+    const email = document.getElementById('guestEmail').value.trim();
+    const phone = document.getElementById('guestPhone').value.trim();
+    const terms = document.getElementById('agreeTerms').checked;
+    if (!last || !first || !email || !phone) { alert('Si prega di compilare cognome, nome, e-mail e telefono.'); return; }
+    if (!terms) { alert('Si prega di accettare i termini e le condizioni.'); return; }
+    goToStep(3);
+  });
+  document.getElementById('confirmBooking')?.addEventListener('click', confirmBooking);
+
+  // Payment toggle
+  function setPay(method) {
+    state.payment = method;
+    ['Card','Voucher','Arrival'].forEach(m => {
+      document.getElementById('pay' + m).classList.toggle('active', m.toLowerCase() === method);
+    });
+    document.getElementById('cardForm').classList.toggle('hidden', method !== 'card');
+    document.getElementById('voucherForm').classList.toggle('hidden', method !== 'voucher');
+  }
+  document.getElementById('payCard')?.addEventListener('click', () => setPay('card'));
+  document.getElementById('payVoucher')?.addEventListener('click', () => setPay('voucher'));
+  document.getElementById('payArrival')?.addEventListener('click', () => setPay('arrival'));
+
+  document.getElementById('bookingModal')?.addEventListener('click', (e) => { if (e.target.id === 'bookingModal') closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && document.getElementById('bookingModal').classList.contains('open')) closeModal(); });
+</script>
+</body>
+</html>
