@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#FAF8F5" />
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+<title>Blog — Verissa | Strategie per Hotel Moderni</title>
+<meta name="description" content="Consigli pratici per albergatori italiani: come aumentare le prenotazioni dirette, ridurre le commissioni OTA, modernizzare il sito del tuo hotel." />
+<link rel="canonical" href="https://verissa.it/blog/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://verissa.it/blog/" />
+<meta property="og:title" content="Blog Verissa — Strategie per Hotel Moderni" />
+<meta property="og:description" content="Consigli pratici per albergatori italiani: prenotazioni dirette, design, automazione, SEO." />
+<meta property="og:image" content="https://verissa.it/og-image.png" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:site_name" content="Verissa" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:#FAF8F5;color:#2D2D2D;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+::selection{background:rgba(196,162,101,.25);color:#2D2D2D}
+
+:root{
+  --gold:#C4A265;--gold-light:#D4B87A;--gold-dark:#A8884E;
+  --bg-cream:#FAF8F5;--bg-warm:#F5F0EA;--bg-sand:#EDE8E0;
+  --border:rgba(0,0,0,.06);--border-strong:rgba(0,0,0,.10);
+  --text-primary:#2D2D2D;--text-secondary:#555;--text-muted:#888;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --max-w:1200px;
+}
+
+/* ── NAV ── */
+.blog-nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,248,245,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:16px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.blog-nav a.logo{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--text-primary);letter-spacing:-.5px}
+.blog-nav a.logo span{color:var(--gold)}
+.blog-nav-links{display:flex;gap:28px;align-items:center}
+.blog-nav-links a{font-size:14px;font-weight:500;color:var(--text-secondary);transition:color .2s}
+.blog-nav-links a:hover{color:var(--gold)}
+.blog-nav-links a.cta-btn{
+  background:var(--gold);color:#fff;padding:8px 20px;border-radius:6px;font-weight:600;
+  transition:background .2s,transform .2s;
+}
+.blog-nav-links a.cta-btn:hover{background:var(--gold-dark);transform:translateY(-1px)}
+
+/* ── HERO ── */
+.blog-hero{
+  text-align:center;padding:80px 24px 60px;
+  background:var(--bg-warm);
+  border-bottom:1px solid var(--border);
+}
+.blog-hero h1{
+  font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);
+  font-weight:600;color:var(--text-primary);margin-bottom:16px;
+  letter-spacing:-.5px;line-height:1.2;
+}
+.blog-hero p{
+  font-size:clamp(1rem,1.8vw,1.15rem);color:var(--text-secondary);
+  max-width:620px;margin:0 auto;line-height:1.7;
+}
+
+/* ── CLUSTER FILTER ── */
+.cluster-filter{
+  display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+  padding:32px 24px 0;max-width:var(--max-w);margin:0 auto;
+}
+.cluster-filter button{
+  background:#fff;border:1.5px solid var(--border-strong);border-radius:20px;
+  padding:8px 20px;font-size:13px;font-weight:500;font-family:var(--sans);
+  color:var(--text-secondary);cursor:pointer;transition:all .2s;
+}
+.cluster-filter button:hover,.cluster-filter button.active{
+  background:var(--gold);color:#fff;border-color:var(--gold);
+}
+
+/* ── ARTICLE GRID ── */
+.articles-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:28px;max-width:var(--max-w);margin:0 auto;padding:40px 24px 80px;
+}
+
+/* ── ARTICLE CARD ── */
+.article-card{
+  background:#fff;border:1.5px solid var(--border);border-radius:16px;
+  overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;
+  display:flex;flex-direction:column;
+}
+.article-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 48px rgba(0,0,0,.08);
+  border-color:rgba(196,162,101,.3);
+}
+.article-card .card-img{
+  width:100%;aspect-ratio:16/9;object-fit:cover;
+  background:var(--bg-sand);
+}
+.article-card .card-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.article-card .card-cluster{
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--gold);margin-bottom:10px;
+}
+.article-card h2{
+  font-family:var(--serif);font-size:1.25rem;font-weight:600;
+  color:var(--text-primary);line-height:1.35;margin-bottom:10px;
+}
+.article-card .card-excerpt{
+  font-size:14px;color:var(--text-secondary);line-height:1.6;
+  flex:1;margin-bottom:16px;
+}
+.article-card .card-meta{
+  display:flex;align-items:center;gap:12px;
+  font-size:12px;color:var(--text-muted);
+}
+.article-card .card-meta .read-more{
+  margin-left:auto;color:var(--gold);font-weight:600;font-size:13px;
+  transition:color .2s;
+}
+.article-card .card-meta .read-more:hover{color:var(--gold-dark)}
+
+/* ── CTA BANNER ── */
+.blog-cta{
+  background:linear-gradient(135deg,#1a1f2e 0%,#252b3d 100%);
+  padding:64px 24px;text-align:center;
+}
+.blog-cta h2{
+  font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);
+  color:#F5F5F5;margin-bottom:12px;font-weight:600;
+}
+.blog-cta p{
+  color:rgba(255,255,255,.7);font-size:1rem;margin-bottom:28px;
+  max-width:500px;margin-left:auto;margin-right:auto;
+}
+.blog-cta a{
+  display:inline-block;background:var(--gold);color:#fff;
+  padding:14px 36px;border-radius:8px;font-weight:600;font-size:1rem;
+  transition:background .2s,transform .2s;
+}
+.blog-cta a:hover{background:var(--gold-dark);transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+.blog-footer{
+  text-align:center;padding:40px 24px;
+  font-size:13px;color:var(--text-muted);
+  border-top:1px solid var(--border);
+}
+.blog-footer a{color:var(--gold);font-weight:500}
+
+/* ── EMPTY STATE ── */
+.empty-state{
+  text-align:center;padding:80px 24px;color:var(--text-muted);
+}
+.empty-state h2{font-family:var(--serif);font-size:1.5rem;color:var(--text-secondary);margin-bottom:12px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .blog-nav{padding:14px 16px}
+  .blog-nav-links{gap:16px}
+  .blog-nav-links a:not(.cta-btn){display:none}
+  .articles-grid{grid-template-columns:1fr;gap:20px;padding:24px 16px 60px}
+  .blog-hero{padding:60px 16px 40px}
+  .cluster-filter{padding:24px 16px 0}
+}
+</style>
+
+<!-- Schema.org Blog -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog Verissa",
+  "description": "Consigli pratici per albergatori italiani su prenotazioni dirette, design, automazione e SEO.",
+  "url": "https://verissa.it/blog/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Verissa",
+    "url": "https://verissa.it",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://verissa.it/brand-logo.svg"
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="blog-nav">
+  <a href="https://verissa.it" class="logo">Verissa<span>.</span></a>
+  <div class="blog-nav-links">
+    <a href="https://verissa.it/blog/">Blog</a>
+    <a href="https://verissa.it#pricing">Prezzi</a>
+    <a href="https://verissa.it" class="cta-btn">Prova il Demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="blog-hero">
+  <h1>Strategie per Hotel Moderni</h1>
+  <p>Consigli pratici per albergatori italiani: come aumentare le prenotazioni dirette, ridurre le commissioni OTA e modernizzare la presenza online del tuo hotel.</p>
+</header>
+
+<!-- CLUSTER FILTER -->
+<div class="cluster-filter">
+  <button class="active" onclick="filterArticles('all')">Tutti</button>
+  <button onclick="filterArticles('direct-bookings')">Prenotazioni Dirette</button>
+  <button onclick="filterArticles('design')">Design</button>
+  <button onclick="filterArticles('automation')">Automazione</button>
+  <button onclick="filterArticles('seo')">SEO Hotel</button>
+</div>
+
+<!-- ARTICLE GRID -->
+<div class="articles-grid" id="articlesGrid">
+
+  <!-- ARTICLE 1 -->
+  <a href="commissioni-booking-hotel.html" class="article-card" data-cluster="direct-bookings">
+    <img class="card-img" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=70&auto=format" alt="Hotel reception con laptop" loading="lazy" />
+    <div class="card-body">
+      <div class="card-cluster">Prenotazioni Dirette</div>
+      <h2>Quanto Ti Costano le Commissioni di Booking.com</h2>
+      <p class="card-excerpt">Ogni prenotazione su Booking.com ti costa tra il 15% e il 25%. Scopri quanto stai perdendo ogni anno e come iniziare a risparmiare con le prenotazioni dirette.</p>
+      <div class="card-meta">
+        <span>23 Maggio 2026</span>
+        <span>8 min lettura</span>
+        <span class="read-more">Leggi &rarr;</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<!-- CTA BANNER -->
+<section class="blog-cta">
+  <h2>Vuoi vedere come sarebbe il tuo sito?</h2>
+  <p>Incolla il link del tuo hotel e ottieni un concept moderno in pochi secondi. Gratis.</p>
+  <a href="https://verissa.it">Prova il Demo Gratuito</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="blog-footer">
+  <p>&copy; 2026 <a href="https://verissa.it">Verissa</a> &mdash; Trasformiamo siti hotel in motori di prenotazioni.</p>
+</footer>
+
+<script>
+function filterArticles(cluster){
+  document.querySelectorAll('.cluster-filter button').forEach(function(b){b.classList.remove('active')});
+  event.target.classList.add('active');
+  document.querySelectorAll('.article-card').forEach(function(card){
+    if(cluster==='all'||card.dataset.cluster===cluster){
+      card.style.display='';
+    }else{
+      card.style.display='none';
+    }
+  });
+}
+</script>
+</body>
+</html>

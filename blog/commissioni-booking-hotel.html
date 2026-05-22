@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#FAF8F5" />
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+<title>Quanto Ti Costano le Commissioni di Booking.com | Verissa</title>
+<meta name="description" content="Le commissioni di Booking.com erodono i tuoi margini? Scopri quanto paghi davvero alle OTA e come aumentare le prenotazioni dirette del tuo hotel." />
+<link rel="canonical" href="https://verissa.it/blog/commissioni-booking-hotel.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://verissa.it/blog/commissioni-booking-hotel.html" />
+<meta property="og:title" content="Quanto Ti Costano le Commissioni di Booking.com" />
+<meta property="og:description" content="Le commissioni di Booking.com erodono i tuoi margini? Scopri quanto paghi davvero alle OTA e come aumentare le prenotazioni dirette." />
+<meta property="og:image" content="https://verissa.it/og-image.png" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:site_name" content="Verissa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="robots" content="index, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Quanto Ti Costano le Commissioni di Booking.com",
+  "description": "Analisi dettagliata delle commissioni OTA per hotel italiani e strategie per aumentare le prenotazioni dirette.",
+  "author": {
+    "@type": "Organization",
+    "name": "Verissa",
+    "url": "https://verissa.it"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Verissa",
+    "url": "https://verissa.it"
+  },
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23",
+  "mainEntityOfPage": "https://verissa.it/blog/commissioni-booking-hotel.html",
+  "inLanguage": "it"
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto paga un hotel di commissioni a Booking.com?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le commissioni di Booking.com per gli hotel italiani vanno dal 15% al 25% per ogni prenotazione. La percentuale esatta dipende dalla visibilità scelta, dal programma Preferred Partner e dalla località. Su un fatturato di 200.000 euro, un hotel può pagare tra 30.000 e 50.000 euro all'anno solo in commissioni."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Come posso ridurre le commissioni delle OTA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il modo più efficace è aumentare le prenotazioni dirette tramite il proprio sito web. Servono un sito moderno e veloce, un booking engine integrato, una strategia SEO locale e un'esperienza utente che convinca l'ospite a prenotare direttamente. Hotel con siti ottimizzati riescono a portare il 30-50% delle prenotazioni sul canale diretto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto costa rifare il sito web di un hotel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con Verissa, un restyling professionale parte da 399 euro per il pacchetto Express, fino a 1.699 euro per l'esperienza Luxury con booking engine integrato, SEO e chatbot. L'investimento si ripaga con le prime prenotazioni dirette ottenute grazie al nuovo sito."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Conviene uscire completamente da Booking.com?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, la strategia migliore non è eliminare le OTA ma ridurre la dipendenza. Booking.com resta utile per la visibilità e per raggiungere nuovi ospiti. L'obiettivo è spostare gradualmente il mix di prenotazioni verso il canale diretto, puntando a un equilibrio 50/50 o meglio."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #FAF8F5;
+    color: #2D2D2D;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+  ::selection { background: rgba(196,162,101,.25); color: #2D2D2D; }
+
+  :root {
+    --gold: #C4A265;
+    --gold-light: #D4B87A;
+    --gold-dark: #A8884E;
+    --bg-cream: #FAF8F5;
+    --bg-warm: #F5F0EA;
+    --text-primary: #2D2D2D;
+    --text-secondary: #555;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,245,.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 100%;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--text-secondary);
+    text-decoration: none; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: #fff !important;
+    padding: 10px 20px; border-radius: 8px;
+    font-weight: 600; font-size: 13px;
+    letter-spacing: .02em;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--gold-dark); }
+
+  /* ARTICLE HEADER */
+  .article-header {
+    padding: 72px 24px 60px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .article-meta {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    margin-bottom: 24px;
+    font-size: 13px; color: var(--text-secondary);
+    text-transform: uppercase; letter-spacing: .1em; font-weight: 500;
+  }
+  .article-meta .tag {
+    background: rgba(196,162,101,.12);
+    color: var(--gold-dark);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+  }
+  .article-header h1 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+  }
+  .article-header .subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* ARTICLE BODY */
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  .article-body h2 {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.5vw, 34px);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin: 56px 0 20px;
+    letter-spacing: -0.01em;
+  }
+  .article-body h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 40px 0 14px;
+  }
+  .article-body p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .article-body strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  .article-body a {
+    color: var(--gold-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color .2s;
+  }
+  .article-body a:hover { color: var(--gold); }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: var(--bg-warm);
+    border-left: 4px solid var(--gold);
+    padding: 28px 32px;
+    border-radius: 0 12px 12px 0;
+    margin: 36px 0;
+  }
+  .highlight-box p {
+    font-size: 16px;
+    color: var(--text-primary);
+    margin-bottom: 0;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  /* STAT BOX */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 36px 0;
+  }
+  .stat-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .stat-card .number {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-card .label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  /* TABLE */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 15px;
+  }
+  .data-table th {
+    background: var(--bg-warm);
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    border-bottom: 2px solid var(--gold);
+  }
+  .data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    color: var(--text-secondary);
+  }
+  .data-table tr:hover td {
+    background: rgba(196,162,101,.04);
+  }
+  .data-table .total td {
+    font-weight: 700;
+    color: var(--text-primary);
+    border-top: 2px solid var(--gold);
+    background: rgba(196,162,101,.06);
+  }
+
+  /* CTA BOX */
+  .cta-box {
+    background: linear-gradient(135deg, #1a1f2e 0%, #252b3d 100%);
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-align: center;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(196,162,101,.08);
+    filter: blur(60px);
+  }
+  .cta-box h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: #fff;
+    margin: 0 0 12px;
+    position: relative;
+  }
+  .cta-box p {
+    color: rgba(255,255,255,.7);
+    font-size: 16px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .cta-box .btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background .2s, transform .2s;
+    position: relative;
+  }
+  .cta-box .btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    color: #fff;
+  }
+
+  /* FAQ */
+  .faq-section {
+    margin: 64px 0 0;
+    padding-top: 48px;
+    border-top: 1px solid rgba(0,0,0,.08);
+  }
+  .faq-section h2 {
+    margin-top: 0;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    padding: 24px 0;
+  }
+  .faq-item h3 {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 10px;
+    cursor: default;
+  }
+  .faq-item p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  .article-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .article-footer a {
+    color: var(--gold-dark);
+    text-decoration: none;
+  }
+  .article-footer a:hover { color: var(--gold); }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .article-header { padding: 56px 20px 40px; }
+    .article-body { padding: 0 20px 60px; }
+    .cta-box { padding: 36px 24px; }
+    .stat-grid { grid-template-columns: 1fr; }
+    .highlight-box { padding: 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://verissa.it" class="nav-logo">Verissa<span>.</span></a>
+  <div class="nav-links">
+    <a href="https://verissa.it/blog/">Blog</a>
+    <a href="https://verissa.it/#servizi">Servizi</a>
+    <a href="https://verissa.it/#come-funziona">Come Funziona</a>
+    <a href="https://verissa.it/#demo" class="nav-cta">Prova la Demo</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="article-header">
+  <div class="article-meta">
+    <span class="tag">Prenotazioni Dirette</span>
+    <span>23 Maggio 2026</span>
+    <span>8 min di lettura</span>
+  </div>
+  <h1>Quanto Ti Costano le Commissioni di Booking.com</h1>
+  <p class="subtitle">
+    Ogni anno il tuo hotel versa migliaia di euro alle OTA. Ecco i numeri reali, il conto che nessuno ti mostra, e come invertire la rotta.
+  </p>
+</header>
+
+<!-- BODY -->
+<article class="article-body">
+
+  <p>
+    Apri il gestionale a fine mese. Guardi il fatturato e pensi: non male. Poi apri il report delle commissioni e lo stomaco si stringe. Quindici, diciotto, ventidue percento di ogni prenotazione finisce nelle tasche di Booking.com. Non una volta: ogni singola notte venduta, ogni singolo ospite. Per 365 giorni all'anno.
+  </p>
+  <p>
+    Il problema non è usare le OTA. Il problema è <strong>dipendere</strong> dalle OTA. Quando il 70% o l'80% delle tue prenotazioni arriva da canali che ti tolgono un quinto del ricavo, non stai gestendo un hotel. Stai lavorando per pagare le commissioni.
+  </p>
+  <p>
+    In questo articolo facciamo due conti insieme. Conti veri, con numeri reali. E poi vediamo cosa puoi fare — oggi, non tra un anno — per tenere in tasca quei soldi.
+  </p>
+
+  <h2>I numeri che non vuoi vedere</h2>
+
+  <p>
+    Booking.com applica una commissione che varia dal <strong>15% al 25%</strong> su ogni prenotazione. La percentuale dipende da diversi fattori: la tua località, il livello di visibilità che scegli e la partecipazione a programmi come Genius o Preferred Partner. Ma facciamo un esempio pratico con numeri alla portata di un piccolo hotel italiano.
+  </p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="number">18%</div>
+      <div class="label">Commissione media OTA</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">72%</div>
+      <div class="label">Prenotazioni da OTA (media IT)</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">-36.000&euro;</div>
+      <div class="label">Costo annuo su 200k di fatturato</div>
+    </div>
+  </div>
+
+  <p>
+    Prendiamo un hotel con 20 camere in una località turistica italiana. Tariffa media: 110 euro a notte. Occupazione media annua: 65%. Questo genera un fatturato lordo di circa <strong>200.000 euro</strong> all'anno dalle sole OTA.
+  </p>
+  <p>
+    Se il 72% delle prenotazioni passa da Booking.com con una commissione media del 18%, il calcolo è semplice: <strong>circa 36.000 euro</strong> vanno in commissioni. Ogni anno. Sono soldi che non puoi reinvestire nel servizio, nello staff, nella struttura.
+  </p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Voce</th>
+        <th>Importo annuo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fatturato lordo camere</td>
+        <td>200.000 &euro;</td>
+      </tr>
+      <tr>
+        <td>Prenotazioni OTA (72%)</td>
+        <td>144.000 &euro;</td>
+      </tr>
+      <tr>
+        <td>Commissioni OTA (18%)</td>
+        <td>-25.920 &euro;</td>
+      </tr>
+      <tr>
+        <td>Programma Preferred (+3%)</td>
+        <td>-4.320 &euro;</td>
+      </tr>
+      <tr>
+        <td>Promo Genius e sconti (-5% tariffa)</td>
+        <td>-5.760 &euro;</td>
+      </tr>
+      <tr class="total">
+        <td>Costo totale OTA</td>
+        <td>-36.000 &euro;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Trentaseimila euro. Con quella cifra puoi ristrutturare il bagno di tre camere, pagare sei mesi di stipendio a un receptionist, oppure investire in un sito web che lavori per te 24 ore al giorno.
+  </p>
+
+  <div class="highlight-box">
+    <p>
+      Un hotel che sposta anche solo il 20% delle prenotazioni da Booking.com al canale diretto risparmia circa <strong>7.200 euro all'anno</strong>. Senza perdere un solo ospite.
+    </p>
+  </div>
+
+  <h2>Perch&eacute; il tuo sito non riceve prenotazioni dirette</h2>
+
+  <p>
+    Se il tuo sito web genera poche prenotazioni, non &egrave; colpa degli ospiti. &Egrave; colpa del sito. La maggior parte dei siti hotel italiani ha problemi gravi che allontanano chi &egrave; pronto a prenotare.
+  </p>
+  <p>
+    Il primo problema &egrave; la <strong>velocit&agrave;</strong>. Secondo Google, il 53% degli utenti mobile abbandona un sito che impiega pi&ugrave; di 3 secondi a caricarsi. Molti siti hotel italiani superano i 6-8 secondi. Ogni secondo di attesa &egrave; un ospite perso.
+  </p>
+  <p>
+    Il secondo problema &egrave; il <strong>design</strong>. Un sito che sembra costruito nel 2015 non ispira fiducia. L'ospite confronta il tuo sito con la pagina su Booking.com — pulita, veloce, con foto grandi e recensioni visibili — e sceglie il canale che gli d&agrave; pi&ugrave; sicurezza. Se il tuo sito non &egrave; all'altezza, l'ospite torna su Booking e tu paghi la commissione.
+  </p>
+  <p>
+    Il terzo problema &egrave; l'assenza di un <strong>booking engine</strong> visibile e semplice. Se l'ospite deve cercare il pulsante per prenotare, hai gi&agrave; perso. Il processo di prenotazione diretta deve essere pi&ugrave; facile, non pi&ugrave; difficile, di quello sulle OTA.
+  </p>
+  <p>
+    Per approfondire i problemi di conversione pi&ugrave; comuni, leggi la nostra guida su <a href="https://verissa.it/blog/sito-hotel-non-converte.html">perch&eacute; il tuo sito hotel non converte</a>.
+  </p>
+
+  <div class="cta-box">
+    <h3>Vuoi vedere come potrebbe essere il tuo sito?</h3>
+    <p>Incolla il link del tuo hotel e ricevi un concept moderno in pochi secondi. Gratis.</p>
+    <a href="https://verissa.it/#demo" class="btn">Prova il Generatore Demo &rarr;</a>
+  </div>
+
+  <h2>Il costo nascosto: non solo commissioni</h2>
+
+  <p>
+    Le commissioni dirette sono solo la punta dell'iceberg. Ci sono costi che non compaiono nel report mensile ma che erodono i tuoi margini ogni giorno.
+  </p>
+
+  <h3>Perdita di controllo sui prezzi</h3>
+  <p>
+    Quando partecipi ai programmi di sconto delle OTA — Genius, Black Friday Deals, offerte mobile — stai svendendo le tue camere per dare visibilit&agrave; a Booking.com. L'ospite si abitua allo sconto e non prenota mai a prezzo pieno. Questa corsa al ribasso &egrave; un circolo vizioso che abbassa la tariffa media di tutto il mercato.
+  </p>
+
+  <h3>Nessuna relazione con l'ospite</h3>
+  <p>
+    Quando un ospite prenota tramite OTA, il suo indirizzo email appartiene a Booking.com, non a te. Non puoi mandare un'offerta per il prossimo soggiorno, non puoi chiedere una recensione su Google, non puoi costruire un rapporto diretto. Ogni prenotazione OTA &egrave; un ospite "in affitto", non un cliente del tuo hotel.
+  </p>
+
+  <h3>Dipendenza strategica</h3>
+  <p>
+    Pi&ugrave; dipendi dalle OTA, pi&ugrave; le OTA hanno potere su di te. Possono cambiare le commissioni, modificare l'algoritmo di visibilit&agrave;, favorire i competitor. E tu non puoi fare nulla. &Egrave; come costruire la tua casa sul terreno di qualcun altro.
+  </p>
+
+  <h2>La soluzione: un sito che lavora per te</h2>
+
+  <p>
+    La buona notizia? Ridurre la dipendenza dalle OTA non &egrave; complicato. Non serve un budget enorme. Serve un sito web che faccia tre cose bene.
+  </p>
+
+  <h3>1. Caricarsi in meno di 2 secondi</h3>
+  <p>
+    La velocit&agrave; non &egrave; un dettaglio tecnico: &egrave; la prima impressione. Un sito veloce dice all'ospite "qui &egrave; tutto sotto controllo". Un sito lento dice "scappa". I siti Verissa sono ottimizzati per ottenere un punteggio PageSpeed superiore a 90, anche con gallerie fotografiche ad alta risoluzione. Per capire perch&eacute; la velocit&agrave; conta cos&igrave; tanto, leggi il nostro articolo sulla <a href="https://verissa.it/blog/velocita-sito-hotel.html">velocit&agrave; del sito hotel</a>.
+  </p>
+
+  <h3>2. Ispirare fiducia dal primo istante</h3>
+  <p>
+    L'ospite decide in 3 secondi se il tuo sito merita attenzione. Una hero section con foto professionale, un messaggio chiaro e un design moderno creano la stessa fiducia — o di pi&ugrave; — di una pagina OTA. Il design non &egrave; estetica: &egrave; <strong>fatturato</strong>.
+  </p>
+
+  <h3>3. Rendere la prenotazione facilissima</h3>
+  <p>
+    Un booking engine integrato, visibile, che funziona perfettamente da mobile. L'ospite sceglie le date, vede la tariffa, paga in due click. Nessuna pagina che si ricarica, nessun form infinito. Ecco come si vince contro Booking.com: con la semplicit&agrave;.
+  </p>
+
+  <div class="highlight-box">
+    <p>
+      Gli hotel che investono in un <a href="https://verissa.it/blog/sito-hotel-moderno.html">sito moderno e ottimizzato</a> vedono un aumento delle prenotazioni dirette tra il 25% e il 40% nel primo anno.
+    </p>
+  </div>
+
+  <h2>Quanto risparmi con pi&ugrave; prenotazioni dirette</h2>
+
+  <p>
+    Torniamo al nostro esempio: l'hotel con 200.000 euro di fatturato camere. Vediamo tre scenari realistici di cosa succede quando sposti prenotazioni dalle OTA al canale diretto.
+  </p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>OTA &rarr; Diretto</th>
+        <th>Risparmio annuo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Conservativo</td>
+        <td>72% &rarr; 60%</td>
+        <td>+5.760 &euro;</td>
+      </tr>
+      <tr>
+        <td>Moderato</td>
+        <td>72% &rarr; 50%</td>
+        <td>+10.560 &euro;</td>
+      </tr>
+      <tr>
+        <td>Ambizioso</td>
+        <td>72% &rarr; 40%</td>
+        <td>+15.360 &euro;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Anche nello scenario pi&ugrave; conservativo, il risparmio di 5.760 euro ripaga abbondantemente l'investimento in un sito professionale. Con il pacchetto <a href="https://verissa.it/#servizi">Direct Booking di Verissa a 599 euro</a>, il ritorno sull'investimento arriva in meno di due mesi.
+  </p>
+  <p>
+    E non parliamo solo di risparmio. Parliamo di ospiti che tornano, che lasciano recensioni su Google, che ti raccomandano agli amici. Ogni prenotazione diretta &egrave; un investimento nel futuro del tuo hotel.
+  </p>
+
+  <div class="cta-box">
+    <h3>Prova il nostro generatore demo gratuito</h3>
+    <p>Incolla il link del tuo hotel e scopri come potrebbe essere il tuo nuovo sito. Nessun impegno.</p>
+    <a href="https://verissa.it/#demo" class="btn">Genera il Tuo Concept &rarr;</a>
+  </div>
+
+  <h2>Cosa fanno gli hotel che ci riescono</h2>
+
+  <p>
+    Gli hotel italiani che hanno ridotto la dipendenza dalle OTA hanno una cosa in comune: non hanno fatto nulla di rivoluzionario. Hanno semplicemente smesso di ignorare il proprio sito web.
+  </p>
+  <p>
+    Un boutique hotel in Toscana ha rifatto il sito, aggiunto un booking engine e iniziato a lavorare sulla SEO locale. In otto mesi ha portato le prenotazioni dirette dal 18% al 42%. Il risparmio in commissioni ha coperto il costo del sito gi&agrave; nel primo trimestre.
+  </p>
+  <p>
+    Un agriturismo in Puglia ha semplicemente velocizzato il sito e aggiunto foto professionali nella hero section. Le richieste di preventivo via email sono aumentate del 60% senza spendere un euro in pubblicit&agrave;.
+  </p>
+  <p>
+    Non servono strategie complicate. Serve un sito che funzioni meglio di Booking.com quando l'ospite &egrave; pronto a prenotare.
+  </p>
+
+  <h2>I primi 3 passi da fare oggi</h2>
+
+  <p>
+    Non serve fare tutto in una volta. Ecco tre azioni concrete che puoi iniziare oggi.
+  </p>
+  <p>
+    <strong>Primo: calcola il tuo costo OTA reale.</strong> Apri il report annuale delle commissioni. Somma Booking.com, Expedia, e ogni altro intermediario. Scrivi quel numero su un foglio e appendilo in ufficio. Deve farti male ogni volta che lo guardi.
+  </p>
+  <p>
+    <strong>Secondo: testa il tuo sito da mobile.</strong> Prendi il telefono e apri il sito del tuo hotel. Cronometra quanto impiega a caricarsi. Prova a trovare il pulsante di prenotazione. Se non lo trovi in 5 secondi, i tuoi ospiti nemmeno.
+  </p>
+  <p>
+    <strong>Terzo: guarda come potrebbe essere.</strong> Usa il <a href="https://verissa.it/#demo">generatore demo di Verissa</a> per vedere il tuo hotel con un design moderno, veloce, costruito per convertire. Non costa nulla e ti d&agrave; un'idea concreta di cosa &egrave; possibile.
+  </p>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <h2>Domande Frequenti</h2>
+
+    <div class="faq-item">
+      <h3>Quanto paga un hotel di commissioni a Booking.com?</h3>
+      <p>Le commissioni di Booking.com per gli hotel italiani vanno dal 15% al 25% per ogni prenotazione. La percentuale dipende dalla visibilit&agrave; scelta, dal programma Preferred Partner e dalla localit&agrave;. Su un fatturato di 200.000 euro, un hotel pu&ograve; pagare tra 30.000 e 50.000 euro all'anno solo in commissioni.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Come posso ridurre le commissioni delle OTA?</h3>
+      <p>Il modo pi&ugrave; efficace &egrave; aumentare le prenotazioni dirette tramite il proprio sito web. Servono un sito moderno e veloce, un booking engine integrato, una strategia SEO locale e un'esperienza utente che convinca l'ospite a prenotare direttamente. Hotel con siti ottimizzati riescono a portare il 30-50% delle prenotazioni sul canale diretto.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Quanto costa rifare il sito web di un hotel?</h3>
+      <p>Con Verissa, un restyling professionale parte da 399 euro per il pacchetto Express, fino a 1.699 euro per l'esperienza Luxury con booking engine integrato, SEO e chatbot. L'investimento si ripaga con le prime prenotazioni dirette ottenute grazie al nuovo sito.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Conviene uscire completamente da Booking.com?</h3>
+      <p>No, la strategia migliore non &egrave; eliminare le OTA ma ridurre la dipendenza. Booking.com resta utile per la visibilit&agrave; e per raggiungere nuovi ospiti. L'obiettivo &egrave; spostare gradualmente il mix di prenotazioni verso il canale diretto, puntando a un equilibrio 50/50 o meglio.</p>
+    </div>
+  </section>
+
+</article>
+
+<!-- FOOTER -->
+<footer class="article-footer">
+  <p>&copy; 2026 <a href="https://verissa.it">Verissa</a> &mdash; Da sito vecchio a motore di prenotazioni.</p>
+  <p style="margin-top:8px">
+    <a href="https://verissa.it/blog/">Tutti gli articoli</a> &middot;
+    <a href="https://verissa.it/privacy.html">Privacy</a> &middot;
+    <a href="https://verissa.it/terms.html">Termini</a>
+  </p>
+</footer>
+
+</body>
+</html>
