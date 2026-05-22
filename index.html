@@ -22,6 +22,8 @@
 <meta name="twitter:title" content="Verissa — Da sito vecchio a motore di prenotazioni." />
 <meta name="twitter:description" content="Incolla il link del tuo hotel e ottieni un sito moderno, mobile-ready in pochi secondi. Design professionale da €399." />
 <meta name="twitter:image" content="https://verissa.it/og-image.png" />
+<meta name="description" lang="en" content="See your hotel website redesigned instantly. Paste your URL and get a modern, mobile-ready concept in seconds. From €399." />
+<link rel="preload" as="image" href="images/W-Budapest_326-Cool-Corner_09-HERO.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -398,16 +400,7 @@ a{text-decoration:none;color:inherit}
 .tier-device-laptop .device-frame img{
   width:100%;height:100%;object-fit:cover;object-position:top;display:block;
 }
-/* Scaled iframe inside device frames — hidden until loaded */
-.tier-device-laptop .device-frame iframe{
-  position:absolute;top:0;left:0;
-  width:1280px;height:800px;
-  transform:scale(var(--laptop-scale,.15));
-  transform-origin:top left;
-  border:none;pointer-events:none;
-  background:#fff;
-  opacity:0;transition:opacity .4s ease;
-}
+/* Device frame images fill container */
 .tier-device-laptop .device-base{
   height:6px;
   background:linear-gradient(to bottom,#444,#333);
@@ -438,22 +431,10 @@ a{text-decoration:none;color:inherit}
 .tier-device-phone .device-frame img{
   width:100%;height:100%;object-fit:cover;object-position:top;display:block;
 }
-.tier-device-phone .device-frame iframe{
-  position:absolute;top:0;left:0;
-  width:390px;height:844px;
-  transform:scale(var(--phone-scale,.08));
-  transform-origin:top left;
-  border:none;pointer-events:none;
-  background:#fff;
-  opacity:0;transition:opacity .4s ease;
-}
 .tier-device-phone .device-notch{
   position:absolute;top:4px;left:50%;transform:translateX(-50%);
   width:28%;height:5px;background:#222;border-radius:5px;z-index:2;
 }
-/* Fallback shown by default, hidden after iframe loads via JS */
-.device-frame .device-fallback{transition:opacity .4s ease}
-.device-frame .device-fallback.hidden{opacity:0;pointer-events:none}
 /* Hover polish on devices */
 .price-card:hover .tier-device-laptop .device-frame{
   border-color:rgba(255,255,255,.2);
@@ -767,16 +748,14 @@ a{text-decoration:none;color:inherit}
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <iframe data-src="templates/express-makeover.html?v=50" sandbox="allow-same-origin allow-scripts" title="Express desktop"></iframe>
-              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=70&auto=format" alt="Express desktop preview" class="device-fallback" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=70&auto=format" alt="Express desktop preview" loading="eager" />
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <iframe data-src="templates/express-makeover.html?v=50" sandbox="allow-same-origin allow-scripts" title="Express mobile"></iframe>
-              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&q=70&auto=format" alt="Express mobile preview" class="device-fallback" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&q=70&auto=format" alt="Express mobile preview" loading="eager" />
             </div>
           </div>
         </div>
@@ -798,16 +777,14 @@ a{text-decoration:none;color:inherit}
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <iframe data-src="templates/direct-booking.html?v=50" sandbox="allow-same-origin allow-scripts" title="Standard desktop"></iframe>
-              <img src="images/night_by_the_pool.jpg" alt="Standard desktop preview" class="device-fallback" loading="eager" />
+              <img src="images/night_by_the_pool.jpg" alt="Standard desktop preview" loading="eager" />
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <iframe data-src="templates/direct-booking.html?v=50" sandbox="allow-same-origin allow-scripts" title="Standard mobile"></iframe>
-              <img src="images/night_by_the_pool.jpg" alt="Standard mobile preview" class="device-fallback" loading="eager" />
+              <img src="images/night_by_the_pool.jpg" alt="Standard mobile preview" loading="eager" />
             </div>
           </div>
         </div>
@@ -828,16 +805,14 @@ a{text-decoration:none;color:inherit}
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <iframe data-src="templates/luxury-experience.html?v=50" sandbox="allow-same-origin allow-scripts" title="Premium desktop"></iframe>
-              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=70&auto=format" alt="Premium desktop preview" class="device-fallback" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=70&auto=format" alt="Premium desktop preview" loading="eager" />
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <iframe data-src="templates/luxury-experience.html?v=50" sandbox="allow-same-origin allow-scripts" title="Premium mobile"></iframe>
-              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=300&q=70&auto=format" alt="Premium mobile preview" class="device-fallback" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=300&q=70&auto=format" alt="Premium mobile preview" loading="eager" />
             </div>
           </div>
         </div>
@@ -1474,51 +1449,7 @@ const style=document.createElement('style');
 style.textContent='@keyframes spin{to{transform:rotate(360deg)}}.spin{animation:spin .8s linear infinite}';
 document.head.appendChild(style);
 
-/* ══════ Device mockup iframe scaling + lazy loading ══════ */
-(function(){
-  function scaleMockups(){
-    document.querySelectorAll('.tier-device-laptop .device-frame').forEach(f=>{
-      const w=f.offsetWidth;if(!w)return;
-      f.style.setProperty('--laptop-scale',(w/1280).toFixed(4));
-    });
-    document.querySelectorAll('.tier-device-phone .device-frame').forEach(f=>{
-      const w=f.offsetWidth;if(!w)return;
-      f.style.setProperty('--phone-scale',(w/390).toFixed(4));
-    });
-  }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',scaleMockups)}
-  else{scaleMockups()}
-  window.addEventListener('resize',scaleMockups);
-  setTimeout(scaleMockups,500);
-  setTimeout(scaleMockups,1500);
-
-  /* Lazy-load tier iframes only when pricing section enters viewport */
-  function initTierIframes(){
-    const grid=document.querySelector('.pricing-grid');
-    if(!grid)return;
-    const iframes=grid.querySelectorAll('iframe[data-src]');
-    if(!iframes.length)return;
-    const observer=new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(!entry.isIntersecting)return;
-        observer.disconnect();
-        iframes.forEach(function(iframe){
-          iframe.onload=function(){
-            iframe.style.opacity='1';
-            const fb=iframe.parentElement.querySelector('.device-fallback');
-            if(fb)fb.classList.add('hidden');
-          };
-          iframe.src=iframe.dataset.src;
-        });
-        setTimeout(scaleMockups,300);
-        setTimeout(scaleMockups,1200);
-      });
-    },{rootMargin:'200px'});
-    observer.observe(grid);
-  }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initTierIframes)}
-  else{initTierIframes()}
-})();
+/* ══════ Tier previews: static images only — zero iframes, zero flash ══════ */
 
 /* ══════ i18n — BILINGUAL IT/EN ══════ */
 let currentLang='it';
@@ -1984,7 +1915,7 @@ async function handleGenerate(){
     if(SCRAPER_URL){
       btn.innerHTML=spin+'Scansione profonda del sito...';
       try{
-        const sr=await fetch(SCRAPER_URL+'/?url='+eu,{signal:AbortSignal.timeout(30000)});
+        const sr=await fetch(SCRAPER_URL+'/?url='+eu,{signal:fetchTimeout(30000)});
         const sj=await sr.json();
         if(sr.ok&&sj.success&&sj.data){
             const sd=sj.data;
@@ -2028,7 +1959,7 @@ async function handleGenerate(){
     if(!scraperOK){
       btn.innerHTML=spin+t('scrMetadata');
       try{
-        const mr=await fetch('https://api.microlink.io/?url='+eu+'&palette=true&audio=false&video=false',{signal:AbortSignal.timeout(15000)});
+        const mr=await fetch('https://api.microlink.io/?url='+eu+'&palette=true&audio=false&video=false',{signal:fetchTimeout(15000)});
         if(mr.ok){
           const mj=await mr.json();
           if(mj.status==='success'&&mj.data){
@@ -2052,7 +1983,7 @@ async function handleGenerate(){
 
       if(!microlinkOK){
         try{
-          const mr2=await fetch('https://api.microlink.io/?url='+eu,{signal:AbortSignal.timeout(10000)});
+          const mr2=await fetch('https://api.microlink.io/?url='+eu,{signal:fetchTimeout(10000)});
           if(mr2.ok){
             const mj2=await mr2.json();
             if(mj2.status==='success'&&mj2.data){
@@ -2080,7 +2011,7 @@ async function handleGenerate(){
         const p=proxyList[i];
         btn.innerHTML=spin+'Scansione sito ('+(i+1)+'/'+proxyList.length+')...';
         try{
-          const r=await fetch(p.url,{signal:AbortSignal.timeout(p.timeout)});
+          const r=await fetch(p.url,{signal:fetchTimeout(p.timeout)});
           if(r.ok){
             let txt;
             if(p.type==='json'){const j=await r.json();txt=j.contents||''}
@@ -2468,6 +2399,9 @@ function showTier(idx){
    ══════════════════════════════════════════════════════════ */
 
 function starStr(n){return n?'★'.repeat(n)+' ':''}
+/* ── Fetch timeout helper — cross-browser compatible (replaces AbortSignal.timeout) ── */
+function fetchTimeout(ms){var c=new AbortController();setTimeout(function(){c.abort()},ms);return c.signal}
+
 function bgImg(src){return `background-image:url('${src}');background-size:cover;background-position:center`}
 /* ── Image URL optimizer — cap size for common CDNs ── */
 function optimizeImgUrl(src,w=600){
@@ -2493,7 +2427,7 @@ function isHeroPoor(src){if(!src)return true;if(src.includes('favicon'))return t
 function heroImg(src){return isHeroPoor(src)?HERO_FALLBACK:src}
 function isPlaceholder(src){return src&&(src.includes('unsplash.com')||src===HERO_FALLBACK||src.includes('W-Budapest'))}
 function placeholderBadge(src){return isPlaceholder(src)?'<div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);color:rgba(255,255,255,.8);padding:4px 10px;border-radius:4px;font-size:9px;letter-spacing:.5px;text-transform:uppercase;z-index:2;pointer-events:none">Immagine indicativa</div>':''}
-function esc(s){return (s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;')}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;').replace(/"/g,'&quot;')}
 
 /* ── Clean room descriptions: strip JS code, carousel markup, and non-room junk ── */
 function cleanDesc(s){
@@ -3612,6 +3546,8 @@ function submitPayment(e){
   e.preventDefault();
   const fd=new FormData(e.target);
   const data=Object.fromEntries(fd.entries());
+  // Sanitize user input before rendering
+  var sName=esc(data.name||''), sEmail=esc(data.email||''), sTier=esc(data.tier||'');
   // For now — show confirmation. In production, integrate Stripe/PayPal.
   const card=document.getElementById('payCard');
   card.innerHTML=`
@@ -3619,10 +3555,10 @@ function submitPayment(e){
       <div style="font-size:48px;margin-bottom:16px">✅</div>
       <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:12px;color:var(--text-primary)">Richiesta Ricevuta!</h3>
       <p style="color:var(--text-secondary);font-size:15px;line-height:1.6;margin-bottom:8px">
-        Grazie <strong style="color:var(--text-primary)">${data.name||''}</strong>! Abbiamo ricevuto la tua richiesta per il pacchetto <strong style="color:var(--tier-c)">${data.tier}</strong>.
+        Grazie <strong style="color:var(--text-primary)">${sName}</strong>! Abbiamo ricevuto la tua richiesta per il pacchetto <strong style="color:var(--tier-c)">${sTier}</strong>.
       </p>
       <p style="color:var(--text-secondary);font-size:14px;line-height:1.6;margin-bottom:24px">
-        Ti contatteremo a <strong style="color:var(--text-primary)">${data.email||''}</strong> entro le prossime ore con tutti i dettagli per procedere.
+        Ti contatteremo a <strong style="color:var(--text-primary)">${sEmail}</strong> entro le prossime ore con tutti i dettagli per procedere.
       </p>
       <button onclick="closePayment();location.reload()" style="padding:14px 32px;border-radius:12px;border:1.5px solid rgba(0,0,0,.10);background:transparent;color:var(--text-secondary);font-size:14px;cursor:pointer;font-family:var(--sans)">Chiudi</button>
     </div>`;
@@ -3649,12 +3585,12 @@ function openChatbot(){
   document.body.style.overflow='hidden';
   if(chatMessages.length===0){
     // Initial welcome — no API call needed, instant
-    const welcome=curLang==='en'
+    const welcome=currentLang==='en'
       ?'Hello! 👋 I\'m the Verissa Concierge. I can help you find the perfect website solution for your hotel or property. What are you looking for?'
       :'Benvenuto! 👋 Sono il Concierge Verissa. Posso aiutarti a trovare la soluzione perfetta per il sito web della tua struttura ricettiva. Di cosa hai bisogno?';
     appendBotBubble(welcome);
     chatMessages.push({role:'assistant',content:welcome});
-    showQuickReplies(curLang==='en'
+    showQuickReplies(currentLang==='en'
       ?['I need a new website','I have a website already','Show me pricing']
       :['Voglio un nuovo sito','Ho già un sito','Mostra i prezzi']);
   }
@@ -3663,6 +3599,25 @@ function closeChatbot(){
   document.getElementById('chatOverlay').classList.remove('open');
   document.body.style.overflow='';
 }
+
+/* ── Global Escape key + popstate: release body overflow from any open overlay ── */
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    var pay=document.getElementById('payOverlay');
+    if(pay&&pay.classList.contains('open')){closePayment();return}
+    var chat=document.getElementById('chatOverlay');
+    if(chat&&chat.classList.contains('open')){closeChatbot();return}
+    /* Close any other overlay that locks body overflow */
+    document.body.style.overflow='';
+  }
+});
+window.addEventListener('popstate',function(){
+  var pay=document.getElementById('payOverlay');
+  if(pay&&pay.classList.contains('open'))closePayment();
+  var chat=document.getElementById('chatOverlay');
+  if(chat&&chat.classList.contains('open'))closeChatbot();
+  document.body.style.overflow='';
+});
 
 /* ── UI Helpers ── */
 function appendBotBubble(html){
@@ -3836,12 +3791,12 @@ async function chatRespond(userText){
 
   } catch(err){
     hideTyping();
-    const fallback=curLang==='en'
+    const fallback=currentLang==='en'
       ?'I\'m having a brief connection issue. In the meantime, you can try our live website generator above — just paste your hotel URL and see the transformation instantly! Or reach us on WhatsApp for immediate help.'
       :'Ho un piccolo problema di connessione. Nel frattempo, puoi provare il nostro generatore qui sopra — incolla il link del tuo sito e guarda la trasformazione! Oppure scrivici su WhatsApp per assistenza immediata.';
     appendBotBubble(fallback);
     chatMessages.push({role:'assistant',content:fallback});
-    showQuickReplies(curLang==='en'
+    showQuickReplies(currentLang==='en'
       ?['Try the generator ↑','Contact on WhatsApp']
       :['Prova il generatore ↑','Scrivi su WhatsApp']);
   }
