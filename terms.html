@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#FAF8F5" />
+<title>Termini di Servizio — Verissa</title>
+<meta name="description" content="Termini e condizioni di servizio di Verissa. Leggi cosa copre ciascun pacchetto, come funzionano i pagamenti e i rimborsi." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:#FAF8F5;
+  color:#555;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.75;
+  font-size:15px;
+}
+a{text-decoration:none;color:inherit}
+::selection{background:rgba(196,162,101,.20);color:#2D2D2D}
+
+:root{
+  --gold:#C4A265;
+  --gold-light:#D4B87A;
+  --gold-dark:#A8884E;
+  --bg-cream:#FAF8F5;
+  --bg-warm:#F5F0EA;
+  --bg-sand:#EDE8E0;
+  --border:rgba(0,0,0,.06);
+  --border-strong:rgba(0,0,0,.10);
+  --text-primary:#2D2D2D;
+  --text-secondary:#555;
+  --text-muted:#888;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+
+.nav-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,248,245,.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:16px 24px;
+}
+.nav-inner{
+  max-width:800px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;color:var(--text-secondary);
+  font-family:var(--sans);transition:color .2s;
+}
+.back-link:hover{color:var(--text-primary)}
+.back-link svg{width:16px;height:16px;transition:transform .2s}
+.back-link:hover svg{transform:translateX(-3px)}
+.nav-brand{
+  font-family:var(--serif);font-size:18px;font-weight:600;
+  color:var(--text-primary);letter-spacing:.02em;
+}
+
+.wrap{
+  max-width:800px;margin:0 auto;
+  padding:60px 24px 80px;
+}
+.hero{
+  text-align:center;margin-bottom:56px;
+  padding-bottom:48px;border-bottom:1px solid var(--border);
+}
+.hero h1{
+  font-family:var(--serif);font-size:clamp(28px,5vw,42px);
+  font-weight:700;color:var(--text-primary);
+  margin-bottom:12px;line-height:1.2;
+  letter-spacing:-.02em;
+}
+.hero .sub{font-size:15px;color:var(--text-muted);font-family:var(--sans)}
+.hero .line{width:60px;height:2px;background:var(--gold);margin:20px auto 0;border-radius:2px}
+
+.s{margin-bottom:48px}
+.s h2{
+  font-family:var(--serif);font-size:22px;font-weight:600;
+  color:var(--text-primary);margin-bottom:16px;
+  padding-bottom:10px;border-bottom:1px solid var(--border);line-height:1.3;
+  letter-spacing:-.01em;
+}
+.s h3{
+  font-family:var(--sans);font-size:16px;font-weight:600;
+  color:var(--text-primary);margin:20px 0 8px;
+}
+.s p{margin-bottom:12px}
+.s ul,.s ol{margin:12px 0 12px 20px}
+.s li{margin-bottom:8px}
+.s strong{color:var(--text-primary);font-weight:600}
+
+.pkg-grid{display:grid;gap:16px;margin:20px 0}
+.pkg-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:12px;padding:20px 24px;transition:border-color .2s;
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
+}
+.pkg-card:hover{border-color:var(--border-strong)}
+.pkg-card .name{
+  font-family:var(--sans);font-size:13px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;
+}
+.pkg-card .name.express{color:#4CAF7D}
+.pkg-card .name.standard{color:#5A9BD5}
+.pkg-card .name.premium{color:#9B7FCF}
+.pkg-card .price{
+  font-family:var(--serif);font-size:20px;font-weight:600;
+  color:var(--text-primary);margin-bottom:8px;
+}
+.pkg-card .desc{font-size:14px;color:var(--text-secondary)}
+
+.hbox{
+  background:var(--bg-warm);border:1px solid var(--border);
+  border-left:3px solid var(--gold);border-radius:8px;
+  padding:16px 20px;margin:16px 0;font-size:14px;
+}
+
+.toc{
+  background:#fff;border:1px solid var(--border);
+  border-radius:12px;padding:24px 28px;margin-bottom:48px;
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
+}
+.toc-title{
+  font-family:var(--sans);font-size:13px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+}
+.toc ol{margin:0;padding-left:20px;list-style:decimal}
+.toc li{margin-bottom:6px}
+.toc a{font-size:14px;color:var(--text-secondary);transition:color .2s;text-decoration:none}
+.toc a:hover{color:var(--gold)}
+
+.foot{border-top:1px solid var(--border);padding:40px 24px 32px;background:var(--bg-warm)}
+.foot-inner{
+  max-width:800px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.foot-inner span{font-size:13px;color:var(--text-muted);font-family:var(--sans)}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.foot-links a{font-size:13px;color:var(--text-secondary);font-family:var(--sans);transition:color .2s}
+.foot-links a:hover{color:var(--text-primary)}
+
+@media(max-width:600px){
+  .wrap{padding:40px 16px 60px}
+  .nav-inner{flex-direction:row}
+  .foot-inner{flex-direction:column;text-align:center}
+  .pkg-card{padding:16px 18px}
+  .toc{padding:18px 20px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav-header">
+  <div class="nav-inner">
+    <a href="verissa.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+      Torna a Verissa
+    </a>
+    <span class="nav-brand">Verissa</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <h1>Termini di Servizio</h1>
+    <p class="sub">Ultimo aggiornamento: maggio 2026</p>
+    <div class="line"></div>
+  </div>
+
+  <p>I presenti Termini di Servizio ("Termini") regolano il rapporto tra Verissa e te (il "Cliente") quando utilizzi il nostro sito, acquisti un pacchetto o interagisci con i nostri servizi. Acquistando un pacchetto, confermi di aver letto e accettato questi Termini.</p>
+
+  <nav class="toc">
+    <div class="toc-title">Indice</div>
+    <ol>
+      <li><a href="#chi">Chi siamo</a></li>
+      <li><a href="#servizi">Cosa offriamo</a></li>
+      <li><a href="#prezzi">Prezzi e pagamenti</a></li>
+      <li><a href="#tempi">Tempi di consegna</a></li>
+      <li><a href="#obblighi">Cosa ci serve da te</a></li>
+      <li><a href="#proprieta">Propriet&agrave; intellettuale</a></li>
+      <li><a href="#responsabilita">Responsabilit&agrave; e limiti</a></li>
+      <li><a href="#recesso">Recesso e rimborsi</a></li>
+      <li><a href="#hosting">Hosting e manutenzione</a></li>
+      <li><a href="#dati">Protezione dei dati</a></li>
+      <li><a href="#modifiche">Modifiche ai termini</a></li>
+      <li><a href="#legge">Legge applicabile</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1 -->
+  <section class="s" id="chi">
+    <h2>1. Chi siamo</h2>
+    <p>Verissa &egrave; un servizio di creazione siti web per hotel e strutture ricettive, gestito da Alex, con sede operativa in Italia, contattabile a <a href="mailto:alexetrofim@gmail.com" style="color:var(--gold)">alexetrofim@gmail.com</a>.</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="s" id="servizi">
+    <h2>2. Cosa offriamo</h2>
+    <p>Realizziamo siti web professionali per strutture ricettive. Offriamo tre pacchetti:</p>
+    <div class="pkg-grid">
+      <div class="pkg-card">
+        <div class="name express">Express</div>
+        <div class="price">&euro;399 <span style="font-size:14px;color:var(--text-muted);font-family:var(--sans)">— pagamento unico</span></div>
+        <div class="desc">Sito web professionale e responsive consegnato in 48-72 ore. Basato sulle informazioni estratte dal tuo sito attuale. Ideale per chi vuole una presenza online moderna, subito.</div>
+      </div>
+      <div class="pkg-card">
+        <div class="name standard">Direct Booking</div>
+        <div class="price">&euro;599 <span style="font-size:14px;color:var(--text-muted);font-family:var(--sans)">— pagamento unico</span></div>
+        <div class="desc">Tutto il pacchetto Express, pi&ugrave; il chatbot Vera integrato per l'assistenza automatizzata ai tuoi ospiti e manutenzione ordinaria inclusa.</div>
+      </div>
+      <div class="pkg-card">
+        <div class="name premium">Luxury</div>
+        <div class="price">&euro;1.699 <span style="font-size:14px;color:var(--text-muted);font-family:var(--sans)">— pagamento unico</span></div>
+        <div class="desc">Il sistema completo: chatbot Alissa AI avanzato, integrazione con i tuoi sistemi di prenotazione, supporto prioritario e manutenzione dedicata.</div>
+      </div>
+    </div>
+    <p>Le specifiche dettagliate di ciascun pacchetto sono consultabili sul sito principale. Ci riserviamo il diritto di aggiornare le caratteristiche, comunicando le variazioni ai clienti interessati.</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="s" id="prezzi">
+    <h2>3. Prezzi e pagamenti</h2>
+    <p>Tutti i prezzi sono in Euro (&euro;) e si intendono come pagamenti una tantum. Non ci sono canoni mensili, costi nascosti o addebiti ricorrenti, salvo ove espressamente indicato per servizi aggiuntivi opzionali (es. manutenzione extra).</p>
+    <p>I pagamenti vengono elaborati tramite <strong>Stripe</strong> (conforme PCI-DSS). Non memorizziamo i dati della tua carta &mdash; restano su Stripe. Il pagamento integrale &egrave; richiesto al momento dell'ordine. I lavori iniziano dopo la conferma del pagamento.</p>
+    <div class="hbox">
+      I prezzi possono variare. Il prezzo che conta &egrave; quello confermato nella tua ricevuta di pagamento al momento dell'acquisto.
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="s" id="tempi">
+    <h2>4. Tempi di consegna</h2>
+    <ul>
+      <li><strong>EXPRESS:</strong> 48-72 ore lavorative dalla conferma del pagamento e dalla ricezione dei materiali necessari.</li>
+      <li><strong>DIRECT BOOKING:</strong> 5-7 giorni lavorativi, inclusa la configurazione del chatbot Vera e il periodo di test.</li>
+      <li><strong>LUXURY:</strong> 10-15 giorni lavorativi, inclusa l'integrazione con i sistemi di prenotazione, la configurazione di Alissa AI e il collaudo.</li>
+    </ul>
+    <p>Questi sono tempi stimati. Possono variare in base alla complessit&agrave; del progetto e alla tempestivit&agrave; con cui ci fornisci i materiali. Ti comunicheremo qualsiasi ritardo indicandone le cause e i nuovi tempi previsti.</p>
+  </section>
+
+  <!-- 5 -->
+  <section class="s" id="obblighi">
+    <h2>5. Cosa ci serve da te</h2>
+    <p>Per realizzare il tuo sito, abbiamo bisogno che tu ci fornisca:</p>
+    <ul>
+      <li>Foto della struttura e delle camere (se disponibili &mdash; altrimenti usiamo immagini stock professionali adatte al contesto, con badge "Immagine indicativa").</li>
+      <li>Testi, descrizioni delle camere e listino prezzi (se non disponibili sul sito esistente).</li>
+      <li>Logo in alta risoluzione (se disponibile).</li>
+      <li>Feedback entro tempi ragionevoli durante il processo di revisione.</li>
+    </ul>
+    <p>Ritardi nella fornitura dei materiali possono influire sui tempi di consegna.</p>
+  </section>
+
+  <!-- 6 -->
+  <section class="s" id="proprieta">
+    <h2>6. Propriet&agrave; intellettuale</h2>
+    <h3>I tuoi contenuti</h3>
+    <p>Tutto ci&ograve; che ci fornisci (foto, testi, logo, marchi) resta tuo. Lo usiamo esclusivamente per realizzare il sito.</p>
+    <h3>Il nostro codice e i template</h3>
+    <p>Il codice sorgente, i template, i framework e le tecnologie proprietarie di Verissa restano di nostra propriet&agrave;. Ricevi una licenza d'uso non esclusiva e non trasferibile per il sito web realizzato.</p>
+    <h3>Attribuzione</h3>
+    <p>Ci riserviamo il diritto di inserire un discreto riferimento ("Sito realizzato da Verissa") nel footer del sito, salvo diverso accordo scritto.</p>
+  </section>
+
+  <!-- 7 -->
+  <section class="s" id="responsabilita">
+    <h2>7. Responsabilit&agrave; e limiti</h2>
+    <p>Ci impegniamo a fornire i servizi con diligenza professionale. Il sito sar&agrave; funzionante, responsive e conforme alle specifiche del pacchetto acquistato al momento della consegna.</p>
+    <p>Tuttavia:</p>
+    <ul>
+      <li>Non siamo responsabili per malfunzionamenti causati da interventi di terze parti sul codice o modifiche non autorizzate.</li>
+      <li>Non garantiamo specifici risultati di posizionamento SEO, volume di traffico o tasso di conversione &mdash; sono fattori influenzati da molte variabili esterne.</li>
+      <li>La nostra responsabilit&agrave; complessiva &egrave; limitata all'importo che hai effettivamente pagato per il servizio.</li>
+    </ul>
+  </section>
+
+  <!-- 8 -->
+  <section class="s" id="recesso">
+    <h2>8. Recesso e rimborsi</h2>
+    <h3>Prima dell'inizio dei lavori</h3>
+    <p>Rimborso integrale se eserciti il recesso prima che iniziamo a lavorare. Scrivi a <a href="mailto:alexetrofim@gmail.com" style="color:var(--gold)">alexetrofim@gmail.com</a>.</p>
+    <h3>Dopo l'inizio dei lavori</h3>
+    <p>Rimborso parziale, proporzionale al lavoro non ancora svolto.</p>
+    <h3>Dopo la consegna</h3>
+    <p>Nessun rimborso dopo la consegna e approvazione del sito. Hai <strong>7 giorni</strong> dalla consegna per segnalare difetti o non conformit&agrave;, che correggeremo senza costi aggiuntivi.</p>
+    <div class="hbox">
+      Ai sensi dell'art. 59 del Codice del Consumo (D.Lgs. 206/2005), il diritto di recesso potrebbe non applicarsi ai servizi completamente eseguiti con il tuo previo consenso espresso.
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section class="s" id="hosting">
+    <h2>9. Hosting e manutenzione</h2>
+    <ul>
+      <li><strong>EXPRESS:</strong> ti consegniamo il sito web. La scelta e gestione dell'hosting &egrave; tua responsabilit&agrave;.</li>
+      <li><strong>DIRECT BOOKING:</strong> include manutenzione ordinaria del sito e del chatbot Vera per il periodo concordato.</li>
+      <li><strong>LUXURY:</strong> include manutenzione dedicata, aggiornamenti prioritari e supporto tecnico continuativo.</li>
+    </ul>
+    <p>Costi di hosting presso provider terzi (dominio, server, CDN) restano a tuo carico, salvo diverso accordo. Non siamo responsabili per interruzioni causate dal tuo provider di hosting.</p>
+  </section>
+
+  <!-- 10 -->
+  <section class="s" id="dati">
+    <h2>10. Protezione dei dati</h2>
+    <p>Trattiamo i tuoi dati personali in conformit&agrave; al GDPR e alla normativa italiana. Per tutti i dettagli, consulta la nostra <a href="privacy.html" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px">Privacy Policy</a>.</p>
+    <p>Se sei un Cliente, sei responsabile della conformit&agrave; GDPR dei contenuti sul tuo sito (moduli di contatto, cookie, strumenti di tracciamento). Verissa agisce come responsabile tecnico del trattamento per i dati dei tuoi visitatori.</p>
+  </section>
+
+  <!-- 11 -->
+  <section class="s" id="modifiche">
+    <h2>11. Modifiche ai termini</h2>
+    <p>Possiamo aggiornare questi Termini. Le modifiche non si applicano retroattivamente ai servizi gi&agrave; acquistati. Per i nuovi acquisti, valgono i termini in vigore al momento dell'ordine. La data "Ultimo aggiornamento" in alto riflette sempre la versione corrente.</p>
+  </section>
+
+  <!-- 12 -->
+  <section class="s" id="legge">
+    <h2>12. Legge applicabile</h2>
+    <p>Questi Termini sono regolati dalla legge italiana. Per qualsiasi controversia, sar&agrave; competente il foro italiano territorialmente competente. Se sei un consumatore, si applicano le disposizioni inderogabili del Codice del Consumo, incluso il foro del consumatore.</p>
+    <p>Prima di adire le vie legali, tenteremo una risoluzione amichevole. Puoi anche utilizzare la piattaforma ODR dell'UE: <a href="https://ec.europa.eu/consumers/odr" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
+  </section>
+
+  <!-- 13 -->
+  <section class="s" id="contatti">
+    <h2>13. Contatti</h2>
+    <p>Domande su questi Termini? Scrivi a <a href="mailto:alexetrofim@gmail.com" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px">alexetrofim@gmail.com</a>. Rispondiamo entro 5 giorni lavorativi.</p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <span>&copy; 2026 Verissa. All rights reserved.</span>
+    <div class="foot-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html" style="color:var(--text-primary);font-weight:600">Terms of Service</a>
+      <a href="cookies.html">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#FAF8F5" />
+<title>Cookie Policy — Verissa</title>
+<meta name="description" content="Cookie Policy di Verissa. Quali cookie utilizziamo, perché, e come gestirli." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:#FAF8F5;
+  color:#555;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.75;
+  font-size:15px;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(196,162,101,.20);color:#2D2D2D}
+
+:root{
+  --gold:#C4A265;
+  --gold-light:#D4B87A;
+  --gold-dark:#A8884E;
+  --bg-cream:#FAF8F5;
+  --bg-warm:#F5F0EA;
+  --bg-sand:#EDE8E0;
+  --border:rgba(0,0,0,.06);
+  --border-strong:rgba(0,0,0,.10);
+  --text-primary:#2D2D2D;
+  --text-secondary:#555;
+  --text-muted:#888;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+
+.nav-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,248,245,.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:16px 24px;
+}
+.nav-inner{
+  max-width:800px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;color:var(--text-secondary);transition:color .2s;
+}
+.back-link:hover{color:var(--text-primary)}
+.back-link svg{width:16px;height:16px;flex-shrink:0}
+.nav-brand{
+  font-family:var(--serif);font-size:16px;font-weight:600;
+  color:var(--text-primary);letter-spacing:.02em;
+}
+
+.policy{
+  max-width:800px;margin:0 auto;
+  padding:64px 24px 80px;
+}
+.policy-title{
+  font-family:var(--serif);font-size:clamp(28px,5vw,40px);
+  font-weight:700;color:var(--text-primary);margin-bottom:8px;line-height:1.2;
+  letter-spacing:-.02em;
+}
+.policy-sub{font-size:14px;color:var(--text-muted);margin-bottom:48px}
+
+h2{
+  font-family:var(--serif);font-size:22px;font-weight:600;
+  color:var(--text-primary);margin:48px 0 16px;line-height:1.3;
+  padding-bottom:10px;border-bottom:1px solid var(--border);
+  letter-spacing:-.01em;
+}
+h2:first-of-type{margin-top:0}
+
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 20px}
+li{margin-bottom:6px}
+strong{color:var(--text-primary);font-weight:600}
+
+a.gold{
+  color:var(--gold);text-decoration:underline;
+  text-underline-offset:3px;text-decoration-color:rgba(196,162,101,.3);
+  transition:text-decoration-color .2s;
+}
+a.gold:hover{text-decoration-color:var(--gold)}
+
+.cookie-table-wrap{
+  overflow-x:auto;margin:24px 0 32px;
+  border:1px solid var(--border);border-radius:12px;
+  background:#fff;
+}
+.cookie-table{
+  width:100%;border-collapse:collapse;font-size:13px;min-width:640px;
+}
+.cookie-table thead{background:var(--bg-warm)}
+.cookie-table th{
+  text-align:left;padding:12px 16px;
+  font-weight:600;color:var(--text-primary);
+  border-bottom:1px solid var(--border-strong);
+  font-size:12px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;
+}
+.cookie-table td{
+  padding:12px 16px;border-bottom:1px solid var(--border);
+  color:var(--text-secondary);vertical-align:top;
+}
+.cookie-table tbody tr:last-child td{border-bottom:none}
+.cookie-table tbody tr:hover{background:var(--bg-warm)}
+.cookie-table code{
+  font-family:'SF Mono',Consolas,monospace;font-size:12px;
+  background:rgba(0,0,0,.04);padding:2px 6px;border-radius:4px;
+  color:var(--text-primary);
+}
+.badge{
+  display:inline-block;font-size:11px;font-weight:600;
+  padding:2px 8px;border-radius:4px;letter-spacing:.03em;white-space:nowrap;
+}
+.badge-necessary{background:rgba(76,175,125,.10);color:#3A8F64}
+.badge-analytics{background:rgba(90,155,213,.10);color:#4A82B0}
+.badge-thirdparty{background:rgba(155,127,207,.10);color:#7B5FAF}
+.badge-local{background:rgba(196,162,101,.10);color:var(--gold-dark)}
+
+.info-box{
+  background:rgba(196,162,101,.06);
+  border:1px solid rgba(196,162,101,.15);
+  border-radius:10px;padding:16px 20px;margin:20px 0;
+  font-size:14px;color:var(--text-secondary);
+}
+.info-box strong{color:var(--gold-dark)}
+
+.foot{border-top:1px solid var(--border);padding:40px 24px 32px;margin-top:40px;background:var(--bg-warm)}
+.foot-inner{
+  max-width:800px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.foot-copy{font-size:13px;color:var(--text-muted);font-family:var(--sans)}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.foot-links a{font-size:13px;color:var(--text-secondary);font-family:var(--sans);transition:color .2s}
+.foot-links a:hover{color:var(--text-primary)}
+
+@media(max-width:600px){
+  .policy{padding:40px 16px 60px}
+  h2{font-size:19px}
+  .cookie-table{font-size:12px}
+  .cookie-table th,.cookie-table td{padding:10px 12px}
+  .foot-inner{flex-direction:column;align-items:flex-start;gap:12px}
+  .foot-links{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav-header">
+  <div class="nav-inner">
+    <a href="verissa.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12L6 8l4-4"/></svg>
+      Torna a Verissa
+    </a>
+    <span class="nav-brand">Verissa</span>
+  </div>
+</header>
+
+<main class="policy">
+
+<h1 class="policy-title">Cookie Policy</h1>
+<p class="policy-sub">Ultimo aggiornamento: maggio 2026</p>
+
+<p>Questa Cookie Policy spiega quali cookie e tecnologie simili utilizziamo su verissa.it, perch&eacute; li utilizziamo e come puoi gestirli. &Egrave; resa ai sensi del GDPR, del Codice Privacy italiano e delle Linee Guida del Garante Privacy sui cookie del 10 giugno 2021.</p>
+
+<!-- 1 -->
+<h2>1. Cosa sono i cookie</h2>
+<p>I cookie sono piccoli file di testo salvati dal browser quando visiti un sito. Permettono al sito di funzionare, ricordare le tue preferenze e fornire statistiche d'uso. Oltre ai cookie, utilizziamo anche localStorage (archiviazione locale del browser) per salvare le configurazioni del generatore di siti.</p>
+
+<!-- 2 -->
+<h2>2. Cookie che utilizziamo</h2>
+
+<p><strong>Cookie necessari</strong> &mdash; indispensabili per il funzionamento del sito. Non richiedono consenso. Includono i cookie di Cloudflare per la protezione DDoS e la sicurezza, i cookie di sessione, e i dati localStorage con prefisso "verissa-" (configurazioni salvate localmente, non trasmesse a server esterni).</p>
+
+<p><strong>Cookie analitici (con il tuo consenso)</strong> &mdash; Google Analytics 4, per capire come viene usato il sito e migliorarlo. L'anonimizzazione IP &egrave; attiva per impostazione predefinita. Installati solo se acconsenti tramite il banner cookie.</p>
+
+<p><strong>Cookie di pagamento</strong> &mdash; Stripe pu&ograve; installare cookie tecnici durante il processo di pagamento per la prevenzione frodi. Attivi solo quando effettui un pagamento.</p>
+
+<p><strong>Cookie pubblicitari</strong> &mdash; non ne utilizziamo.</p>
+
+<!-- 3 -->
+<h2>3. Elenco completo</h2>
+
+<div class="cookie-table-wrap">
+<table class="cookie-table">
+<thead>
+  <tr><th>Nome</th><th>Fornitore</th><th>Finalit&agrave;</th><th>Durata</th><th>Tipo</th></tr>
+</thead>
+<tbody>
+  <tr>
+    <td><code>__cf_bm</code></td>
+    <td>Cloudflare</td>
+    <td>Bot management e protezione DDoS</td>
+    <td>30 minuti</td>
+    <td><span class="badge badge-necessary">Necessario</span></td>
+  </tr>
+  <tr>
+    <td><code>__cfruid</code></td>
+    <td>Cloudflare</td>
+    <td>Rate limiting</td>
+    <td>Sessione</td>
+    <td><span class="badge badge-necessary">Necessario</span></td>
+  </tr>
+  <tr>
+    <td><code>cf_clearance</code></td>
+    <td>Cloudflare</td>
+    <td>Verifica superamento controllo di sicurezza</td>
+    <td>30 minuti</td>
+    <td><span class="badge badge-necessary">Necessario</span></td>
+  </tr>
+  <tr>
+    <td><code>_ga</code></td>
+    <td>Google Analytics</td>
+    <td>Distinguere utenti unici con ID casuale</td>
+    <td>2 anni</td>
+    <td><span class="badge badge-analytics">Analitico</span></td>
+  </tr>
+  <tr>
+    <td><code>_ga_*</code></td>
+    <td>Google Analytics</td>
+    <td>Stato della sessione GA4</td>
+    <td>2 anni</td>
+    <td><span class="badge badge-analytics">Analitico</span></td>
+  </tr>
+  <tr>
+    <td><code>__stripe_mid</code></td>
+    <td>Stripe</td>
+    <td>Prevenzione frodi &mdash; identificazione dispositivo</td>
+    <td>1 anno</td>
+    <td><span class="badge badge-thirdparty">Pagamento</span></td>
+  </tr>
+  <tr>
+    <td><code>__stripe_sid</code></td>
+    <td>Stripe</td>
+    <td>Prevenzione frodi &mdash; sessione di pagamento</td>
+    <td>30 minuti</td>
+    <td><span class="badge badge-thirdparty">Pagamento</span></td>
+  </tr>
+  <tr>
+    <td><code>verissa-*</code></td>
+    <td>Verissa (locale)</td>
+    <td>Preferenze e configurazioni del generatore di siti</td>
+    <td>Persistente</td>
+    <td><span class="badge badge-local">localStorage</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<!-- 4 -->
+<h2>4. Come gestire i cookie</h2>
+<p>Puoi gestire i cookie dalle impostazioni del tuo browser:</p>
+<ul>
+  <li><strong>Chrome:</strong> Impostazioni &rarr; Privacy e sicurezza &rarr; Cookie e altri dati dei siti</li>
+  <li><strong>Firefox:</strong> Impostazioni &rarr; Privacy e sicurezza &rarr; Cookie e dati dei siti web</li>
+  <li><strong>Safari:</strong> Preferenze &rarr; Privacy &rarr; Gestisci dati siti web</li>
+  <li><strong>Edge:</strong> Impostazioni &rarr; Cookie e autorizzazioni sito</li>
+</ul>
+<p>Per i dati localStorage, puoi cancellarli dagli Strumenti per sviluppatori (F12 &rarr; Application &rarr; Local Storage).</p>
+
+<div class="info-box">
+  <strong>Nota:</strong> disabilitare i cookie necessari pu&ograve; compromettere il funzionamento del sito. Disabilitare quelli analitici non cambia nulla nella tua navigazione.
+</div>
+
+<!-- 5 -->
+<h2>5. Modificare le preferenze</h2>
+<p>Puoi cambiare le tue preferenze in qualsiasi momento cliccando su <strong>"Cookie Settings"</strong> nel footer del sito. Il banner ti permette di accettare o rifiutare i cookie analitici, mantenendo sempre attivi quelli necessari.</p>
+
+<!-- 6 -->
+<h2>6. Base giuridica</h2>
+<ul>
+  <li><strong>Legittimo interesse</strong> (Art. 6.1.f GDPR) &mdash; per i cookie necessari, indispensabili per la sicurezza e il funzionamento del sito.</li>
+  <li><strong>Consenso</strong> (Art. 6.1.a GDPR) &mdash; per i cookie analitici, raccolto tramite il banner al primo accesso. Revocabile in qualsiasi momento.</li>
+</ul>
+
+<!-- 7 -->
+<h2>7. Contatti</h2>
+<p>Domande su questa Cookie Policy? Scrivi a <a href="mailto:alexetrofim@gmail.com" class="gold">alexetrofim@gmail.com</a>.</p>
+
+<!-- 8 -->
+<h2>8. Modifiche</h2>
+<p>Possiamo aggiornare questa Cookie Policy. Le modifiche saranno pubblicate su questa pagina con la data di ultimo aggiornamento. Per modifiche sostanziali, ne daremo comunicazione sul sito.</p>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <span class="foot-copy">&copy; 2026 Verissa. All rights reserved.</span>
+    <div class="foot-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="cookies.html" style="color:var(--text-primary);font-weight:600">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

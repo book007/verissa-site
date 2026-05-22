@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#FAF8F5" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<title>404 — Pagina non trovata | Verissa</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:#FAF8F5;
+  color:#2D2D2D;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:2rem;
+}
+.error-code{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(80px,15vw,160px);
+  font-weight:700;
+  color:#C8A97E;
+  line-height:1;
+  margin-bottom:1rem;
+  letter-spacing:-0.02em;
+}
+.error-title{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1.4rem,3vw,2rem);
+  font-weight:600;
+  color:#1a1a1a;
+  margin-bottom:0.75rem;
+}
+.error-desc{
+  font-size:1rem;
+  color:#666;
+  max-width:440px;
+  line-height:1.7;
+  margin-bottom:2.5rem;
+}
+.back-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:14px 36px;
+  background:#1a1a1a;
+  color:#fff;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.back-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);
+}
+.logo{
+  position:absolute;
+  top:2rem;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.3rem;
+  font-weight:700;
+  color:#1a1a1a;
+  text-decoration:none;
+  letter-spacing:0.02em;
+}
+</style>
+</head>
+<body>
+<a href="/" class="logo">Verissa</a>
+<div class="error-code">404</div>
+<h1 class="error-title">Questa pagina non esiste</h1>
+<p class="error-desc">La pagina che stai cercando potrebbe essere stata spostata o non esiste. Torna alla homepage per scoprire come trasformare il sito del tuo hotel.</p>
+<a href="/" class="back-btn">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+  Torna alla homepage
+</a>
+</body>
+</html>

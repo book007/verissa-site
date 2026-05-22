@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#FAF8F5" />
+<title>Privacy Policy — Verissa</title>
+<meta name="description" content="Privacy Policy di Verissa. Quali dati raccogliamo, perché li raccogliamo, come li usiamo e i tuoi diritti." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:#FAF8F5;
+  color:#555;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.75;
+  font-size:15px;
+}
+a{color:#C4A265;text-decoration:none;transition:color .2s}
+a:hover{color:#A8884E}
+::selection{background:rgba(196,162,101,.20);color:#2D2D2D}
+
+:root{
+  --gold:#C4A265;
+  --gold-light:#D4B87A;
+  --gold-dark:#A8884E;
+  --bg-cream:#FAF8F5;
+  --bg-warm:#F5F0EA;
+  --bg-sand:#EDE8E0;
+  --border:rgba(0,0,0,.06);
+  --border-strong:rgba(0,0,0,.10);
+  --text-primary:#2D2D2D;
+  --text-secondary:#555;
+  --text-muted:#888;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,248,245,.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:16px 24px;
+}
+.nav-inner{
+  max-width:800px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-back{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:500;color:var(--text-secondary);
+  transition:color .2s;
+}
+.nav-back:hover{color:var(--text-primary)}
+.nav-back svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nav-logo{
+  font-family:var(--serif);font-size:18px;font-weight:600;color:var(--text-primary);
+  letter-spacing:.5px;
+}
+
+.wrap{
+  max-width:800px;margin:0 auto;
+  padding:64px 24px 80px;
+}
+.wrap header{
+  margin-bottom:56px;
+  padding-bottom:40px;
+  border-bottom:1px solid var(--border);
+}
+.wrap header h1{
+  font-family:var(--serif);
+  font-size:clamp(32px,5vw,44px);
+  font-weight:600;
+  color:var(--text-primary);
+  line-height:1.2;
+  margin-bottom:16px;
+  letter-spacing:-.02em;
+}
+.wrap header .sub{font-size:16px;color:var(--text-secondary);margin-bottom:12px}
+.wrap header .date{
+  font-size:13px;color:var(--text-muted);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.wrap header .date::before{
+  content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--gold);
+}
+
+.s{margin-bottom:48px}
+.s h2{
+  font-family:var(--serif);
+  font-size:22px;font-weight:600;
+  color:var(--text-primary);
+  margin-bottom:16px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+  letter-spacing:-.01em;
+}
+.s h3{font-size:15px;font-weight:600;color:var(--text-primary);margin:20px 0 8px}
+.s p{margin-bottom:12px}
+.s ul{margin:8px 0 16px 20px;list-style:none}
+.s ul li{position:relative;padding-left:16px;margin-bottom:6px}
+.s ul li::before{
+  content:'';position:absolute;left:0;top:10px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--gold);
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:24px 28px;
+  margin:20px 0;
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
+}
+.card p{margin-bottom:6px}
+.card strong{color:var(--text-primary)}
+.card a{color:var(--gold)}
+
+.tbl{
+  width:100%;border-collapse:collapse;margin:16px 0 20px;font-size:14px;
+}
+.tbl th,.tbl td{
+  text-align:left;padding:12px 16px;
+  border-bottom:1px solid var(--border);
+}
+.tbl th{
+  color:var(--text-primary);font-weight:600;
+  font-size:12px;text-transform:uppercase;letter-spacing:.5px;
+  background:var(--bg-warm);
+}
+.tbl td{color:var(--text-secondary)}
+
+.foot{
+  border-top:1px solid var(--border);
+  padding:40px 24px 32px;
+  background:var(--bg-warm);
+}
+.foot-inner{
+  max-width:800px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.foot-inner span{font-size:13px;color:var(--text-muted);font-family:var(--sans)}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.foot-links a{font-size:13px;color:var(--text-secondary);font-family:var(--sans);transition:color .2s}
+.foot-links a:hover{color:var(--text-primary)}
+
+@media(max-width:600px){
+  .wrap{padding:40px 16px 60px}
+  .s h2{font-size:19px}
+  .tbl{font-size:13px}
+  .tbl th,.tbl td{padding:10px 12px}
+  .foot-inner{flex-direction:column;text-align:center}
+  .foot-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="verissa.html" class="nav-back">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Torna a Verissa
+    </a>
+    <span class="nav-logo">Verissa</span>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <header>
+    <h1>Privacy Policy</h1>
+    <p class="sub">Questa Privacy Policy spiega quali dati personali Verissa ("noi", "ci", "nostro") raccoglie su di te, perch&eacute; li raccoglie, come li utilizza, con chi li condivide e quali diritti hai ai sensi del Regolamento Generale sulla Protezione dei Dati (GDPR) e della normativa italiana vigente.</p>
+    <span class="date">Ultimo aggiornamento: maggio 2026</span>
+  </header>
+
+  <!-- 1 -->
+  <section class="s">
+    <h2>1. Chi siamo</h2>
+    <p>Verissa &egrave; un servizio di creazione siti web per hotel e strutture ricettive, gestito da Alex, con sede operativa in Italia, contattabile a <a href="mailto:alexetrofim@gmail.com">alexetrofim@gmail.com</a>. Verissa &egrave; il titolare del trattamento dei dati descritto in questa informativa.</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="s">
+    <h2>2. Ambito di applicazione</h2>
+    <p>Questa informativa copre i dati personali che trattiamo quando:</p>
+    <ul>
+      <li>Visiti il nostro sito verissa.it (navigazione, utilizzo dello strumento di analisi e generazione siti, invio di messaggi tramite chat o WhatsApp);</li>
+      <li>Acquisti uno dei nostri pacchetti (EXPRESS, DIRECT BOOKING o LUXURY) e diventi cliente;</li>
+      <li>Ci contatti via email, WhatsApp o qualsiasi altro canale.</li>
+    </ul>
+    <p>Questa informativa <strong>non copre</strong> i dati personali trattati sui siti web che realizziamo e ospitiamo per conto dei nostri clienti (le strutture ricettive, di seguito "Clienti"). Ogni Cliente &egrave; titolare del trattamento per i visitatori e gli ospiti del proprio sito. Verissa agisce esclusivamente come responsabile tecnico del trattamento di quei dati, su istruzione del Cliente, ai sensi dei nostri Termini di Servizio.</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="s">
+    <h2>3. Dati che raccogliamo</h2>
+
+    <h3>3.1 Se sei un visitatore di verissa.it</h3>
+    <ul>
+      <li><strong>URL del sito hotel</strong> &mdash; l'indirizzo che inserisci nello strumento di analisi. Lo usiamo per generare l'anteprima del nuovo sito e l'analisi diagnostica.</li>
+      <li><strong>Messaggi chatbot</strong> &mdash; testi e domande inseriti nella chat di assistenza. Li usiamo per rispondere alle tue richieste.</li>
+      <li><strong>Dati tecnici</strong> &mdash; indirizzo IP, user-agent, lingua del browser, pagine visitate, referrer e timestamp. Raccolti dal nostro server e da Cloudflare per la sicurezza del sito.</li>
+      <li><strong>Cookie analitici</strong> &mdash; solo se acconsenti tramite il banner cookie. Vedi la nostra <a href="cookies.html">Cookie Policy</a> per l'elenco completo.</li>
+    </ul>
+
+    <h3>3.2 Se acquisti un pacchetto e diventi cliente</h3>
+    <ul>
+      <li><strong>Dati di contatto</strong> &mdash; nome, email, numero di telefono, nome della struttura e indirizzo, forniti durante l'acquisto o via WhatsApp.</li>
+      <li><strong>Dati di pagamento</strong> &mdash; carta di credito, Apple Pay o Google Pay, elaborati esclusivamente da Stripe. Noi non riceviamo n&eacute; memorizziamo i dati della carta &mdash; restano su Stripe.</li>
+      <li><strong>Contenuti dell'hotel</strong> &mdash; foto, testi, descrizioni delle camere, listini prezzi e qualsiasi materiale che ci fornisci per la realizzazione del sito.</li>
+      <li><strong>Dati estratti dal sito esistente</strong> &mdash; quando inserisci l'URL, il nostro strumento estrae automaticamente informazioni pubblicamente disponibili (nome, immagini, indirizzo, contatti) dal sito indicato, al solo scopo di generare l'anteprima. Questi dati vengono eliminati entro 30 giorni se non procedi all'acquisto.</li>
+      <li><strong>Comunicazioni</strong> &mdash; email, messaggi WhatsApp e qualsiasi altra corrispondenza relativa al progetto.</li>
+    </ul>
+
+    <h3>3.3 Dati degli ospiti sui siti dei Clienti</h3>
+    <p>Se sei un ospite che visita il sito di un hotel realizzato da Verissa, noi non siamo il titolare del trattamento dei tuoi dati. Lo &egrave; l'hotel. Fai riferimento alla privacy policy pubblicata sul sito dell'hotel. Se sei un Cliente, questo significa che tu rimani il titolare del trattamento per i tuoi ospiti, e Verissa tratta quei dati solo su tua istruzione.</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="s">
+    <h2>4. Perch&eacute; utilizziamo i tuoi dati</h2>
+    <ul>
+      <li>Per generare l'anteprima del sito e l'analisi diagnostica quando inserisci un URL.</li>
+      <li>Per rispondere alle tue richieste tramite chatbot, email o WhatsApp.</li>
+      <li>Per realizzare, consegnare e mantenere il sito web acquistato.</li>
+      <li>Per elaborare il pagamento tramite Stripe ed emettere ricevuta.</li>
+      <li>Per inviare comunicazioni relative all'ordine (conferma, stato di avanzamento, consegna).</li>
+      <li>Per migliorare il servizio &mdash; diagnosticare problemi, analizzare l'utilizzo, misurare le prestazioni.</li>
+      <li>Per proteggere il sito da frodi e abusi.</li>
+      <li>Per adempiere ad obblighi fiscali e contabili.</li>
+    </ul>
+  </section>
+
+  <!-- 5 -->
+  <section class="s">
+    <h2>5. Base giuridica (GDPR)</h2>
+    <p>Trattiamo i dati personali sulla base delle seguenti basi giuridiche:</p>
+    <ul>
+      <li><strong>Esecuzione del contratto</strong> &mdash; per fornire il servizio acquistato ai sensi dei nostri Termini di Servizio.</li>
+      <li><strong>Misure precontrattuali su tua richiesta</strong> &mdash; quando utilizzi lo strumento di analisi o ci contatti per informazioni.</li>
+      <li><strong>Legittimo interesse</strong> &mdash; per proteggere, mantenere e migliorare il servizio, prevenire frodi e contattare potenziali clienti business, quando i tuoi diritti non prevalgono su tali interessi.</li>
+      <li><strong>Consenso</strong> &mdash; per i cookie analitici (Google Analytics 4). Puoi revocare il consenso in qualsiasi momento senza pregiudicare la liceit&agrave; del trattamento precedente.</li>
+      <li><strong>Obbligo legale</strong> &mdash; per adempiere alle normative fiscali, contabili e antifrode.</li>
+    </ul>
+  </section>
+
+  <!-- 6 -->
+  <section class="s">
+    <h2>6. Con chi condividiamo i tuoi dati</h2>
+    <p>Non vendiamo i tuoi dati personali. Li condividiamo solo con i fornitori di servizi terzi necessari al funzionamento del servizio, e solo nella misura necessaria per svolgere la loro funzione. I fornitori attuali sono:</p>
+    <ul>
+      <li><strong>Hosting e infrastruttura</strong> &mdash; Hostinger (hosting) e Cloudflare (CDN, DNS, protezione DDoS), con server nell'UE.</li>
+      <li><strong>Pagamenti</strong> &mdash; Stripe, Inc. Quando paghi, i dati della carta vengono trasmessi direttamente a Stripe. Noi non riceviamo mai i numeri della carta.</li>
+      <li><strong>Analytics (con il tuo consenso)</strong> &mdash; Google Analytics 4 (Google Ireland Ltd / Google LLC) per analisi d'uso su verissa.it.</li>
+      <li><strong>Analisi prestazioni siti</strong> &mdash; Google PageSpeed Insights API per valutare le performance del sito hotel esistente.</li>
+      <li><strong>Chatbot AI</strong> &mdash; quando usi la chat, il testo viene inviato ad Anthropic (Claude) e/o OpenAI per generare la risposta. I fornitori non conservano il contenuto per il proprio addestramento tramite le API standard.</li>
+      <li><strong>Comunicazione</strong> &mdash; Meta Platforms (WhatsApp Business) per la comunicazione diretta con te.</li>
+      <li><strong>Autorit&agrave;</strong> &mdash; dove richiesto dalla legge, da un ordine del tribunale, o per far valere i nostri diritti legali.</li>
+    </ul>
+    <p>Se necessiti di un accordo scritto sul trattamento dei dati (ad esempio perch&eacute; sei un Cliente con i tuoi obblighi GDPR), lo stipuleremo su richiesta.</p>
+  </section>
+
+  <!-- 7 -->
+  <section class="s">
+    <h2>7. Trasferimenti internazionali</h2>
+    <p>La maggior parte del trattamento avviene su infrastruttura situata nello Spazio Economico Europeo. Dove un fornitore terzo trasferisce dati al di fuori dello SEE &mdash; ad esempio Google o Stripe verso gli Stati Uniti &mdash; il trasferimento &egrave; coperto dal EU-U.S. Data Privacy Framework (dove il fornitore &egrave; certificato) e/o dalle Clausole Contrattuali Standard della Commissione Europea, ai sensi dell'art. 46 GDPR. Puoi richiedere copia delle garanzie pertinenti.</p>
+  </section>
+
+  <!-- 8 -->
+  <section class="s">
+    <h2>8. Per quanto tempo conserviamo i tuoi dati</h2>
+    <ul>
+      <li><strong>Dati dei visitatori (URL, analisi, chatbot)</strong> &mdash; fino a 12 mesi dall'ultima interazione, poi eliminati o anonimizzati, a meno che tu non sia diventato cliente (in tal caso, conservati come dati cliente).</li>
+      <li><strong>Dati dei clienti (ordini, progetto, comunicazioni)</strong> &mdash; per tutta la durata del rapporto commerciale. Dopo la conclusione, eliminati o anonimizzati, salvo i documenti che siamo obbligati a conservare per legge.</li>
+      <li><strong>Fatture e documenti contabili</strong> &mdash; conservati per il tempo richiesto dalla normativa fiscale italiana (fino a 10 anni).</li>
+      <li><strong>Dati di pagamento (su Stripe)</strong> &mdash; secondo la policy di conservazione di Stripe. Noi non memorizziamo dati della carta.</li>
+      <li><strong>Log del server</strong> &mdash; fino a 6 mesi, per sicurezza e monitoraggio.</li>
+    </ul>
+  </section>
+
+  <!-- 9 -->
+  <section class="s">
+    <h2>9. I tuoi diritti</h2>
+    <p>Ai sensi del GDPR hai il diritto di:</p>
+    <ul>
+      <li>Accedere ai tuoi dati personali e ottenerne una copia;</li>
+      <li>Rettificare dati inesatti o incompleti;</li>
+      <li>Richiedere la cancellazione ("diritto all'oblio");</li>
+      <li>Limitare o opporti al trattamento;</li>
+      <li>Portabilit&agrave; dei dati &mdash; riceverli in formato leggibile da dispositivo automatico;</li>
+      <li>Revocare il consenso in qualsiasi momento;</li>
+      <li>Presentare un reclamo all'Autorit&agrave; Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">garanteprivacy.it</a>).</li>
+    </ul>
+    <p>Per esercitare i tuoi diritti, scrivi a <a href="mailto:alexetrofim@gmail.com">alexetrofim@gmail.com</a> e risponderemo entro 30 giorni.</p>
+  </section>
+
+  <!-- 10 -->
+  <section class="s">
+    <h2>10. Sicurezza</h2>
+    <p>Proteggiamo i tuoi dati con misure standard del settore: connessioni crittografate (HTTPS con TLS moderno), pagamenti elaborati interamente da Stripe (conformit&agrave; PCI-DSS), protezione CDN e anti-DDoS tramite Cloudflare, accesso interno limitato, e monitoraggio continuo. Nessun sistema &egrave; sicuro al 100%, quindi se ritieni che i tuoi dati siano stati compromessi, contattaci immediatamente a <a href="mailto:alexetrofim@gmail.com">alexetrofim@gmail.com</a>.</p>
+  </section>
+
+  <!-- 11 -->
+  <section class="s">
+    <h2>11. Minori</h2>
+    <p>Il servizio &egrave; destinato a professionisti del settore ricettivo. Non &egrave; rivolto a minori di 16 anni e non raccogliamo consapevolmente dati da minori. Se ritieni che un minore ci abbia fornito dati personali, contattaci per eliminarli.</p>
+  </section>
+
+  <!-- 12 -->
+  <section class="s">
+    <h2>12. Modifiche a questa informativa</h2>
+    <p>Possiamo aggiornare questa informativa periodicamente. Le modifiche sostanziali saranno comunicate via email ai clienti registrati o tramite avviso sul sito. La data "Ultimo aggiornamento" in alto riflette sempre la versione corrente.</p>
+  </section>
+
+  <!-- 13 -->
+  <section class="s">
+    <h2>13. Contatti</h2>
+    <p>Domande su questa informativa o sui tuoi dati? Scrivi a <a href="mailto:alexetrofim@gmail.com">alexetrofim@gmail.com</a> o contattaci tramite WhatsApp dal sito principale.</p>
+  </section>
+
+  <div style="margin-top:32px;padding-top:32px;border-top:1px solid var(--border);font-size:13px;color:var(--text-muted)">
+    <p>Questa informativa &egrave; redatta ai sensi del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003 (Codice Privacy) come modificato dal D.Lgs. 101/2018.</p>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <span>&copy; 2026 Verissa. All rights reserved.</span>
+    <div class="foot-links">
+      <a href="privacy.html" style="color:var(--text-primary);font-weight:600">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="cookies.html">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
