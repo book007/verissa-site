@@ -3501,11 +3501,11 @@ const OPT_TIERS=[
    get features(){return t('optGrowthFeats').split('|')}}
 ];
 
-/* Stripe Payment Links — Replace these with your real Stripe Payment Link URLs */
+/* Stripe Payment Links */
 const STRIPE_LINKS={
-  'Express Makeover':'https://buy.stripe.com/test_express_399',    /* TODO: Replace with real Stripe Payment Link */
-  'Direct Booking':'https://buy.stripe.com/test_directbooking_599', /* TODO: Replace with real Stripe Payment Link */
-  'Luxury Experience':'https://buy.stripe.com/test_luxury_1699'     /* TODO: Replace with real Stripe Payment Link */
+  'Express Makeover':'https://buy.stripe.com/test_cNibJ14BLeY28R7g2vgUM00',
+  'Direct Booking':'https://buy.stripe.com/test_5kQeVd8S1cPUgjz9E7gUM01',
+  'Luxury Experience':'https://buy.stripe.com/test_6oU28rc4dcPUgjzdUngUM02'
 };
 const OPT_STRIPE_LINKS={
   'Tune-Up':'https://buy.stripe.com/test_tuneup_199',      /* TODO: Replace */
@@ -3565,7 +3565,7 @@ function stripeCheckout(){
     const tier=TIERS[currentTierIdx];
     link=STRIPE_LINKS[tier.name];
   }
-  if(!link||link.includes('/test_')){
+  if(!link){
     alert(currentLang==='it'
       ? 'Il pagamento online sarà attivo a breve. Per ora contattaci via WhatsApp o email per procedere.'
       : 'Online payment coming soon. Contact us via WhatsApp or email to proceed.');
