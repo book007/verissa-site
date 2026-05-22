@@ -3722,19 +3722,18 @@ function executeAction(action){
   }
 }
 
-/* ── Core: send message to AI API ── */
+/* ── Core: send message to AI API (STREAMING) ── */
 async function chatRespond(userText){
   if(chatBusy) return;
   chatBusy=true;
   clearQuickReplies();
   showTyping();
 
-  // Add user message to history
   chatMessages.push({role:'user',content:userText});
 
   try {
     const chatCtrl=new AbortController();
-    const chatTO=setTimeout(()=>chatCtrl.abort(),15000);
+    const chatTO=setTimeout(()=>chatCtrl.abort(),25000);
     const resp=await fetch(CHAT_API,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
@@ -3743,25 +3742,72 @@ async function chatRespond(userText){
     });
     clearTimeout(chatTO);
 
-    hideTyping();
-
     if(!resp.ok) throw new Error('API '+resp.status);
 
-    const data=await resp.json();
-    if(data.fallback) throw new Error('fallback');
+    // Check if streaming (SSE) or fallback JSON
+    const ct=resp.headers.get('content-type')||'';
+    if(ct.includes('text/event-stream')){
+      // ── Streaming mode: show tokens as they arrive ──
+      hideTyping();
+      const box=document.getElementById('chatMessages');
+      const div=document.createElement('div');
+      div.className='chatbot-msg bot';
+      div.innerHTML='';
+      box.appendChild(div);
 
-    const aiText=data.text||'';
-    chatMessages.push({role:'assistant',content:aiText});
+      let fullText='';
+      const reader=resp.body.getReader();
+      const decoder=new TextDecoder();
+      let sseBuffer='';
 
-    const parsed=parseAIResponse(aiText);
-    appendBotBubble(parsed.html);
-    if(parsed.qr.length) showQuickReplies(parsed.qr);
-    if(parsed.action) executeAction(parsed.action);
+      while(true){
+        const {done,value}=await reader.read();
+        if(done) break;
+        sseBuffer+=decoder.decode(value,{stream:true});
+
+        const lines=sseBuffer.split('\n');
+        sseBuffer=lines.pop()||'';
+
+        for(const line of lines){
+          if(!line.startsWith('data: ')) continue;
+          const d=line.slice(6);
+          if(d==='[DONE]') continue;
+          try{
+            const evt=JSON.parse(d);
+            if(evt.t){
+              fullText+=evt.t;
+              // Live-render: convert markdown bold + newlines
+              let display=fullText.replace(/\[QR:[^\]]*\]/g,'').replace(/\[ACTION:[^\]]*\]/g,'');
+              display=display.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+              div.innerHTML=display;
+              box.scrollTop=box.scrollHeight;
+            }
+          }catch(e){}
+        }
+      }
+
+      // Finalize: parse full text for QR/ACTION
+      chatMessages.push({role:'assistant',content:fullText});
+      const parsed=parseAIResponse(fullText);
+      div.innerHTML=parsed.html;
+      if(parsed.qr.length) showQuickReplies(parsed.qr);
+      if(parsed.action) executeAction(parsed.action);
+
+    } else {
+      // ── Fallback: non-streaming JSON response ──
+      hideTyping();
+      const data=await resp.json();
+      if(data.fallback) throw new Error('fallback');
+      const aiText=data.text||'';
+      chatMessages.push({role:'assistant',content:aiText});
+      const parsed=parseAIResponse(aiText);
+      appendBotBubble(parsed.html);
+      if(parsed.qr.length) showQuickReplies(parsed.qr);
+      if(parsed.action) executeAction(parsed.action);
+    }
 
   } catch(err){
     hideTyping();
-    console.error('Chatbot error:',err);
-    // Graceful fallback — still useful, not a dead end
     const fallback=curLang==='en'
       ?'I\'m having a brief connection issue. In the meantime, you can try our live website generator above — just paste your hotel URL and see the transformation instantly! Or reach us on WhatsApp for immediate help.'
       :'Ho un piccolo problema di connessione. Nel frattempo, puoi provare il nostro generatore qui sopra — incolla il link del tuo sito e guarda la trasformazione! Oppure scrivici su WhatsApp per assistenza immediata.';
@@ -4109,7 +4155,7 @@ function setupDiagObserver(){
 </div>
 
 <!-- ═══ FOOTER ═════════════════════════════════════════════════════════════════ -->
-<footer style="border-top:none;padding:52px 24px 40px;margin-top:48px;background:#1a1714">
+<footer style="border-top:none;padding:52px 24px 40px;margin-top:48px;background:rgba(18,36,72,0.9)">
   <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
     <span style="font-size:13px;color:rgba(250,248,245,.45);font-family:var(--sans)" data-t="footerCopy">&copy; 2026 Verissa. All rights reserved.</span>
     <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
