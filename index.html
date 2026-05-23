@@ -23,7 +23,8 @@
 <meta name="twitter:description" content="Incolla il link del tuo hotel e ottieni un sito moderno, mobile-ready in pochi secondi. Design professionale da €399." />
 <meta name="twitter:image" content="https://verissa.it/og-image.png" />
 <meta name="description" lang="en" content="See your hotel website redesigned instantly. Paste your URL and get a modern, mobile-ready concept in seconds. From €399." />
-<link rel="preload" as="image" href="images/night_by_the_pool.jpg" />
+<link rel="preload" as="image" href="images/night_by_the_pool.webp" type="image/webp" />
+<link rel="preload" as="image" href="images/night_by_the_pool.jpg" type="image/jpeg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -34,8 +35,8 @@
 
 <!-- ═══ LANGUAGE TOGGLE ═══ -->
 <div class="lang-toggle" id="langToggle">
-  <button class="lang-btn active" data-lang="it" onclick="switchLang('it')">IT</button>
-  <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+  <button class="lang-btn active" data-lang="it" onclick="switchLang('it')" aria-label="Cambia lingua in Italiano">IT</button>
+  <button class="lang-btn" data-lang="en" onclick="switchLang('en')" aria-label="Switch language to English">EN</button>
 </div>
 
 
@@ -47,7 +48,7 @@
 
     <!-- Badge -->
     <div class="hero-badge animate-in">
-      <svg viewBox="0 0 24 24" width="16" height="16"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" fill="currentColor"/></svg>
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" fill="currentColor"/></svg>
       <span data-t="heroBadge">Da sito vecchio a motore di prenotazioni.</span>
     </div>
 
@@ -65,11 +66,11 @@
 
     <!-- URL Input -->
     <div class="url-input-wrap animate-in delay-3">
-      <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
       <input type="text" placeholder="Incolla il link del tuo sito attuale" id="urlInput" data-tp="heroPlaceholder" onkeydown="if(event.key==='Enter'){event.preventDefault();handleGenerate()}" />
-      <button class="btn-generate" onclick="handleGenerate()">
+      <button class="btn-generate" onclick="handleGenerate()" aria-label="Avvia la trasformazione del tuo sito hotel">
         <span data-t="heroBtn">Guarda la Trasformazione</span>
-        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
     </div>
 
@@ -104,9 +105,9 @@
   <div class="container">
 
     <div class="pricing-header">
-      <div class="section-label" data-t="pricingLabel">
+      <h2 class="section-label" data-t="pricingLabel">
         SCEGLI L'ESPERIENZA PERFETTA PER LA TUA STRUTTURA
-      </div>
+      </h2>
     </div>
 
     <div class="pricing-grid">
@@ -118,14 +119,14 @@
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=70&auto=format" alt="Express desktop preview" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=70&auto=format" alt="Anteprima desktop del pacchetto Express Makeover — design hotel moderno e leggero" loading="eager" />
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&q=70&auto=format" alt="Express mobile preview" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&q=70&auto=format" alt="Anteprima mobile del pacchetto Express Makeover" loading="eager" />
             </div>
           </div>
         </div>
@@ -147,14 +148,14 @@
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <img src="images/night_by_the_pool.jpg" alt="Standard desktop preview" loading="eager" />
+              <picture><source srcset="images/night_by_the_pool.webp" type="image/webp"><img src="images/night_by_the_pool.jpg" alt="Anteprima desktop del pacchetto Direct Booking — sito hotel elegante con prenotazione diretta" loading="eager" /></picture>
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <img src="images/night_by_the_pool.jpg" alt="Standard mobile preview" loading="eager" />
+              <picture><source srcset="images/night_by_the_pool.webp" type="image/webp"><img src="images/night_by_the_pool.jpg" alt="Anteprima mobile del pacchetto Direct Booking" loading="eager" /></picture>
             </div>
           </div>
         </div>
@@ -175,14 +176,14 @@
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=70&auto=format" alt="Premium desktop preview" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=70&auto=format" alt="Anteprima desktop del pacchetto Luxury Experience — sito hotel di lusso con animazioni premium" loading="eager" />
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=300&q=70&auto=format" alt="Premium mobile preview" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=300&q=70&auto=format" alt="Anteprima mobile del pacchetto Luxury Experience" loading="eager" />
             </div>
           </div>
         </div>
@@ -376,7 +377,7 @@
     </div>
     <!-- Verissa Way -->
     <div class="vr-cmp-card vr-cmp-new animate-in">
-      <a href="#" class="vr-cmp-badge" data-t="cmpNewBadge" onclick="event.preventDefault();document.getElementById('urlInput').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.getElementById('urlInput').focus(),600)">Scoprilo ora ↑</a>
+      <a href="#" class="vr-cmp-badge" data-t="cmpNewBadge" aria-label="Scopri Verissa — prova la trasformazione del tuo sito hotel" onclick="event.preventDefault();document.getElementById('urlInput').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.getElementById('urlInput').focus(),600)">Scoprilo ora ↑</a>
       <div class="vr-cmp-head">
         <span class="vr-cmp-label" data-t="cmpNewLabel">L'esperienza Verissa</span>
         <span class="vr-cmp-title" data-t="cmpNewTitle">Verissa — eleganza in 48 ore</span>
@@ -404,7 +405,7 @@
 <!-- ═══════════ PAYMENT MODAL HTML ═══════════ -->
 <div class="pay-overlay" id="payOverlay" onclick="if(event.target===this)closePayment()">
   <div class="pay-card" id="payCard" style="--tier-c:var(--gold)">
-    <button class="pay-close" onclick="closePayment()">✕</button>
+    <button class="pay-close" onclick="closePayment()" aria-label="Chiudi finestra di pagamento">✕</button>
     <div id="payBadge" class="pay-tier-badge">EXPRESS</div>
     <div class="pay-price" id="payPrice"><span class="pay-eur">€</span>399</div>
     <div class="pay-msg" id="payMsg"></div>
@@ -477,7 +478,7 @@
     <div class="chatbot-header">
       <div class="dot"></div>
       <span data-t="chatTitle">Verissa Concierge</span>
-      <button onclick="closeChatbot()">✕</button>
+      <button onclick="closeChatbot()" aria-label="Chiudi chat Verissa">✕</button>
     </div>
     <div class="chatbot-messages" id="chatMessages"></div>
     <div class="chatbot-qr" id="chatQR"></div>
@@ -491,12 +492,12 @@
 <!-- ═══ FOOTER ═════════════════════════════════════════════════════════════════ -->
 <footer style="border-top:none;padding:52px 24px 40px;margin-top:48px;background:rgba(18,36,72,0.9)">
   <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
-    <span style="font-size:13px;color:rgba(250,248,245,.45);font-family:var(--sans)" data-t="footerCopy">&copy; 2026 Verissa. All rights reserved.</span>
+    <span style="font-size:13px;color:rgba(250,248,245,.65);font-family:var(--sans)" data-t="footerCopy">&copy; 2026 Verissa. All rights reserved.</span>
     <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
-      <a href="/blog/" style="font-size:13px;color:rgba(250,248,245,.5);text-decoration:none;font-family:var(--sans);transition:color .2s" onmouseover="this.style.color='rgba(250,248,245,.85)'" onmouseout="this.style.color=''">Blog</a>
-      <a href="privacy.html" target="_blank" style="font-size:13px;color:rgba(250,248,245,.5);text-decoration:none;font-family:var(--sans);transition:color .2s" onmouseover="this.style.color='rgba(250,248,245,.85)'" onmouseout="this.style.color=''">Privacy Policy</a>
-      <a href="terms.html" target="_blank" style="font-size:13px;color:rgba(250,248,245,.5);text-decoration:none;font-family:var(--sans);transition:color .2s" onmouseover="this.style.color='rgba(250,248,245,.85)'" onmouseout="this.style.color=''">Terms of Service</a>
-      <a href="cookies.html" target="_blank" style="font-size:13px;color:rgba(250,248,245,.5);text-decoration:none;font-family:var(--sans);transition:color .2s" onmouseover="this.style.color='rgba(250,248,245,.85)'" onmouseout="this.style.color=''">Cookie Policy</a>
+      <a href="/blog/" style="font-size:13px;color:rgba(250,248,245,.7);text-decoration:none;font-family:var(--sans);transition:color .2s" onmouseover="this.style.color='rgba(250,248,245,.85)'" onmouseout="this.style.color=''">Blog</a>
+      <a href="privacy.html" target="_blank" style="font-size:13px;color:rgba(250,248,245,.7);text-decoration:none;font-family:var(--sans);transition:color .2s" onmouseover="this.style.color='rgba(250,248,245,.85)'" onmouseout="this.style.color=''">Privacy Policy</a>
+      <a href="terms.html" target="_blank" style="font-size:13px;color:rgba(250,248,245,.7);text-decoration:none;font-family:var(--sans);transition:color .2s" onmouseover="this.style.color='rgba(250,248,245,.85)'" onmouseout="this.style.color=''">Terms of Service</a>
+      <a href="cookies.html" target="_blank" style="font-size:13px;color:rgba(250,248,245,.7);text-decoration:none;font-family:var(--sans);transition:color .2s" onmouseover="this.style.color='rgba(250,248,245,.85)'" onmouseout="this.style.color=''">Cookie Policy</a>
       <button onclick="document.getElementById('vr-cookie-modal').style.display='flex'" style="font-size:13px;color:rgba(250,248,245,.5);background:none;border:1px solid rgba(250,248,245,.15);padding:5px 14px;border-radius:6px;cursor:pointer;font-family:var(--sans);transition:all .2s" onmouseover="this.style.borderColor='rgba(250,248,245,.35)';this.style.color='rgba(250,248,245,.85)'" onmouseout="this.style.borderColor='rgba(250,248,245,.15)';this.style.color='rgba(250,248,245,.5)'" data-t="footerCookieBtn">Cookie Settings</button>
     </div>
   </div>
@@ -505,7 +506,7 @@
 <!-- ═══ COOKIE PREFERENCES MODAL ═══ -->
 <div id="vr-cookie-modal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:24px" onclick="if(event.target===this)this.style.display='none'">
   <div style="background:#fff;border-radius:16px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;padding:36px 32px 28px;box-shadow:0 24px 64px rgba(0,0,0,.4);font-family:var(--sans);color:#1a1a1a">
-    <h3 style="font-family:var(--serif);font-size:22px;font-weight:700;margin:0 0 6px;color:#111" data-t="cookieTitle">Cookie preferences</h3>
+    <h2 style="font-family:var(--serif);font-size:22px;font-weight:700;margin:0 0 6px;color:#111" data-t="cookieTitle">Cookie preferences</h2>
     <p style="font-size:15px;color:#555;margin:0 0 28px;line-height:1.6" data-t="cookieDesc">Choose which categories you allow. You can change this any time.</p>
 
     <!-- Strictly necessary -->
