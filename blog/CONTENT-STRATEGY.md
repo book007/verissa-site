@@ -7,6 +7,26 @@ Every article moves the reader toward: **"Guarda la trasformazione del tuo hotel
 
 ---
 
+## CORE RULE — Content Research (MANDATORY)
+
+**Every single blog post MUST be based on real queries from actual hotel owners.** No invented topics. No guessing.
+
+Before writing any article, research real search demand from:
+1. **Google "People Also Ask"** — search the target keyword in Italian Google and extract PAA questions
+2. **Google Autocomplete** — type the seed keyword and capture what Google suggests
+3. **Hotel industry forums and Q&A sites** — FindQuestions.com, AlsoAsked.com, AnswerThePublic, or similar Italian-language equivalents
+4. **Italian hospitality communities** — forums, Facebook groups, Reddit threads where Italian hoteliers discuss problems
+
+The article topic, H2 headings, and FAQ section must map directly to real queries found during research. Document the source queries in the article planning phase.
+
+---
+
+## POST-TASK DEPLOYMENT
+
+After completing the daily SEO task, always provide a ready-to-paste terminal command block for deploying changes to the live blog via git push.
+
+---
+
 ## 4 Topic Clusters
 
 ### 1. PRENOTAZIONI DIRETTE (Pillar)
