@@ -48,11 +48,11 @@ a{text-decoration:none;color:inherit}
   /* Text hierarchy — warm, readable */
   --text-primary:#2D2D2D;
   --text-secondary:#555;
-  --text-muted:#6b6b6b;
+  --text-muted:#636363;
   --text-dim:rgba(0,0,0,.06);
   /* Dark section text */
   --text-light:#F5F5F5;
-  --text-light-secondary:rgba(255,255,255,.70);
+  --text-light-secondary:rgba(255,255,255,.75);
   /* Package accent colors — softened */
   --express:#2EAD7F;
   --standard:#5B93D4;
@@ -154,7 +154,7 @@ a{text-decoration:none;color:inherit}
 /* Subtitle */
 .hero-sub{
   font-size:clamp(16px,1.8vw,22px);
-  color:rgba(255,255,255,.72);
+  color:rgba(255,255,255,.78);
   line-height:1.65;
   max-width:820px;
   margin:0 auto 38px;
@@ -544,7 +544,7 @@ a{text-decoration:none;color:inherit}
 }
 .tb-icon svg{width:22px;height:22px}
 .tb-label strong{display:block;font-size:14px;color:#fff;font-weight:600;letter-spacing:.01em;white-space:nowrap}
-.tb-label span{font-size:12px;color:rgba(255,255,255,.65);line-height:1.4;display:block;margin-top:2px}
+.tb-label span{font-size:12px;color:rgba(255,255,255,.75);line-height:1.4;display:block;margin-top:2px}
 @media(max-width:1100px){
   .trust-bar-inner{grid-template-columns:repeat(2,1fr);gap:16px 32px}
   .tb-item{justify-content:flex-start}
@@ -601,6 +601,7 @@ a{text-decoration:none;color:inherit}
 
 /* Phones */
 @media(max-width:600px){
+  .hero::before{background-image:url('../images/night_by_the_pool-mobile.webp')}
   .hero{min-height:72vh}
   .hero .container{padding:80px 16px 36px}
   .hero h1{font-size:clamp(24px,7vw,34px)}
@@ -995,12 +996,12 @@ a{text-decoration:none;color:inherit}
   box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 .sd-vital-val{font-size:20px;font-weight:700;margin-bottom:2px}
-.sd-vital-name{font-size:11px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.5px}
+.sd-vital-name{font-size:11px;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.5px}
 /* Features */
 .sd-features{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
 .sd-feat{
   font-size:11px;padding:6px 12px;border-radius:20px;
-  border:1px solid rgba(255,255,255,.10);color:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.10);color:rgba(255,255,255,.65);
   display:flex;align-items:center;gap:5px;
 }
 .sd-feat-pass{border-color:rgba(0,230,118,.30);color:#00e676}
@@ -1025,8 +1026,8 @@ a{text-decoration:none;color:inherit}
 .sd-cta-card:hover{border-color:#f0c040;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
 .sd-cta-name{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 .sd-cta-price{font-size:26px;font-weight:800;color:#f0c040;margin-bottom:8px;font-family:var(--sans)}
-.sd-cta-price small{font-size:13px;font-weight:400;color:rgba(255,255,255,.45)}
-.sd-cta-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
+.sd-cta-price small{font-size:13px;font-weight:400;color:rgba(255,255,255,.65)}
+.sd-cta-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.5}
 .sd-tune .sd-cta-name{color:#00e676}
 .sd-perf{border-color:rgba(240,192,64,.20)}
 .sd-perf .sd-cta-name{color:#f0c040}

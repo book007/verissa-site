@@ -23,11 +23,12 @@
 <meta name="twitter:description" content="Incolla il link del tuo hotel e ottieni un sito moderno, mobile-ready in pochi secondi. Design professionale da €399." />
 <meta name="twitter:image" content="https://verissa.it/og-image.png" />
 <meta name="description" lang="en" content="See your hotel website redesigned instantly. Paste your URL and get a modern, mobile-ready concept in seconds. From €399." />
-<link rel="preload" as="image" href="images/night_by_the_pool.webp" type="image/webp" />
-<link rel="preload" as="image" href="images/night_by_the_pool.jpg" type="image/jpeg" />
+<link rel="preload" as="image" href="images/night_by_the_pool.webp" type="image/webp" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="dns-prefetch" href="https://images.unsplash.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" /></noscript>
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -119,14 +120,14 @@
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=70&auto=format" alt="Anteprima desktop del pacchetto Express Makeover — design hotel moderno e leggero" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=70&auto=format" alt="Anteprima desktop del pacchetto Express Makeover — design hotel moderno e leggero" loading="lazy" />
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&q=70&auto=format" alt="Anteprima mobile del pacchetto Express Makeover" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&q=70&auto=format" alt="Anteprima mobile del pacchetto Express Makeover" loading="lazy" />
             </div>
           </div>
         </div>
@@ -148,14 +149,14 @@
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <picture><source srcset="images/night_by_the_pool.webp" type="image/webp"><img src="images/night_by_the_pool.jpg" alt="Anteprima desktop del pacchetto Direct Booking — sito hotel elegante con prenotazione diretta" loading="eager" /></picture>
+              <picture><source srcset="images/night_by_the_pool.webp" type="image/webp"><img src="images/night_by_the_pool.jpg" alt="Anteprima desktop del pacchetto Direct Booking — sito hotel elegante con prenotazione diretta" loading="lazy" /></picture>
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <picture><source srcset="images/night_by_the_pool.webp" type="image/webp"><img src="images/night_by_the_pool.jpg" alt="Anteprima mobile del pacchetto Direct Booking" loading="eager" /></picture>
+              <picture><source srcset="images/night_by_the_pool.webp" type="image/webp"><img src="images/night_by_the_pool.jpg" alt="Anteprima mobile del pacchetto Direct Booking" loading="lazy" /></picture>
             </div>
           </div>
         </div>
@@ -176,14 +177,14 @@
         <div class="tier-preview">
           <div class="tier-device-laptop">
             <div class="device-frame">
-              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=70&auto=format" alt="Anteprima desktop del pacchetto Luxury Experience — sito hotel di lusso con animazioni premium" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=70&auto=format" alt="Anteprima desktop del pacchetto Luxury Experience — sito hotel di lusso con animazioni premium" loading="lazy" />
             </div>
             <div class="device-base"></div>
           </div>
           <div class="tier-device-phone">
             <div class="device-frame">
               <div class="device-notch"></div>
-              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=300&q=70&auto=format" alt="Anteprima mobile del pacchetto Luxury Experience" loading="eager" />
+              <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=300&q=70&auto=format" alt="Anteprima mobile del pacchetto Luxury Experience" loading="lazy" />
             </div>
           </div>
         </div>
@@ -278,9 +279,9 @@
 
     <!-- Tier Tabs with Select buttons -->
     <div style="display:flex;justify-content:center;gap:8px;margin-bottom:24px;flex-wrap:wrap" id="mk-tabs">
-      <button class="mk-tab active" onclick="showTier(0)" style="--accent:var(--express)" data-t="mkTabExpress">Express Makeover</button>
-      <button class="mk-tab" onclick="showTier(1)" style="--accent:var(--standard)" data-t="mkTabStandard">Direct Booking</button>
-      <button class="mk-tab" onclick="showTier(2)" style="--accent:var(--premium)" data-t="mkTabPremium">Luxury Experience</button>
+      <button class="mk-tab active" onclick="showTier(0)" style="--accent:var(--express)" data-t="mkTabExpress" aria-label="Mostra anteprima Express Makeover">Express Makeover</button>
+      <button class="mk-tab" onclick="showTier(1)" style="--accent:var(--standard)" data-t="mkTabStandard" aria-label="Mostra anteprima Direct Booking">Direct Booking</button>
+      <button class="mk-tab" onclick="showTier(2)" style="--accent:var(--premium)" data-t="mkTabPremium" aria-label="Mostra anteprima Luxury Experience">Luxury Experience</button>
     </div>
 
 
@@ -304,9 +305,9 @@
       </div>
       <div class="pricing-trust-item" style="color:rgba(255,255,255,.4)">
         <div class="pricing-trust-avatars">
-          <img class="pt-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&crop=face" alt="" />
-          <img class="pt-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="" />
-          <img class="pt-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="" />
+          <img class="pt-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&crop=face" alt="Foto cliente soddisfatta" loading="lazy" />
+          <img class="pt-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Foto cliente soddisfatto" loading="lazy" />
+          <img class="pt-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="Foto cliente soddisfatta" loading="lazy" />
         </div>
         <div class="pricing-trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <span data-t="trustChosen">Scelto da hotel e strutture ricettive in tutta Italia</span>
@@ -315,11 +316,11 @@
 
     <!-- CTA below preview -->
     <div style="margin-top:32px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
-      <button onclick="openChatbot()" class="btn-generate" style="font-size:14px;padding:14px 32px;border-radius:12px;border:none;cursor:pointer">
+      <button onclick="openChatbot()" class="btn-generate" style="font-size:14px;padding:14px 32px;border-radius:12px;border:none;cursor:pointer" aria-label="Apri chat per domande">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         <span data-t="mkAskBtn">Hai Domande? Parliamone Insieme</span>
       </button>
-      <button onclick="document.getElementById('urlInput').focus();window.scrollTo({top:0,behavior:'smooth'})" style="padding:14px 24px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:transparent;color:rgba(255,255,255,.5);font-size:14px;cursor:pointer;font-family:var(--sans)" data-t="mkTryAnother">Prova un'Altra Struttura</button>
+      <button onclick="document.getElementById('urlInput').focus();window.scrollTo({top:0,behavior:'smooth'})" style="padding:14px 24px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:transparent;color:rgba(255,255,255,.5);font-size:14px;cursor:pointer;font-family:var(--sans)" data-t="mkTryAnother" aria-label="Prova la trasformazione con un altro sito hotel">Prova un'Altra Struttura</button>
     </div>
   </div>
 </section>
@@ -412,20 +413,20 @@
 
     <!-- ── PRIMARY: Quick Payment Buttons ── -->
     <div class="pay-quick" id="payQuickBtns">
-      <button class="pay-stripe-btn" id="payStripeBtn" onclick="stripeCheckout()">
+      <button class="pay-stripe-btn" id="payStripeBtn" onclick="stripeCheckout()" aria-label="Paga con carta di credito tramite Stripe">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
         <span data-t="payCardBtn">Paga con Carta</span> · €<span id="payStripeBtnPrice">399</span>
       </button>
       <div class="pay-alt-methods">
-        <button class="pay-method-btn" onclick="stripeCheckout()">
+        <button class="pay-method-btn" onclick="stripeCheckout()" aria-label="Paga con Apple Pay">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.04c-.03-2.55 2.09-3.78 2.18-3.84-1.19-1.74-3.04-1.97-3.7-2-.57-.06-1.45.05-2.28.67-.6.45-1.07 1.06-1.24 1.24-.17.18-.64.63-1.24.61-.6-.02-1.07-.36-1.68-.72-.87-.52-1.58-.98-2.24.06-.94 1.47-.76 4.28 1.03 7.16.76 1.21 1.67 2.58 2.87 2.53.57-.02 1-.38 1.85-.38.84 0 1.24.38 1.87.37 1.23-.02 2.04-1.24 2.79-2.46.55-.88.77-1.74.79-1.78-.02-.01-1.51-.58-1.53-2.31-.01-1.45 1.18-2.14 1.24-2.18-.68-1-1.73-1.11-2.1-1.14-.54-.05-1.09.13-1.55.38z"/><path d="M14.83 3.54c.63-.77 1.05-1.83.93-2.89-.9.04-2 .6-2.64 1.36-.58.67-1.09 1.75-.95 2.78 1.01.08 2.03-.51 2.66-1.25z"/></svg>
           Apple Pay
         </button>
-        <button class="pay-method-btn" onclick="stripeCheckout()">
+        <button class="pay-method-btn" onclick="stripeCheckout()" aria-label="Paga con Google Pay">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
           Google Pay
         </button>
-        <button class="pay-method-btn" onclick="stripeCheckout()">
+        <button class="pay-method-btn" onclick="stripeCheckout()" aria-label="Paga con PayPal">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
           PayPal
         </button>
@@ -438,7 +439,7 @@
 
     <!-- ── FALLBACK: Contact Form ── -->
     <div class="pay-contact-toggle">
-      <button class="pay-toggle-form-btn" onclick="document.getElementById('payFormSection').classList.toggle('show')">
+      <button class="pay-toggle-form-btn" onclick="document.getElementById('payFormSection').classList.toggle('show')" aria-label="Apri modulo di contatto alternativo">
         <span data-t="payToggleForm">📋 Preferisci compilare il modulo di contatto?</span>
       </button>
     </div>
@@ -453,7 +454,7 @@
         <input type="tel" name="phone" placeholder="+39 333 123 4567">
         <label data-t="payLabelHotel">Nome Hotel / Struttura</label>
         <input type="text" name="hotel" id="payHotel" placeholder="Hotel Bellavista">
-        <button type="submit" class="pay-submit" id="paySubmit" style="margin-top:8px" data-t="paySubmitBtn">Invia Richiesta →</button>
+        <button type="submit" class="pay-submit" id="paySubmit" style="margin-top:8px" data-t="paySubmitBtn" aria-label="Invia richiesta di contatto">Invia Richiesta →</button>
       </form>
     </div>
     <p class="pay-note" id="payNote"></p>
@@ -484,7 +485,7 @@
     <div class="chatbot-qr" id="chatQR"></div>
     <div class="chatbot-input-row">
       <input type="text" id="chatInput" data-tp="chatPlaceholder" placeholder="Scrivi un messaggio..." onkeydown="if(event.key==='Enter')chatSend()">
-      <button onclick="chatSend()" data-t="chatSend">Invia</button>
+      <button onclick="chatSend()" data-t="chatSend" aria-label="Invia messaggio in chat">Invia</button>
     </div>
   </div>
 </div>
@@ -529,7 +530,7 @@
         <span style="font-weight:700;font-size:15px;color:#111" data-t="cookieAnalytics">Analytics</span>
         <div style="cursor:pointer;display:flex;align-items:center">
           <input type="checkbox" id="vr-ck-analytics" checked style="display:none">
-          <div id="vr-ck-toggle" style="width:44px;height:24px;border-radius:12px;background:#111;position:relative;transition:background .2s;cursor:pointer" onclick="var c=document.getElementById('vr-ck-analytics');c.checked=!c.checked;this.style.background=c.checked?'#111':'#ccc';this.querySelector('div').style.right=c.checked?'2px':'22px'">
+          <div id="vr-ck-toggle" role="switch" aria-label="Attiva o disattiva cookie analytics" style="width:44px;height:24px;border-radius:12px;background:#111;position:relative;transition:background .2s;cursor:pointer" onclick="var c=document.getElementById('vr-ck-analytics');c.checked=!c.checked;this.style.background=c.checked?'#111':'#ccc';this.querySelector('div').style.right=c.checked?'2px':'22px'">
             <div style="width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:2px;right:2px;box-shadow:0 1px 3px rgba(0,0,0,.15);transition:right .2s"></div>
           </div>
         </div>
@@ -539,8 +540,8 @@
 
     <!-- Buttons -->
     <div style="display:flex;gap:12px">
-      <button onclick="document.getElementById('vr-cookie-modal').style.display='none'" style="flex:1;padding:14px 20px;border-radius:50px;border:1px solid #ddd;background:#fff;color:#111;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:border-color .2s" onmouseover="this.style.borderColor='#999'" onmouseout="this.style.borderColor='#ddd'" data-t="cookieBack">Back</button>
-      <button onclick="var a=document.getElementById('vr-ck-analytics').checked;localStorage.setItem('verissa-ck-analytics',a?'1':'0');localStorage.setItem('verissa-ck-consent','1');document.getElementById('vr-cookie-modal').style.display='none'" style="flex:1;padding:14px 20px;border-radius:50px;border:none;background:#111;color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:background .2s" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#111'" data-t="cookieSave">Save preferences</button>
+      <button onclick="document.getElementById('vr-cookie-modal').style.display='none'" style="flex:1;padding:14px 20px;border-radius:50px;border:1px solid #ddd;background:#fff;color:#111;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:border-color .2s" onmouseover="this.style.borderColor='#999'" onmouseout="this.style.borderColor='#ddd'" data-t="cookieBack" aria-label="Chiudi preferenze cookie">Back</button>
+      <button onclick="var a=document.getElementById('vr-ck-analytics').checked;localStorage.setItem('verissa-ck-analytics',a?'1':'0');localStorage.setItem('verissa-ck-consent','1');document.getElementById('vr-cookie-modal').style.display='none'" style="flex:1;padding:14px 20px;border-radius:50px;border:none;background:#111;color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:background .2s" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#111'" data-t="cookieSave" aria-label="Salva preferenze cookie">Save preferences</button>
     </div>
   </div>
 </div>
