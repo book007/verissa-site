@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verissa Studio — Visual Editor</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* ═══ VERISSA STUDIO — DESIGN TOKENS ═══ */
+:root {
+  --vs-bg: #0B0D14;
+  --vs-bg-sidebar: #0F1119;
+  --vs-bg-panel: #13151E;
+  --vs-bg-input: #1A1D28;
+  --vs-bg-hover: #1E2130;
+  --vs-bg-active: #252838;
+  --vs-border: rgba(255,255,255,.06);
+  --vs-border-hover: rgba(255,255,255,.12);
+  --vs-gold: #D4AF37;
+  --vs-gold-dim: rgba(212,175,55,.15);
+  --vs-gold-glow: rgba(212,175,55,.25);
+  --vs-text: #E8E8EC;
+  --vs-text-dim: rgba(255,255,255,.5);
+  --vs-text-muted: rgba(255,255,255,.35);
+  --vs-green: #34D399;
+  --vs-red: #F87171;
+  --vs-blue: #60A5FA;
+  --vs-purple: #A78BFA;
+  --vs-radius: 10px;
+  --vs-radius-sm: 6px;
+  --vs-sidebar-w: 220px;
+  --vs-panel-w: 340px;
+  --vs-topbar-h: 56px;
+  --vs-serif: 'Playfair Display', Georgia, serif;
+  --vs-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --vs-transition: .2s cubic-bezier(.4,0,.2,1);
+}
+
+/* ═══ RESET ═══ */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: var(--vs-sans);
+  background: var(--vs-bg);
+  color: var(--vs-text);
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+input, textarea, select, button { font-family: inherit; font-size: inherit; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,.12); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+
+/* ═══ LOGIN SCREEN ═══ */
+.login-screen {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--vs-bg);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity .4s, visibility .4s;
+}
+.login-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.login-card {
+  width: 380px; padding: 48px 40px;
+  background: var(--vs-bg-panel);
+  border: 1px solid var(--vs-border);
+  border-radius: 16px;
+  text-align: center;
+}
+.login-logo {
+  font-family: var(--vs-serif);
+  font-size: 28px; font-weight: 700;
+  color: var(--vs-text);
+  margin-bottom: 6px;
+  letter-spacing: -.02em;
+}
+.login-logo span { color: var(--vs-gold); }
+.login-sub {
+  font-size: 13px; color: var(--vs-text-dim);
+  margin-bottom: 32px;
+}
+.login-field {
+  width: 100%; padding: 13px 16px;
+  background: var(--vs-bg-input);
+  border: 1px solid var(--vs-border);
+  border-radius: var(--vs-radius-sm);
+  color: var(--vs-text);
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: border-color var(--vs-transition);
+  outline: none;
+}
+.login-field:focus { border-color: var(--vs-gold); }
+.login-field::placeholder { color: var(--vs-text-muted); }
+.login-btn {
+  width: 100%; padding: 14px;
+  background: var(--vs-gold);
+  color: #0B0D14;
+  border: none; border-radius: var(--vs-radius-sm);
+  font-weight: 700; font-size: 14px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all var(--vs-transition);
+}
+.login-btn:hover { background: #E0BF4A; transform: translateY(-1px); }
+.login-error {
+  color: var(--vs-red); font-size: 12px;
+  margin-top: 12px; display: none;
+}
+
+/* ═══ LAYOUT ═══ */
+.app { display: flex; height: 100vh; }
+
+/* ═══ LEFT SIDEBAR ═══ */
+.sidebar {
+  width: var(--vs-sidebar-w);
+  background: var(--vs-bg-sidebar);
+  border-right: 1px solid var(--vs-border);
+  display: flex; flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+.sb-logo {
+  padding: 20px 20px 8px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sb-logo-mark {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--vs-gold), #A8884E);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--vs-serif);
+  font-weight: 700; font-size: 16px; color: #0B0D14;
+}
+.sb-logo-text {
+  font-family: var(--vs-serif);
+  font-size: 18px; font-weight: 700;
+  letter-spacing: -.01em;
+}
+.sb-site-sel {
+  margin: 12px 16px 4px;
+  padding: 8px 12px;
+  background: var(--vs-bg-input);
+  border: 1px solid var(--vs-border);
+  border-radius: var(--vs-radius-sm);
+  color: var(--vs-text);
+  font-size: 12px; font-weight: 600;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: default;
+}
+.sb-site-sel svg { width: 14px; height: 14px; opacity: .4; }
+
+/* Sidebar sections */
+.sb-group { padding: 16px 0 0; }
+.sb-group-title {
+  padding: 0 20px;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--vs-text-muted);
+  margin-bottom: 6px;
+}
+.sb-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 20px;
+  cursor: pointer;
+  color: var(--vs-text-dim);
+  font-size: 13px; font-weight: 500;
+  transition: all var(--vs-transition);
+  border-left: 2px solid transparent;
+}
+.sb-item:hover { background: var(--vs-bg-hover); color: var(--vs-text); }
+.sb-item.active {
+  background: var(--vs-bg-active);
+  color: var(--vs-text);
+  border-left-color: var(--vs-gold);
+}
+.sb-item svg {
+  width: 16px; height: 16px; flex-shrink: 0;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.sb-item .sb-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-left: auto;
+}
+
+/* Bottom profile */
+.sb-profile {
+  margin-top: auto;
+  padding: 16px 20px;
+  border-top: 1px solid var(--vs-border);
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer;
+}
+.sb-profile:hover { background: var(--vs-bg-hover); }
+.sb-avatar {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2a2d38, #3a3d48);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: var(--vs-gold);
+}
+.sb-profile-info { flex: 1; min-width: 0; }
+.sb-profile-name { font-size: 13px; font-weight: 600; }
+.sb-profile-role { font-size: 11px; color: var(--vs-text-muted); }
+
+/* ═══ MAIN AREA ═══ */
+.main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+/* ═══ TOP BAR ═══ */
+.topbar {
+  height: var(--vs-topbar-h);
+  background: var(--vs-bg-panel);
+  border-bottom: 1px solid var(--vs-border);
+  display: flex; align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.tb-section-name {
+  font-size: 14px; font-weight: 600;
+  display: flex; align-items: center; gap: 8px;
+}
+.tb-section-name svg { width: 16px; height: 16px; stroke: var(--vs-gold); fill: none; stroke-width: 2; }
+.tb-autosave {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; color: var(--vs-text-muted);
+}
+.tb-autosave .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--vs-green);
+}
+.tb-spacer { flex: 1; }
+.tb-devices {
+  display: flex;
+  background: var(--vs-bg-input);
+  border-radius: var(--vs-radius-sm);
+  border: 1px solid var(--vs-border);
+  overflow: hidden;
+}
+.tb-dev-btn {
+  padding: 7px 12px;
+  background: none; border: none;
+  cursor: pointer;
+  color: var(--vs-text-muted);
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--vs-transition);
+}
+.tb-dev-btn:hover { color: var(--vs-text-dim); background: var(--vs-bg-hover); }
+.tb-dev-btn.active { color: var(--vs-text); background: var(--vs-bg-active); }
+.tb-dev-btn svg { width: 18px; height: 18px; }
+
+.tb-btn {
+  padding: 8px 18px;
+  border-radius: var(--vs-radius-sm);
+  font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  transition: all var(--vs-transition);
+  display: flex; align-items: center; gap: 6px;
+  border: none;
+}
+.tb-btn-outline {
+  background: transparent;
+  border: 1px solid var(--vs-border);
+  color: var(--vs-text);
+}
+.tb-btn-outline:hover { border-color: var(--vs-border-hover); background: var(--vs-bg-hover); }
+.tb-btn-primary {
+  background: var(--vs-gold);
+  color: #0B0D14;
+}
+.tb-btn-primary:hover { background: #E0BF4A; transform: translateY(-1px); }
+.tb-btn-primary svg { width: 14px; height: 14px; }
+.tb-publish-dd {
+  padding: 8px 8px 8px 0;
+  border-left: 1px solid rgba(11,13,20,.15);
+  background: none; border-top: none; border-right: none; border-bottom: none;
+  color: #0B0D14;
+  cursor: pointer;
+  display: flex; align-items: center;
+}
+.tb-publish-wrap { display: flex; background: var(--vs-gold); border-radius: var(--vs-radius-sm); overflow: hidden; }
+.tb-publish-wrap:hover { background: #E0BF4A; }
+
+/* ═══ CENTER — PREVIEW ═══ */
+.preview-area {
+  flex: 1;
+  background: #0A0C12;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  position: relative;
+  padding: 24px;
+}
+.preview-frame {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  transition: width var(--vs-transition), height var(--vs-transition);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.preview-frame.desktop { width: 100%; max-width: 1280px; height: 100%; }
+.preview-frame.tablet { width: 768px; height: 100%; }
+.preview-frame.mobile { width: 390px; height: 100%; }
+
+.preview-chrome {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 16px;
+  background: #1e2130;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  flex-shrink: 0;
+}
+.preview-chrome .dot { width: 10px; height: 10px; border-radius: 50%; }
+.preview-chrome .dot-r { background: #ff5f57; }
+.preview-chrome .dot-y { background: #ffbd2e; }
+.preview-chrome .dot-g { background: #28c940; }
+.preview-chrome .url-bar {
+  flex: 1; margin-left: 10px;
+  font-size: 11px; color: rgba(255,255,255,.3);
+  font-family: 'SF Mono', monospace;
+}
+.preview-iframe {
+  flex: 1;
+  width: 100%; border: none;
+  background: #fff;
+}
+
+/* ═══ RIGHT PANEL ═══ */
+.panel {
+  width: var(--vs-panel-w);
+  background: var(--vs-bg-panel);
+  border-left: 1px solid var(--vs-border);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+.panel-header {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--vs-border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.panel-title {
+  font-size: 14px; font-weight: 700;
+}
+.panel-subtitle {
+  font-size: 11px; color: var(--vs-text-muted);
+  margin-top: 2px;
+}
+.panel-close {
+  width: 28px; height: 28px;
+  background: var(--vs-bg-input);
+  border: 1px solid var(--vs-border);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--vs-text-dim);
+  font-size: 14px;
+  transition: all var(--vs-transition);
+}
+.panel-close:hover { background: var(--vs-bg-hover); color: var(--vs-text); }
+
+/* Panel sections */
+.pn-section { padding: 16px 20px; border-bottom: 1px solid var(--vs-border); }
+.pn-section-title {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--vs-text-muted);
+  margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer;
+}
+.pn-section-title svg {
+  width: 14px; height: 14px;
+  stroke: currentColor; fill: none; stroke-width: 2;
+  transition: transform var(--vs-transition);
+}
+.pn-section.collapsed .pn-section-body { display: none; }
+.pn-section.collapsed .pn-section-title svg { transform: rotate(-90deg); }
+
+/* Form elements */
+.pn-label {
+  display: block;
+  font-size: 12px; font-weight: 600;
+  color: var(--vs-text-dim);
+  margin-bottom: 6px;
+  margin-top: 12px;
+}
+.pn-label:first-child { margin-top: 0; }
+.pn-input {
+  width: 100%; padding: 10px 12px;
+  background: var(--vs-bg-input);
+  border: 1px solid var(--vs-border);
+  border-radius: var(--vs-radius-sm);
+  color: var(--vs-text);
+  font-size: 13px;
+  transition: border-color var(--vs-transition);
+  outline: none;
+}
+.pn-input:focus { border-color: var(--vs-gold); }
+.pn-input::placeholder { color: var(--vs-text-muted); }
+textarea.pn-input { resize: vertical; min-height: 72px; line-height: 1.5; }
+
+/* Color picker row */
+.pn-color-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 12px;
+}
+.pn-color-row:first-child { margin-top: 0; }
+.pn-color-swatch {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  border: 2px solid var(--vs-border);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: border-color var(--vs-transition);
+}
+.pn-color-swatch:hover { border-color: var(--vs-border-hover); }
+.pn-color-swatch input[type="color"] {
+  position: absolute; inset: -8px;
+  width: calc(100% + 16px); height: calc(100% + 16px);
+  border: none; cursor: pointer;
+}
+.pn-color-info { flex: 1; }
+.pn-color-label { font-size: 12px; font-weight: 600; color: var(--vs-text-dim); }
+.pn-color-hex {
+  font-size: 11px; color: var(--vs-text-muted);
+  font-family: 'SF Mono', monospace;
+  margin-top: 1px;
+}
+
+/* Slider */
+.pn-slider-row {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 12px;
+}
+.pn-slider-row:first-child { margin-top: 0; }
+.pn-slider-label {
+  font-size: 12px; font-weight: 600;
+  color: var(--vs-text-dim);
+  width: 90px; flex-shrink: 0;
+}
+.pn-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 4px;
+  background: var(--vs-bg-input);
+  border-radius: 2px;
+  outline: none;
+}
+.pn-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--vs-gold);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+}
+.pn-slider-val {
+  font-size: 12px; color: var(--vs-text-muted);
+  font-family: 'SF Mono', monospace;
+  width: 48px; text-align: right;
+}
+.pn-unit {
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.pn-unit-select {
+  background: var(--vs-bg-input);
+  border: 1px solid var(--vs-border);
+  border-radius: 4px;
+  color: var(--vs-text-muted);
+  font-size: 11px;
+  padding: 2px 4px;
+  outline: none;
+}
+
+/* Image upload area */
+.pn-img-upload {
+  border: 2px dashed var(--vs-border);
+  border-radius: var(--vs-radius);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--vs-transition);
+  margin-top: 12px;
+}
+.pn-img-upload:hover { border-color: var(--vs-gold); background: var(--vs-gold-dim); }
+.pn-img-upload svg { width: 24px; height: 24px; color: var(--vs-text-muted); margin: 0 auto 8px; }
+.pn-img-upload-text { font-size: 12px; color: var(--vs-text-muted); }
+.pn-img-preview {
+  margin-top: 12px;
+  border-radius: var(--vs-radius);
+  overflow: hidden;
+  position: relative;
+}
+.pn-img-preview img { width: 100%; display: block; }
+.pn-img-preview .pn-img-meta {
+  padding: 8px 12px;
+  background: var(--vs-bg-input);
+  font-size: 11px; color: var(--vs-text-muted);
+  display: flex; justify-content: space-between;
+}
+.pn-img-change {
+  padding: 6px 14px;
+  background: var(--vs-bg-input);
+  border: 1px solid var(--vs-border);
+  border-radius: var(--vs-radius-sm);
+  color: var(--vs-text-dim);
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all var(--vs-transition);
+}
+.pn-img-change:hover { background: var(--vs-bg-hover); color: var(--vs-text); }
+
+/* Toggle switch */
+.pn-toggle-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 0;
+}
+.pn-toggle-label { font-size: 12px; font-weight: 600; color: var(--vs-text-dim); }
+.pn-toggle {
+  width: 40px; height: 22px;
+  background: var(--vs-bg-input);
+  border-radius: 11px;
+  position: relative;
+  cursor: pointer;
+  transition: background var(--vs-transition);
+  border: 1px solid var(--vs-border);
+}
+.pn-toggle.on { background: var(--vs-gold); border-color: var(--vs-gold); }
+.pn-toggle::after {
+  content: '';
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 2px; left: 2px;
+  transition: transform var(--vs-transition);
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.pn-toggle.on::after { transform: translateX(18px); }
+
+/* ═══ TOAST ═══ */
+.vs-toast {
+  position: fixed;
+  bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--vs-bg-panel);
+  border: 1px solid var(--vs-border);
+  border-radius: var(--vs-radius);
+  padding: 12px 20px;
+  font-size: 13px; font-weight: 600;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  transition: transform .3s cubic-bezier(.4,0,.2,1);
+  z-index: 9000;
+  pointer-events: none;
+}
+.vs-toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ═══ KEYBOARD SHORTCUT HINTS ═══ */
+.kb-hint {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: var(--vs-bg-input);
+  border: 1px solid var(--vs-border);
+  border-radius: 4px;
+  color: var(--vs-text-muted);
+  font-family: 'SF Mono', monospace;
+  margin-left: auto;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ LOGIN ═══ -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="login-logo">V<span>erissa</span> Studio</div>
+    <div class="login-sub">Visual Control Panel</div>
+    <input class="login-field" type="text" id="loginUser" placeholder="Username" autocomplete="username">
+    <input class="login-field" type="password" id="loginPass" placeholder="Password" autocomplete="current-password"
+      onkeydown="if(event.key==='Enter')attemptLogin()">
+    <button class="login-btn" onclick="attemptLogin()">Accedi</button>
+    <div class="login-error" id="loginError">Credenziali non valide</div>
+  </div>
+</div>
+
+<!-- ═══ APP ═══ -->
+<div class="app" id="app" style="display:none">
+
+  <!-- LEFT SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sb-logo">
+      <div class="sb-logo-mark">V</div>
+      <div class="sb-logo-text">Verissa</div>
+    </div>
+    <div class="sb-site-sel">
+      verissa.it
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+
+    <!-- CONTENUTI -->
+    <div class="sb-group">
+      <div class="sb-group-title">Contenuti</div>
+      <div class="sb-item active" data-section="hero" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+        Hero Section
+      </div>
+      <div class="sb-item" data-section="trustbar" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Trust Bar
+      </div>
+      <div class="sb-item" data-section="pricing" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        Prezzi
+      </div>
+      <div class="sb-item" data-section="diagnostics" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        Diagnostica
+      </div>
+      <div class="sb-item" data-section="howit" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Processo
+      </div>
+      <div class="sb-item" data-section="compare" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+        Confronto
+      </div>
+      <div class="sb-item" data-section="testimonial" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Testimonial
+      </div>
+      <div class="sb-item" data-section="footer" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15h18"/></svg>
+        Footer
+      </div>
+    </div>
+
+    <!-- DESIGN -->
+    <div class="sb-group">
+      <div class="sb-group-title">Design</div>
+      <div class="sb-item" data-section="colors" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.7 1.5-1.5 0-.4-.1-.7-.4-1-.3-.3-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-5.5-4.5-10-10-10z"/></svg>
+        Colori
+      </div>
+      <div class="sb-item" data-section="typography" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+        Tipografia
+      </div>
+      <div class="sb-item" data-section="spacing" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+        Spaziature
+      </div>
+      <div class="sb-item" data-section="buttons" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/></svg>
+        Bottoni
+      </div>
+      <div class="sb-item" data-section="shadows" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="16" height="16" rx="2"/><path d="M8 22h12a2 2 0 0 0 2-2V8"/></svg>
+        Ombre
+      </div>
+      <div class="sb-item" data-section="animations" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+        Animazioni
+      </div>
+    </div>
+
+    <!-- SITO -->
+    <div class="sb-group">
+      <div class="sb-group-title">Sito</div>
+      <div class="sb-item" data-section="branding" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        Branding
+      </div>
+      <div class="sb-item" data-section="seo" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        SEO
+      </div>
+      <div class="sb-item" data-section="blog" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Blog
+      </div>
+      <div class="sb-item" data-section="settings" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Impostazioni
+      </div>
+      <div class="sb-item" data-section="integrations" onclick="selectSection(this)">
+        <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Integrazioni
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="sb-profile">
+      <div class="sb-avatar">M</div>
+      <div class="sb-profile-info">
+        <div class="sb-profile-name">Marco: Verissa</div>
+        <div class="sb-profile-role">Amministratore</div>
+      </div>
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="opacity:.3"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="main">
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="tb-section-name" id="tbSectionName">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+        Modifica Hero Section
+      </div>
+      <div class="tb-autosave" id="tbAutosave">
+        <span class="dot"></span> Auto-salvato 2 min fa
+      </div>
+      <div class="tb-spacer"></div>
+
+      <!-- Device toggles -->
+      <div class="tb-devices">
+        <button class="tb-dev-btn active" data-device="desktop" onclick="switchDevice(this)" title="Desktop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </button>
+        <button class="tb-dev-btn" data-device="tablet" onclick="switchDevice(this)" title="Tablet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </button>
+        <button class="tb-dev-btn" data-device="mobile" onclick="switchDevice(this)" title="Mobile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </button>
+      </div>
+
+      <!-- Actions -->
+      <button class="tb-btn tb-btn-outline" onclick="previewSite()">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        Anteprima
+      </button>
+      <button class="tb-btn tb-btn-outline" onclick="saveDraft()">Salva Bozza</button>
+      <div class="tb-publish-wrap">
+        <button class="tb-btn tb-btn-primary" onclick="publishChanges()" style="border-radius:0">Pubblica</button>
+        <button class="tb-publish-dd" onclick="showPublishMenu()">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- PREVIEW AREA + RIGHT PANEL -->
+    <div style="display:flex;flex:1;overflow:hidden">
+
+      <!-- CENTER PREVIEW -->
+      <div class="preview-area">
+        <div class="preview-frame desktop" id="previewFrame">
+          <div class="preview-chrome">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
+            <span class="url-bar">verissa.it</span>
+          </div>
+          <iframe id="previewIframe" class="preview-iframe" src="../index.html"></iframe>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <aside class="panel" id="panel">
+        <!-- Dynamically populated -->
+        <div id="panelContent"></div>
+      </aside>
+
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="vs-toast" id="vsToast"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════════
+   VERISSA STUDIO — Visual CMS Engine
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+// ── Auth ──
+const ADMIN_CREDS = { user: 'admin', pass: 'verissa2026' };
+
+function attemptLogin() {
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  if (u === ADMIN_CREDS.user && p === ADMIN_CREDS.pass) {
+    sessionStorage.setItem('vs-auth', '1');
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('app').style.display = 'flex';
+    initEditor();
+  } else {
+    const err = document.getElementById('loginError');
+    err.style.display = 'block';
+    setTimeout(() => err.style.display = 'none', 3000);
+  }
+}
+// Auto-auth when opened from platform (?auth=platform)
+if (new URLSearchParams(window.location.search).get('auth') === 'platform') {
+  sessionStorage.setItem('vs-auth', '1');
+}
+if (sessionStorage.getItem('vs-auth') === '1') {
+  document.getElementById('loginScreen').classList.add('hidden');
+  document.getElementById('app').style.display = 'flex';
+  window.addEventListener('DOMContentLoaded', initEditor);
+}
+
+// ── State ──
+let siteConfig = {};
+let undoStack = [];
+let redoStack = [];
+let currentSection = 'hero';
+let autoSaveTimer = null;
+let lastSaveTime = Date.now();
+
+function loadConfig() {
+  const saved = localStorage.getItem('verissa-cms-config');
+  if (saved) {
+    try { siteConfig = JSON.parse(saved); } catch(e) { siteConfig = getDefaultConfig(); }
+  } else {
+    siteConfig = getDefaultConfig();
+  }
+}
+
+function getDefaultConfig() {
+  return {
+    hero: {
+      badge: 'Da sito vecchio a motore di prenotazioni.',
+      title: 'Più prenotazioni dirette.',
+      titleHL: 'Meno commissioni a Booking.',
+      subtitle: 'Incolla il link del tuo sito attuale e scopri come\ntrasformiamo la tua ospitalità online in un\'esperienza indimenticabile.',
+      btnText: 'Guarda la Trasformazione',
+      btnSecondary: 'Scopri le Soluzioni',
+      heroImage: 'images/night_by_the_pool.webp',
+      overlayColor: '#0B0D14',
+      overlayOpacity: 85,
+      textColor: '#FFFFFF',
+      accentColor: '#D4AF37',
+      paddingTop: 120,
+      paddingBottom: 120,
+      visible: true
+    },
+    trustbar: {
+      items: [
+        { title: 'Anteprima Immediata', desc: 'La tua nuova atmosfera in pochi istanti' },
+        { title: 'Eleganza Ovunque', desc: 'Perfetto su ogni dispositivo' },
+        { title: 'Prenotazione Diretta', desc: 'I tuoi ospiti prenotano senza intermediari' },
+        { title: 'Senza Impegno', desc: 'Scopri il potenziale, è gratuito.' }
+      ],
+      visible: true
+    },
+    pricing: {
+      label: 'SCEGLI L\'ESPERIENZA PERFETTA PER LA TUA STRUTTURA',
+      tiers: [
+        { name: 'Express Makeover', price: '399', color: '#2EAD7F',
+          desc: 'Da datato a elegante in 48–72h',
+          features: ['Fino a 5 Pagine','Elegante su ogni schermo','Contatto diretto WhatsApp','Link prenotazione diretta','Visibilità e velocità ottimizzate'] },
+        { name: 'Direct Booking', price: '599', color: '#5B93D4', popular: true,
+          desc: 'Più elegante. Più accogliente. Più prenotazioni dirette.',
+          features: ['Fino a 10 Pagine','Design raffinato e personalizzato','Ospitalità bilingue (IT/EN)','Atmosfera unica per ogni sezione','Esperienza di prenotazione fluida'] },
+        { name: 'Luxury Experience', price: '1.699', color: '#A07BCD',
+          desc: 'L\'esperienza esclusiva, su misura per te',
+          features: ['Direzione artistica esclusiva','Animazioni e dettagli di lusso','Accoglienza multilingua (IT + EN + DE)','Assistenza dedicata 30 giorni','70% anticipo · 30% alla consegna'] }
+      ],
+      visible: true
+    },
+    howit: {
+      title: 'Come nasce la tua nuova esperienza.',
+      subtitle: 'Analizziamo il tuo sito attuale e creiamo una nuova versione moderna.',
+      steps: [
+        { badge: 'Passo 01', title: 'Inserisci il tuo sito attuale', desc: '✓ Analizziamo il tuo sito\n✓ Creiamo la nuova esperienza\n✓ Il tuo hotel torna premium' },
+        { badge: 'Passo 02', title: 'Scegli la tua esperienza', desc: 'EXPRESS per rinnovare subito l\'atmosfera, DIRECT BOOKING per un\'accoglienza raffinata, LUXURY per un\'esperienza esclusiva e su misura.' },
+        { badge: 'Passo 03', title: 'La tua nuova vetrina è online', desc: 'Confermato l\'ordine, il vostro nuovo sito viene consegnato in 48–72 ore.' }
+      ],
+      visible: true
+    },
+    diagnostics: {
+      loadingTitle: 'Analisi del tuo vecchio sito in corso',
+      loadingDetail: 'Stiamo analizzando le prestazioni del tuo sito attuale...',
+      header: 'Analisi Prestazioni & SEO',
+      headerHL: 'Sito Attuale',
+      ctaQuestion: 'Vuoi migliorare le prestazioni del tuo sito attuale?',
+      packages: [
+        { name: 'Tune-Up', price: '€199', priceType: 'una tantum', desc: 'Compressione immagini, lazy load, meta SEO', color: '#2EAD7F' },
+        { name: 'Performance', price: '€49', priceType: '/mese', desc: 'CDN, caching, Core Web Vitals, report mensile', color: '#5B93D4' },
+        { name: 'Growth', price: '€99', priceType: '/mese', desc: 'Tutto Performance + SEO, dati strutturati, Google Search Console', color: '#A07BCD' }
+      ],
+      visible: true
+    },
+    compare: {
+      title: 'Un nuovo modo di presentare la tua ospitalità online.',
+      subtitle: 'Le agenzie tradizionali costano migliaia di euro e impiegano mesi. Con Verissa, la tua nuova esperienza è pronta in 48 ore.',
+      visible: true
+    },
+    colors: {
+      gold: '#C4A265',
+      goldLight: '#D4B87A',
+      bgDeep: '#1a1f2e',
+      bgCream: '#FAF8F5',
+      textPrimary: '#2D2D2D',
+      textSecondary: '#555555',
+      express: '#2EAD7F',
+      standard: '#5B93D4',
+      premium: '#A07BCD'
+    },
+    typography: {
+      serifFont: 'Playfair Display',
+      sansFont: 'DM Sans',
+      heroSize: 56,
+      h2Size: 38,
+      h3Size: 24,
+      bodySize: 16,
+      lineHeight: 1.6
+    },
+    spacing: {
+      sectionPadding: 96,
+      containerMax: 1200,
+      cardGap: 20,
+      gridGap: 20
+    },
+    seo: {
+      title: 'Verissa — Da sito vecchio a motore di prenotazioni.',
+      description: 'Vedi il tuo sito hotel ridisegnato istantaneamente. Incolla il link e ottieni un concept moderno, mobile-ready in pochi secondi. Da €399.',
+      canonical: 'https://verissa.it/',
+      ogImage: 'https://verissa.it/og-image.png'
+    },
+    testimonial: {
+      dataText: 'I tuoi dati sono al sicuro e non verranno mai condivisi.',
+      chosenText: 'Scelto da hotel e strutture ricettive in tutta Italia',
+      stars: 5,
+      avatars: [
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&crop=face',
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face',
+        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face'
+      ],
+      visible: true
+    },
+    footer: {
+      copyright: '© 2026 Verissa. All rights reserved.',
+      blogLink: '/blog/',
+      privacyLink: 'privacy.html',
+      termsLink: 'terms.html',
+      cookiesLink: 'cookies.html',
+      showBlog: true,
+      showPrivacy: true,
+      showTerms: true,
+      showCookies: true,
+      showCookieBtn: true,
+      visible: true
+    },
+    branding: {
+      logo: '',
+      logoName: '',
+      favicon: '',
+      faviconName: '',
+      appleTouchIcon: '',
+      appleTouchIconName: '',
+      ogImage: '',
+      ogImageName: ''
+    }
+  };
+}
+
+function saveConfig() {
+  localStorage.setItem('verissa-cms-config', JSON.stringify(siteConfig));
+  lastSaveTime = Date.now();
+  updateAutoSaveIndicator();
+}
+
+function pushUndo() {
+  undoStack.push(JSON.stringify(siteConfig));
+  if (undoStack.length > 50) undoStack.shift();
+  redoStack = [];
+}
+
+function undo() {
+  if (!undoStack.length) return;
+  redoStack.push(JSON.stringify(siteConfig));
+  siteConfig = JSON.parse(undoStack.pop());
+  saveConfig();
+  renderPanel(currentSection);
+  applyToPreview();
+  toast('Annullato');
+}
+
+function redo() {
+  if (!redoStack.length) return;
+  undoStack.push(JSON.stringify(siteConfig));
+  siteConfig = JSON.parse(redoStack.pop());
+  saveConfig();
+  renderPanel(currentSection);
+  applyToPreview();
+  toast('Ripristinato');
+}
+
+// ── Device preview ──
+function switchDevice(btn) {
+  document.querySelectorAll('.tb-dev-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const d = btn.dataset.device;
+  const frame = document.getElementById('previewFrame');
+  frame.className = 'preview-frame ' + d;
+}
+
+// ── Section select ──
+function selectSection(el) {
+  document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  currentSection = el.dataset.section;
+  const names = {
+    hero: 'Hero Section', trustbar: 'Trust Bar', pricing: 'Prezzi',
+    diagnostics: 'Diagnostica', howit: 'Processo', compare: 'Confronto',
+    testimonial: 'Testimonial', footer: 'Footer',
+    colors: 'Colori', typography: 'Tipografia', spacing: 'Spaziature',
+    buttons: 'Bottoni', shadows: 'Ombre', animations: 'Animazioni',
+    branding: 'Branding', seo: 'SEO', blog: 'Blog', settings: 'Impostazioni', integrations: 'Integrazioni'
+  };
+  document.getElementById('tbSectionName').innerHTML = `
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+    Modifica ${names[currentSection] || currentSection}`;
+  renderPanel(currentSection);
+  scrollPreviewToSection(currentSection);
+}
+
+// ── Panel rendering ──
+function renderPanel(section) {
+  const pc = document.getElementById('panelContent');
+  const renderers = {
+    hero: renderHeroPanel,
+    trustbar: renderTrustbarPanel,
+    pricing: renderPricingPanel,
+    diagnostics: renderDiagnosticsPanel,
+    howit: renderHowItPanel,
+    compare: renderComparePanel,
+    testimonial: renderTestimonialPanel,
+    footer: renderFooterPanel,
+    colors: renderColorsPanel,
+    typography: renderTypographyPanel,
+    spacing: renderSpacingPanel,
+    seo: renderSeoPanel,
+    settings: renderSettingsPanel,
+    branding: renderBrandingPanel
+  };
+  const fn = renderers[section];
+  if (fn) { pc.innerHTML = fn(); bindPanelEvents(); }
+  else { pc.innerHTML = renderPlaceholderPanel(section); }
+}
+
+function renderPlaceholderPanel(section) {
+  const names = {
+    buttons: 'Bottoni', shadows: 'Ombre', animations: 'Animazioni',
+    blog: 'Blog', integrations: 'Integrazioni'
+  };
+  return `
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">${names[section] || section}</div>
+        <div class="panel-subtitle">Impostazioni sezione</div>
+      </div>
+    </div>
+    <div class="pn-section" style="text-align:center;padding:48px 20px">
+      <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="var(--vs-text-muted)" stroke-width="1.5" style="margin:0 auto 16px;display:block"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg>
+      <div style="color:var(--vs-text-dim);font-size:14px;font-weight:600;margin-bottom:6px">Prossimamente</div>
+      <div style="color:var(--vs-text-muted);font-size:12px;line-height:1.6">Questa sezione sarà disponibile<br>nel prossimo aggiornamento.</div>
+    </div>`;
+}
+
+// ── HERO PANEL ──
+function renderHeroPanel() {
+  const h = siteConfig.hero;
+  return `
+    <div class="panel-header">
+      <div>
+        <div class="panel-title">Hero Section</div>
+        <div class="panel-subtitle">Impostazioni sezione</div>
+      </div>
+      <div class="panel-close" onclick="selectSection(document.querySelector('.sb-item[data-section=hero]'))">✕</div>
+    </div>
+
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Contenuto <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label">Badge</label>
+        <input class="pn-input" value="${esc(h.badge)}" data-bind="hero.badge" oninput="onInput(this)">
+
+        <label class="pn-label">Titolo</label>
+        <textarea class="pn-input" rows="2" data-bind="hero.title" oninput="onInput(this)">${esc(h.title)}\n${esc(h.titleHL)}</textarea>
+
+        <label class="pn-label">Sottotitolo</label>
+        <textarea class="pn-input" rows="3" data-bind="hero.subtitle" oninput="onInput(this)">${esc(h.subtitle)}</textarea>
+
+        <label class="pn-label">Testo pulsante primario</label>
+        <input class="pn-input" value="${esc(h.btnText)}" data-bind="hero.btnText" oninput="onInput(this)">
+
+        <label class="pn-label">Testo sotto pulsanti</label>
+        <input class="pn-input" value="+200 hotel hanno già aumentato le prenotazioni dirette" disabled style="opacity:.5">
+      </div>
+    </div>
+
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Immagine di sfondo <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <div class="pn-img-preview">
+          <img src="${h.heroImageData || '../' + h.heroImage}" style="height:120px;object-fit:cover">
+          <div class="pn-img-meta">
+            <span>${esc(h.heroImageName || 'night_by_the_pool.webp')}</span>
+            <span>${h.heroImageData ? 'Caricato' : '1920×1080'}</span>
+          </div>
+        </div>
+        <button class="pn-img-change" onclick="pickHeroImage()">Cambia immagine</button>
+      </div>
+    </div>
+
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Colori <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${colorRow('Overlay', h.overlayColor, 'hero.overlayColor')}
+        ${colorRow('Colore testo', h.textColor, 'hero.textColor')}
+        ${colorRow('Colore evidenza', h.accentColor, 'hero.accentColor')}
+        ${sliderRow('Overlay', h.overlayOpacity, 0, 100, '%', 'hero.overlayOpacity')}
+      </div>
+    </div>
+
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Spaziature <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${sliderRow('Padding top', h.paddingTop, 40, 200, 'px', 'hero.paddingTop')}
+        ${sliderRow('Padding bottom', h.paddingBottom, 40, 200, 'px', 'hero.paddingBottom')}
+        ${toggleRow('Visibilità sezione', h.visible, 'hero.visible')}
+      </div>
+    </div>`;
+}
+
+// ── TRUSTBAR PANEL ──
+function renderTrustbarPanel() {
+  const tb = siteConfig.trustbar;
+  let itemsHtml = '';
+  tb.items.forEach((item, i) => {
+    itemsHtml += `
+      <div style="background:var(--vs-bg-input);border-radius:8px;padding:14px;margin-top:${i?10:0}px">
+        <label class="pn-label" style="margin-top:0">Titolo ${i+1}</label>
+        <input class="pn-input" value="${esc(item.title)}" data-bind="trustbar.items.${i}.title" oninput="onInput(this)">
+        <label class="pn-label">Descrizione</label>
+        <input class="pn-input" value="${esc(item.desc)}" data-bind="trustbar.items.${i}.desc" oninput="onInput(this)">
+      </div>`;
+  });
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Trust Bar</div><div class="panel-subtitle">Indicatori di fiducia</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Elementi <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">${itemsHtml}
+        ${toggleRow('Visibilità', tb.visible, 'trustbar.visible')}
+      </div>
+    </div>`;
+}
+
+// ── PRICING PANEL ──
+function renderPricingPanel() {
+  const p = siteConfig.pricing;
+  let tiersHtml = '';
+  p.tiers.forEach((t, i) => {
+    tiersHtml += `
+      <div style="background:var(--vs-bg-input);border-radius:8px;padding:14px;margin-top:${i?12:0}px;border-left:3px solid ${t.color}">
+        <div style="font-weight:700;font-size:13px;margin-bottom:10px;color:${t.color}">${esc(t.name)}</div>
+        <label class="pn-label" style="margin-top:0">Nome</label>
+        <input class="pn-input" value="${esc(t.name)}" data-bind="pricing.tiers.${i}.name" oninput="onInput(this)">
+        <label class="pn-label">Prezzo (€)</label>
+        <input class="pn-input" value="${esc(t.price)}" data-bind="pricing.tiers.${i}.price" oninput="onInput(this)">
+        <label class="pn-label">Descrizione</label>
+        <input class="pn-input" value="${esc(t.desc)}" data-bind="pricing.tiers.${i}.desc" oninput="onInput(this)">
+        ${colorRow('Colore', t.color, 'pricing.tiers.' + i + '.color')}
+      </div>`;
+  });
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Prezzi</div><div class="panel-subtitle">Pacchetti e pricing</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Intestazione <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Titolo sezione</label>
+        <input class="pn-input" value="${esc(p.label)}" data-bind="pricing.label" oninput="onInput(this)">
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Pacchetti <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">${tiersHtml}</div>
+    </div>`;
+}
+
+// ── DIAGNOSTICS PANEL ──
+function renderDiagnosticsPanel() {
+  const d = siteConfig.diagnostics;
+  let pkgsHtml = '';
+  d.packages.forEach((pkg, i) => {
+    pkgsHtml += `
+      <div style="background:var(--vs-bg-input);border-radius:8px;padding:14px;margin-top:${i?10:0}px;border-left:3px solid ${pkg.color}">
+        <div style="font-weight:700;font-size:13px;margin-bottom:10px;color:${pkg.color}">${esc(pkg.name)}</div>
+        <label class="pn-label" style="margin-top:0">Nome pacchetto</label>
+        <input class="pn-input" value="${esc(pkg.name)}" data-bind="diagnostics.packages.${i}.name" oninput="onInput(this)">
+        <label class="pn-label">Prezzo</label>
+        <div style="display:flex;gap:8px">
+          <input class="pn-input" value="${esc(pkg.price)}" data-bind="diagnostics.packages.${i}.price" oninput="onInput(this)" style="flex:1">
+          <input class="pn-input" value="${esc(pkg.priceType)}" data-bind="diagnostics.packages.${i}.priceType" oninput="onInput(this)" style="width:90px" placeholder="/mese">
+        </div>
+        <label class="pn-label">Descrizione</label>
+        <input class="pn-input" value="${esc(pkg.desc)}" data-bind="diagnostics.packages.${i}.desc" oninput="onInput(this)">
+        ${colorRow('Colore', pkg.color, 'diagnostics.packages.' + i + '.color')}
+      </div>`;
+  });
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Diagnostica</div><div class="panel-subtitle">Analisi prestazioni sito</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Stato caricamento <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Titolo caricamento</label>
+        <input class="pn-input" value="${esc(d.loadingTitle)}" data-bind="diagnostics.loadingTitle" oninput="onInput(this)">
+        <label class="pn-label">Dettaglio caricamento</label>
+        <input class="pn-input" value="${esc(d.loadingDetail)}" data-bind="diagnostics.loadingDetail" oninput="onInput(this)">
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Intestazione risultati <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Titolo</label>
+        <input class="pn-input" value="${esc(d.header)}" data-bind="diagnostics.header" oninput="onInput(this)">
+        <label class="pn-label">Sottotitolo evidenziato</label>
+        <input class="pn-input" value="${esc(d.headerHL)}" data-bind="diagnostics.headerHL" oninput="onInput(this)">
+        <label class="pn-label">Domanda CTA</label>
+        <input class="pn-input" value="${esc(d.ctaQuestion)}" data-bind="diagnostics.ctaQuestion" oninput="onInput(this)">
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Pacchetti ottimizzazione <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">${pkgsHtml}</div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Visibilità <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${toggleRow('Mostra sezione', d.visible, 'diagnostics.visible')}
+      </div>
+    </div>`;
+}
+
+// ── HOW IT WORKS PANEL ──
+function renderHowItPanel() {
+  const h = siteConfig.howit;
+  let stepsHtml = '';
+  h.steps.forEach((s, i) => {
+    stepsHtml += `
+      <div style="background:var(--vs-bg-input);border-radius:8px;padding:14px;margin-top:${i?10:0}px">
+        <label class="pn-label" style="margin-top:0">Badge</label>
+        <input class="pn-input" value="${esc(s.badge)}" data-bind="howit.steps.${i}.badge" oninput="onInput(this)">
+        <label class="pn-label">Titolo</label>
+        <input class="pn-input" value="${esc(s.title)}" data-bind="howit.steps.${i}.title" oninput="onInput(this)">
+        <label class="pn-label">Descrizione</label>
+        <textarea class="pn-input" rows="2" data-bind="howit.steps.${i}.desc" oninput="onInput(this)">${esc(s.desc)}</textarea>
+      </div>`;
+  });
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Processo</div><div class="panel-subtitle">Come funziona</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Intestazione <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Titolo</label>
+        <input class="pn-input" value="${esc(h.title)}" data-bind="howit.title" oninput="onInput(this)">
+        <label class="pn-label">Sottotitolo</label>
+        <textarea class="pn-input" rows="2" data-bind="howit.subtitle" oninput="onInput(this)">${esc(h.subtitle)}</textarea>
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Passi <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">${stepsHtml}</div>
+    </div>`;
+}
+
+// ── COMPARE PANEL ──
+function renderComparePanel() {
+  const c = siteConfig.compare;
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Confronto</div><div class="panel-subtitle">Vecchio modo vs Verissa</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Intestazione <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Titolo</label>
+        <textarea class="pn-input" rows="2" data-bind="compare.title" oninput="onInput(this)">${esc(c.title)}</textarea>
+        <label class="pn-label">Sottotitolo</label>
+        <textarea class="pn-input" rows="3" data-bind="compare.subtitle" oninput="onInput(this)">${esc(c.subtitle)}</textarea>
+        ${toggleRow('Visibilità', c.visible, 'compare.visible')}
+      </div>
+    </div>`;
+}
+
+// ── TESTIMONIAL PANEL ──
+function renderTestimonialPanel() {
+  const c = siteConfig.testimonial;
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Testimonial</div><div class="panel-subtitle">Social proof e fiducia</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Sicurezza <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Testo sicurezza dati</label>
+        <textarea class="pn-input" rows="2" data-bind="testimonial.dataText" oninput="onInput(this)">${esc(c.dataText)}</textarea>
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Social Proof <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Testo "scelto da"</label>
+        <textarea class="pn-input" rows="2" data-bind="testimonial.chosenText" oninput="onInput(this)">${esc(c.chosenText)}</textarea>
+        <label class="pn-label">Stelle</label>
+        <div style="display:flex;align-items:center;gap:8px">
+          <input type="range" min="1" max="5" value="${c.stars}" data-bind="testimonial.stars" oninput="onInput(this)" style="flex:1;accent-color:var(--vs-gold)">
+          <span style="color:var(--vs-gold);font-size:14px;min-width:20px">${c.stars}</span>
+        </div>
+        <label class="pn-label">Avatar (URL immagini)</label>
+        ${(c.avatars||[]).map((url,i) => `
+          <div style="display:flex;gap:6px;margin-bottom:6px;align-items:center">
+            <img src="${esc(url)}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:1px solid var(--vs-border)" onerror="this.style.display='none'">
+            <input class="pn-input" style="flex:1;margin:0" value="${esc(url)}" oninput="pushUndo();siteConfig.testimonial.avatars[${i}]=this.value;saveConfig();applyToPreview()">
+            <button onclick="pushUndo();siteConfig.testimonial.avatars.splice(${i},1);saveConfig();applyToPreview();renderPanel('testimonial')" style="background:none;border:none;color:var(--vs-red);cursor:pointer;font-size:16px;padding:4px" title="Rimuovi">✕</button>
+          </div>
+        `).join('')}
+        <button onclick="pushUndo();if(!siteConfig.testimonial.avatars)siteConfig.testimonial.avatars=[];siteConfig.testimonial.avatars.push('');saveConfig();renderPanel('testimonial')" style="margin-top:4px;padding:6px 12px;background:var(--vs-gold-dim);border:1px solid rgba(212,175,55,.25);border-radius:var(--vs-radius-sm);color:var(--vs-gold);font-size:12px;font-weight:600;cursor:pointer">+ Aggiungi Avatar</button>
+        ${toggleRow('Visibilità', c.visible, 'testimonial.visible')}
+      </div>
+    </div>`;
+}
+
+// ── FOOTER PANEL ──
+function renderFooterPanel() {
+  const c = siteConfig.footer;
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Footer</div><div class="panel-subtitle">Copyright e link legali</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Copyright <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Testo copyright</label>
+        <input class="pn-input" value="${esc(c.copyright)}" data-bind="footer.copyright" oninput="onInput(this)">
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Link <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Blog URL</label>
+        <input class="pn-input" value="${esc(c.blogLink)}" data-bind="footer.blogLink" oninput="onInput(this)">
+        ${toggleRow('Mostra Blog', c.showBlog, 'footer.showBlog')}
+        <label class="pn-label">Privacy Policy URL</label>
+        <input class="pn-input" value="${esc(c.privacyLink)}" data-bind="footer.privacyLink" oninput="onInput(this)">
+        ${toggleRow('Mostra Privacy', c.showPrivacy, 'footer.showPrivacy')}
+        <label class="pn-label">Terms of Service URL</label>
+        <input class="pn-input" value="${esc(c.termsLink)}" data-bind="footer.termsLink" oninput="onInput(this)">
+        ${toggleRow('Mostra Terms', c.showTerms, 'footer.showTerms')}
+        <label class="pn-label">Cookie Policy URL</label>
+        <input class="pn-input" value="${esc(c.cookiesLink)}" data-bind="footer.cookiesLink" oninput="onInput(this)">
+        ${toggleRow('Mostra Cookies', c.showCookies, 'footer.showCookies')}
+        ${toggleRow('Pulsante Cookie Settings', c.showCookieBtn, 'footer.showCookieBtn')}
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Visibilità <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${toggleRow('Mostra Footer', c.visible, 'footer.visible')}
+      </div>
+    </div>`;
+}
+
+// ── COLORS PANEL ──
+function renderColorsPanel() {
+  const c = siteConfig.colors;
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Colori</div><div class="panel-subtitle">Palette del design system</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Brand <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${colorRow('Gold primario', c.gold, 'colors.gold')}
+        ${colorRow('Gold chiaro', c.goldLight, 'colors.goldLight')}
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Sfondi <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${colorRow('Sfondo scuro', c.bgDeep, 'colors.bgDeep')}
+        ${colorRow('Sfondo chiaro', c.bgCream, 'colors.bgCream')}
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Testo <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${colorRow('Testo primario', c.textPrimary, 'colors.textPrimary')}
+        ${colorRow('Testo secondario', c.textSecondary, 'colors.textSecondary')}
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Pacchetti <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${colorRow('Express', c.express, 'colors.express')}
+        ${colorRow('Standard', c.standard, 'colors.standard')}
+        ${colorRow('Premium', c.premium, 'colors.premium')}
+      </div>
+    </div>`;
+}
+
+// ── TYPOGRAPHY PANEL ──
+function renderTypographyPanel() {
+  const t = siteConfig.typography;
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Tipografia</div><div class="panel-subtitle">Font e dimensioni</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Famiglie font <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Font Titoli (Serif)</label>
+        <input class="pn-input" value="${esc(t.serifFont)}" data-bind="typography.serifFont" oninput="onInput(this)">
+        <label class="pn-label">Font Corpo (Sans)</label>
+        <input class="pn-input" value="${esc(t.sansFont)}" data-bind="typography.sansFont" oninput="onInput(this)">
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Dimensioni <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${sliderRow('Hero', t.heroSize, 32, 80, 'px', 'typography.heroSize')}
+        ${sliderRow('H2', t.h2Size, 24, 56, 'px', 'typography.h2Size')}
+        ${sliderRow('H3', t.h3Size, 18, 36, 'px', 'typography.h3Size')}
+        ${sliderRow('Body', t.bodySize, 14, 22, 'px', 'typography.bodySize')}
+        ${sliderRow('Altezza riga', t.lineHeight * 10, 12, 22, '', 'typography.lineHeight')}
+      </div>
+    </div>`;
+}
+
+// ── SPACING PANEL ──
+function renderSpacingPanel() {
+  const s = siteConfig.spacing;
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Spaziature</div><div class="panel-subtitle">Padding, gap, container</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Layout <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${sliderRow('Padding sezioni', s.sectionPadding, 40, 160, 'px', 'spacing.sectionPadding')}
+        ${sliderRow('Max container', s.containerMax, 900, 1600, 'px', 'spacing.containerMax')}
+        ${sliderRow('Gap cards', s.cardGap, 8, 48, 'px', 'spacing.cardGap')}
+        ${sliderRow('Gap griglia', s.gridGap, 8, 48, 'px', 'spacing.gridGap')}
+      </div>
+    </div>`;
+}
+
+// ── SEO PANEL ──
+function renderSeoPanel() {
+  const s = siteConfig.seo;
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">SEO</div><div class="panel-subtitle">Meta tag e Open Graph</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Meta Tags <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <label class="pn-label" style="margin-top:0">Titolo pagina</label>
+        <input class="pn-input" value="${esc(s.title)}" data-bind="seo.title" oninput="onInput(this)">
+        <div style="font-size:11px;color:var(--vs-text-muted);margin-top:4px">${s.title.length}/60 caratteri</div>
+        <label class="pn-label">Meta description</label>
+        <textarea class="pn-input" rows="3" data-bind="seo.description" oninput="onInput(this)">${esc(s.description)}</textarea>
+        <div style="font-size:11px;color:var(--vs-text-muted);margin-top:4px">${s.description.length}/160 caratteri</div>
+        <label class="pn-label">URL Canonico</label>
+        <input class="pn-input" value="${esc(s.canonical)}" data-bind="seo.canonical" oninput="onInput(this)">
+        <label class="pn-label">OG Image URL</label>
+        <input class="pn-input" value="${esc(s.ogImage)}" data-bind="seo.ogImage" oninput="onInput(this)">
+      </div>
+    </div>`;
+}
+
+// ── SETTINGS PANEL ──
+function renderSettingsPanel() {
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Impostazioni</div><div class="panel-subtitle">Configurazione generale</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Dati <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <button class="pn-img-change" style="width:100%;text-align:center;margin-top:0" onclick="exportConfig()">Esporta Configurazione (JSON)</button>
+        <button class="pn-img-change" style="width:100%;text-align:center" onclick="importConfig()">Importa Configurazione</button>
+        <button class="pn-img-change" style="width:100%;text-align:center;color:var(--vs-red);border-color:rgba(248,113,113,.2)" onclick="resetConfig()">Ripristina Default</button>
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Revisioni <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        <div style="color:var(--vs-text-muted);font-size:12px;line-height:1.6">
+          Le revisioni vengono salvate automaticamente.<br>
+          Usa <span class="kb-hint">⌘Z</span> per annullare e <span class="kb-hint">⌘⇧Z</span> per ripristinare.
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--vs-text-muted)">
+          Azioni undo disponibili: ${undoStack.length}<br>
+          Azioni redo disponibili: ${redoStack.length}
+        </div>
+      </div>
+    </div>`;
+}
+
+// ── BRANDING PANEL ──
+function renderBrandingPanel() {
+  const b = siteConfig.branding || {};
+  return `
+    <div class="panel-header">
+      <div><div class="panel-title">Branding</div><div class="panel-subtitle">Logo, favicon e immagini social</div></div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Logo <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${imgUploadBlock('logo', b.logo, b.logoName, 'Logo del sito', 'PNG o SVG, sfondo trasparente consigliato')}
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Favicon <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${imgUploadBlock('favicon', b.favicon, b.faviconName, 'Favicon', 'Ideale: 32×32 o 48×48 PNG')}
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        Apple Touch Icon <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${imgUploadBlock('appleTouchIcon', b.appleTouchIcon, b.appleTouchIconName, 'Apple Touch Icon', 'Ideale: 180×180 PNG')}
+      </div>
+    </div>
+    <div class="pn-section">
+      <div class="pn-section-title" onclick="toggleSection(this)">
+        OG Image (social) <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pn-section-body">
+        ${imgUploadBlock('ogImage', b.ogImage, b.ogImageName, 'OG Image', 'Ideale: 1200×630 — anteprima Facebook/LinkedIn')}
+      </div>
+    </div>`;
+}
+
+function imgUploadBlock(key, dataUrl, fileName, label, hint) {
+  if (dataUrl) {
+    return `
+      <div class="pn-img-preview">
+        <img src="${dataUrl}" style="max-height:120px;object-fit:contain;background:var(--vs-bg-input);padding:8px">
+        <div class="pn-img-meta">
+          <span>${esc(fileName || 'immagine')}</span>
+          <span style="cursor:pointer;color:var(--vs-red)" onclick="removeImage('${key}')" title="Rimuovi">✕</span>
+        </div>
+      </div>
+      <button class="pn-img-change" style="width:100%;text-align:center;margin-top:8px" onclick="pickImage('${key}')">Cambia ${label}</button>`;
+  }
+  return `
+    <div class="pn-img-upload" onclick="pickImage('${key}')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:block"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <div class="pn-img-upload-text">Carica ${label}</div>
+      <div style="font-size:10px;color:var(--vs-text-muted);margin-top:4px">${hint}</div>
+    </div>`;
+}
+
+function pickImage(key) {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/png,image/jpeg,image/svg+xml,image/webp,image/x-icon';
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (file.size > 2 * 1024 * 1024) { toast('Immagine troppo grande (max 2MB)'); return; }
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      pushUndo();
+      if (!siteConfig.branding) siteConfig.branding = {};
+      siteConfig.branding[key] = ev.target.result;
+      siteConfig.branding[key + 'Name'] = file.name;
+      scheduleAutoSave();
+      renderPanel(currentSection);
+      toast(file.name + ' caricato');
+    };
+    reader.readAsDataURL(file);
+  };
+  input.click();
+}
+
+function pickHeroImage() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/png,image/jpeg,image/webp';
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) { toast('Immagine troppo grande (max 5MB)'); return; }
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      pushUndo();
+      siteConfig.hero.heroImageData = ev.target.result;
+      siteConfig.hero.heroImageName = file.name;
+      scheduleAutoSave();
+      renderPanel(currentSection);
+      // Update preview iframe
+      try {
+        const iframe = document.getElementById('previewIframe');
+        if (iframe && iframe.contentDocument) {
+          const heroImg = iframe.contentDocument.querySelector('.hero img, .hero-bg');
+          if (heroImg) heroImg.src = ev.target.result;
+        }
+      } catch(err) {}
+      toast(file.name + ' caricato come hero');
+    };
+    reader.readAsDataURL(file);
+  };
+  input.click();
+}
+
+function removeImage(key) {
+  if (!confirm('Rimuovere questa immagine?')) return;
+  pushUndo();
+  siteConfig.branding[key] = '';
+  siteConfig.branding[key + 'Name'] = '';
+  scheduleAutoSave();
+  renderPanel(currentSection);
+  toast('Immagine rimossa');
+}
+
+// ── HELPER: Component builders ──
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function colorRow(label, value, bind) {
+  return `
+    <div class="pn-color-row">
+      <div class="pn-color-swatch" style="background:${value}">
+        <input type="color" value="${value}" data-bind="${bind}" oninput="onColorInput(this)">
+      </div>
+      <div class="pn-color-info">
+        <div class="pn-color-label">${label}</div>
+        <div class="pn-color-hex">${value}</div>
+      </div>
+    </div>`;
+}
+
+function sliderRow(label, value, min, max, unit, bind) {
+  return `
+    <div class="pn-slider-row">
+      <div class="pn-slider-label">${label}</div>
+      <input type="range" class="pn-slider" min="${min}" max="${max}" value="${value}" data-bind="${bind}" oninput="onSliderInput(this)">
+      <div class="pn-slider-val">${value}${unit ? '<span style="color:var(--vs-text-muted);font-size:10px;margin-left:2px">' + unit + '</span>' : ''}</div>
+    </div>`;
+}
+
+function toggleRow(label, value, bind) {
+  return `
+    <div class="pn-toggle-row">
+      <div class="pn-toggle-label">${label}</div>
+      <div class="pn-toggle ${value ? 'on' : ''}" data-bind="${bind}" onclick="onToggle(this)"></div>
+    </div>`;
+}
+
+// ── Input handlers ──
+function onInput(el) {
+  pushUndo();
+  setNestedValue(siteConfig, el.dataset.bind, el.value);
+  scheduleAutoSave();
+  applyToPreview();
+}
+
+function onColorInput(el) {
+  pushUndo();
+  setNestedValue(siteConfig, el.dataset.bind, el.value);
+  el.closest('.pn-color-swatch').style.background = el.value;
+  const hexEl = el.closest('.pn-color-row').querySelector('.pn-color-hex');
+  if (hexEl) hexEl.textContent = el.value;
+  scheduleAutoSave();
+  applyToPreview();
+}
+
+function onSliderInput(el) {
+  pushUndo();
+  const val = parseFloat(el.value);
+  setNestedValue(siteConfig, el.dataset.bind, val);
+  const valEl = el.closest('.pn-slider-row').querySelector('.pn-slider-val');
+  if (valEl) {
+    const unit = valEl.querySelector('span');
+    valEl.textContent = val;
+    if (unit) valEl.appendChild(unit);
+  }
+  scheduleAutoSave();
+  applyToPreview();
+}
+
+function onToggle(el) {
+  pushUndo();
+  const isOn = el.classList.toggle('on');
+  setNestedValue(siteConfig, el.dataset.bind, isOn);
+  scheduleAutoSave();
+  applyToPreview();
+}
+
+function toggleSection(titleEl) {
+  titleEl.closest('.pn-section').classList.toggle('collapsed');
+}
+
+function setNestedValue(obj, path, value) {
+  const keys = path.split('.');
+  let ref = obj;
+  for (let i = 0; i < keys.length - 1; i++) {
+    if (!(keys[i] in ref)) ref[keys[i]] = {};
+    ref = ref[keys[i]];
+  }
+  ref[keys[keys.length - 1]] = value;
+}
+
+function getNestedValue(obj, path) {
+  return path.split('.').reduce((o, k) => o && o[k], obj);
+}
+
+// ── Auto-save ──
+function scheduleAutoSave() {
+  clearTimeout(autoSaveTimer);
+  autoSaveTimer = setTimeout(() => {
+    saveConfig();
+    toast('Auto-salvato');
+  }, 1500);
+}
+
+function updateAutoSaveIndicator() {
+  const ago = Math.round((Date.now() - lastSaveTime) / 1000);
+  const txt = ago < 5 ? 'adesso' : ago < 60 ? `${ago}s fa` : `${Math.round(ago/60)} min fa`;
+  const el = document.getElementById('tbAutosave');
+  if (el) el.innerHTML = `<span class="dot"></span> Auto-salvato ${txt}`;
+}
+
+// ── Preview communication ──
+function applyToPreview() {
+  const iframe = document.getElementById('previewIframe');
+  if (!iframe || !iframe.contentDocument) return;
+  try {
+    const doc = iframe.contentDocument;
+    // Helper: set text by data-t attribute
+    const setT = (key, val) => { const el = doc.querySelector('[data-t="'+key+'"]'); if (el && val != null) el.textContent = val; };
+    // Helper: show/hide section
+    const vis = (sel, show) => { const el = doc.querySelector(sel); if (el) el.style.display = show === false ? 'none' : ''; };
+
+    // ── COLORS ──
+    const c = siteConfig.colors;
+    if (c) {
+      const root = doc.documentElement;
+      if (c.gold) root.style.setProperty('--gold', c.gold);
+      if (c.goldLight) root.style.setProperty('--gold-light', c.goldLight);
+      if (c.bgDeep) root.style.setProperty('--bg-deep', c.bgDeep);
+      if (c.bgCream) root.style.setProperty('--bg-cream', c.bgCream);
+      if (c.textPrimary) root.style.setProperty('--text-primary', c.textPrimary);
+      if (c.textSecondary) root.style.setProperty('--text-secondary', c.textSecondary);
+      if (c.express) root.style.setProperty('--express', c.express);
+      if (c.standard) root.style.setProperty('--standard', c.standard);
+      if (c.premium) root.style.setProperty('--premium', c.premium);
+    }
+
+    // ── HERO ──
+    const h = siteConfig.hero;
+    if (h) {
+      vis('.hero', h.visible);
+      setT('heroBadge', h.badge);
+      setT('heroH1a', h.title);
+      setT('heroH1b', h.titleHL);
+      setT('heroSub', h.subtitle);
+      setT('heroBtn', h.btnText);
+      // Hero image
+      const heroImg = doc.querySelector('.hero-bg') || doc.querySelector('.hero img[src*="night"]');
+      if (heroImg && h.heroImage) heroImg.src = h.heroImage;
+    }
+
+    // ── TRUST BAR ──
+    const tb = siteConfig.trustbar;
+    if (tb) {
+      vis('.trust-bar', tb.visible);
+      const items = doc.querySelectorAll('.trust-bar .trust-item, .trust-bar [class*="trust"]');
+      if (tb.items && items.length) {
+        tb.items.forEach((item, i) => {
+          if (items[i]) {
+            const titleEl = items[i].querySelector('strong, h4, .trust-title');
+            const descEl = items[i].querySelector('span:last-child, p, .trust-desc');
+            if (titleEl) titleEl.textContent = item.title || '';
+            if (descEl) descEl.textContent = item.desc || '';
+          }
+        });
+      }
+    }
+
+    // ── PRICING ──
+    const p = siteConfig.pricing;
+    if (p) {
+      vis('#pricing', p.visible);
+      setT('pricingLabel', p.label);
+    }
+
+    // ── DIAGNOSTICS ──
+    const dg = siteConfig.diagnostics;
+    if (dg) {
+      vis('#siteDiagPanel', dg.visible);
+    }
+
+    // ── HOW IT WORKS ──
+    const hw = siteConfig.howit;
+    if (hw) {
+      vis('.vr-how', hw.visible);
+      setT('howTitle', hw.title);
+      setT('howSub', hw.subtitle);
+    }
+
+    // ── COMPARE ──
+    const cmp = siteConfig.compare;
+    if (cmp) {
+      vis('.vr-compare', cmp.visible);
+      setT('cmpTitle', cmp.title);
+      setT('cmpSub', cmp.subtitle);
+    }
+
+    // ── TESTIMONIAL ──
+    const t = siteConfig.testimonial;
+    if (t) {
+      const trustRow = doc.querySelector('.pricing-trust-row');
+      if (trustRow) {
+        trustRow.style.display = t.visible === false ? 'none' : '';
+        setT('trustData', t.dataText);
+        setT('trustChosen', t.chosenText);
+        const starsEl = trustRow.querySelector('.pricing-trust-stars');
+        if (starsEl) starsEl.innerHTML = '★'.repeat(t.stars || 5);
+        const avatarWrap = trustRow.querySelector('.pricing-trust-avatars');
+        if (avatarWrap && t.avatars) {
+          avatarWrap.innerHTML = t.avatars.filter(u=>u).map(u =>
+            '<img class="pt-avatar" src="'+u+'" alt="Avatar" loading="lazy" style="width:32px;height:32px;border-radius:50%;object-fit:cover;margin-left:-8px;border:2px solid rgba(18,36,72,.9)">'
+          ).join('');
+        }
+      }
+    }
+
+    // ── FOOTER ──
+    const f = siteConfig.footer;
+    if (f) {
+      const footer = doc.querySelector('footer');
+      if (footer) {
+        footer.style.display = f.visible === false ? 'none' : '';
+        setT('footerCopy', f.copyright);
+        const links = footer.querySelectorAll('a');
+        links.forEach(a => {
+          const href = a.getAttribute('href') || '';
+          if (href.includes('blog')) { a.style.display = f.showBlog === false ? 'none' : ''; if (f.blogLink) a.href = f.blogLink; }
+          if (href.includes('privacy')) { a.style.display = f.showPrivacy === false ? 'none' : ''; if (f.privacyLink) a.href = f.privacyLink; }
+          if (href.includes('terms')) { a.style.display = f.showTerms === false ? 'none' : ''; if (f.termsLink) a.href = f.termsLink; }
+          if (href.includes('cookies') || href.includes('cookie')) { a.style.display = f.showCookies === false ? 'none' : ''; if (f.cookiesLink) a.href = f.cookiesLink; }
+        });
+        const cookieBtn = footer.querySelector('[data-t="footerCookieBtn"]');
+        if (cookieBtn) cookieBtn.style.display = f.showCookieBtn === false ? 'none' : '';
+      }
+    }
+
+    // ── TYPOGRAPHY ──
+    const ty = siteConfig.typography;
+    if (ty) {
+      const root = doc.documentElement;
+      if (ty.heroSize) root.style.setProperty('--hero-size', ty.heroSize + 'px');
+      if (ty.bodySize) root.style.setProperty('--body-size', ty.bodySize + 'px');
+    }
+
+    // ── SPACING ──
+    const sp = siteConfig.spacing;
+    if (sp) {
+      const root = doc.documentElement;
+      if (sp.sectionPadding) root.style.setProperty('--section-padding', sp.sectionPadding + 'px');
+      if (sp.containerMax) root.style.setProperty('--container-max', sp.containerMax + 'px');
+    }
+  } catch(e) {
+    // Cross-origin, can't access iframe
+  }
+}
+
+function scrollPreviewToSection(section) {
+  const iframe = document.getElementById('previewIframe');
+  if (!iframe || !iframe.contentDocument) return;
+  const sectionMap = {
+    hero: '.hero',
+    trustbar: '.trust-bar',
+    pricing: '#pricing',
+    diagnostics: '#siteDiagPanel',
+    howit: '.vr-how',
+    compare: '.vr-compare',
+    testimonial: '.pricing-trust-row',
+    footer: 'footer'
+  };
+  const sel = sectionMap[section];
+  if (!sel) return;
+  try {
+    const el = iframe.contentDocument.querySelector(sel);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch(e) {}
+}
+
+function bindPanelEvents() {
+  // Events are inline, nothing extra needed
+}
+
+// ── Actions ──
+function saveDraft() {
+  saveConfig();
+  // Store as draft revision
+  const revisions = JSON.parse(localStorage.getItem('verissa-cms-revisions') || '[]');
+  revisions.push({
+    timestamp: new Date().toISOString(),
+    type: 'draft',
+    config: JSON.stringify(siteConfig)
+  });
+  if (revisions.length > 20) revisions.shift();
+  localStorage.setItem('verissa-cms-revisions', JSON.stringify(revisions));
+  toast('Bozza salvata');
+}
+
+function publishChanges() {
+  saveConfig();
+  const revisions = JSON.parse(localStorage.getItem('verissa-cms-revisions') || '[]');
+  revisions.push({
+    timestamp: new Date().toISOString(),
+    type: 'published',
+    config: JSON.stringify(siteConfig)
+  });
+  localStorage.setItem('verissa-cms-revisions', JSON.stringify(revisions));
+  toast('Pubblicato con successo', 'success');
+}
+
+function previewSite() {
+  window.open('../index.html', '_blank');
+}
+
+function showPublishMenu() {
+  toast('Menu pubblicazione — prossimamente');
+}
+
+function exportConfig() {
+  const blob = new Blob([JSON.stringify(siteConfig, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'verissa-config-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('Configurazione esportata');
+}
+
+function importConfig() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json';
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        pushUndo();
+        siteConfig = JSON.parse(ev.target.result);
+        saveConfig();
+        renderPanel(currentSection);
+        applyToPreview();
+        toast('Configurazione importata');
+      } catch(err) {
+        toast('Errore nel file JSON');
+      }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+function resetConfig() {
+  if (!confirm('Ripristinare tutte le impostazioni ai valori predefiniti?')) return;
+  pushUndo();
+  siteConfig = getDefaultConfig();
+  saveConfig();
+  renderPanel(currentSection);
+  applyToPreview();
+  toast('Impostazioni ripristinate');
+}
+
+// ── Toast ──
+function toast(msg, type) {
+  const el = document.getElementById('vsToast');
+  const icon = type === 'success' ? '✓' : '●';
+  const color = type === 'success' ? 'var(--vs-green)' : 'var(--vs-gold)';
+  el.innerHTML = `<span style="color:${color}">${icon}</span> ${msg}`;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+// ── Keyboard shortcuts ──
+document.addEventListener('keydown', (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'z') {
+    e.preventDefault();
+    if (e.shiftKey) redo(); else undo();
+  }
+  if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+    e.preventDefault();
+    saveDraft();
+  }
+});
+
+// ── Init ──
+function initEditor() {
+  loadConfig();
+  renderPanel('hero');
+  // Update autosave indicator periodically
+  setInterval(updateAutoSaveIndicator, 10000);
+  // Apply config to preview once loaded
+  const iframe = document.getElementById('previewIframe');
+  if (iframe) {
+    iframe.addEventListener('load', () => {
+      setTimeout(applyToPreview, 500);
+    });
+  }
+}
+</script>
+</body>
+</html>
